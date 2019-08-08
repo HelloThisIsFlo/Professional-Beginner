@@ -1,8 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import Button from "../button";
-import styles from './about-me.module.scss'
+import styles from "./about-me.module.scss";
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -24,12 +24,14 @@ export default () => {
   return (
     <div className={styles.aboutMe}>
       <h2>About me</h2>
-      <Img
-        className={styles.profilePicture}
-        fixed={data.file.childImageSharp.fixed}
-      />
+      <Link to="about#my-short-story">
+        <Img
+          className={styles.profilePicture}
+          fixed={data.file.childImageSharp.fixed}
+        />
+      </Link>
       <p dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      <Button className={styles.readMore} size="s">
+      <Button to="about#my-short-story" className={styles.readMore} size="s">
         Read More
       </Button>
     </div>
