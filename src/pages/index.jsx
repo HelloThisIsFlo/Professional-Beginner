@@ -24,6 +24,7 @@ export default ({ data }) => (
           <li>
             <h3>{node.frontmatter.title}</h3>
             <p>{node.excerpt}</p>
+            <pre>{node.fields.slug}</pre>
           </li>
         ))}
       </ul>
@@ -45,6 +46,9 @@ export const query = graphql`
       edges {
         node {
           excerpt
+          fields {
+            slug
+          }
           frontmatter {
             title
             tags
