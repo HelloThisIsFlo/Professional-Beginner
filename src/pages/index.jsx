@@ -10,18 +10,24 @@ export default ({ data }) => (
       <Link to="/about-css-modules/">About CSS Modules</Link>
     </p>
 
-    <p>
+    <img
+      style={{ borderRadius: "10px" }}
+      src="https://source.unsplash.com/random/400x200"
+      alt=""
+    />
+
+    <hr />
+    <div className="blog-posts">
+      <h2>Blog Posts</h2>
       <ul>
-        <li>Ok, now it's working!! :D </li>
-        <li>Hello</li>
-        <li>Bonjour</li>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <li>
+            <h3>{node.frontmatter.title}</h3>
+            <p>{node.excerpt}</p>
+          </li>
+        ))}
       </ul>
-      <img
-        style={{ borderRadius: "10px" }}
-        src="https://source.unsplash.com/random/400x200"
-        alt=""
-      />
-    </p>
+    </div>
   </Layout>
 );
 
@@ -30,6 +36,20 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/blog/posts/**/index.md" } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt
+          frontmatter {
+            title
+            tags
+          }
+        }
       }
     }
   }
