@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./button.module.scss";
 
-export default ({ children, variant = "orange", size = "m" }) => {
+export default ({ children, className, variant = "orange", size = "m" }) => {
   let colorClass;
   switch (variant) {
     case "orange":
@@ -31,7 +31,7 @@ export default ({ children, variant = "orange", size = "m" }) => {
   }
 
   return (
-    <button className={`${styles.button} ${colorClass} ${sizeClass}`}>
+    <button className={`${styles.button} ${colorClass} ${sizeClass} ${className}`}>
       {children}
     </button>
   );

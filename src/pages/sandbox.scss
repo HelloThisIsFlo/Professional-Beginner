@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  font-weight: 300;
 }
 * {
   box-sizing: border-box;
@@ -14,7 +15,7 @@ body {
   height: 100vh;
 
   .sidebar {
-    border: 1px solid red;
+    // border: 1px solid red;
     width: $sidebar-width;
   }
 }

@@ -17,6 +17,13 @@ module.exports = {
         path: `${__dirname}/blog/`
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images/`
+      }
+    },
     "gatsby-transformer-remark",
     {
       resolve: "gatsby-plugin-manifest",
@@ -33,6 +40,13 @@ module.exports = {
       }
     },
     "gatsby-plugin-offline",
-    "gatsby-plugin-react-helmet"
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaultQuality: 100
+      }
+    },
+    "gatsby-transformer-sharp"
   ]
 };
