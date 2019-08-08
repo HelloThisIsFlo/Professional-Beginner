@@ -14,23 +14,19 @@ $header-height: 80px;
   h1 {
     color: red;
   }
+
   header {
-    position: fixed;
     height: $header-height;
+    width: 100%;
     padding: 20px;
-    // background-color: rgba(229, 255, 0, 0.616);
     background-color: yellow;
-    top: 0;
-    right: 0;
-    left: 0;
-    // display: none;
+    // background-color: rgba(229, 255, 0, 0.616);
   }
 
   .container {
     display: flex;
     max-width: 900px;
     margin: auto;
-    padding-top: $header-height;
     background-color: lightblue;
     flex-wrap: wrap;
     justify-content: center;
@@ -71,6 +67,12 @@ $header-height: 80px;
 
     @media screen and (min-width: $layout-breakpoint-large) {
       flex-wrap: nowrap;
+      padding-top: $header-height;
+
+      header {
+        position: fixed;
+        top: 0;
+      }
     }
   }
 }
