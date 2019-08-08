@@ -22,9 +22,11 @@ export default ({ data }) => (
       <ul>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <li>
-            <h3>{node.frontmatter.title}</h3>
-            <p>{node.excerpt}</p>
-            <pre>{node.fields.slug}</pre>
+            <Link to={node.fields.slug}>
+              <h3>{node.frontmatter.title}</h3>
+              <p>{node.excerpt}</p>
+              <pre>{node.fields.slug}</pre>
+            </Link>
           </li>
         ))}
       </ul>
