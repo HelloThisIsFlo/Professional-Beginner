@@ -3,21 +3,36 @@
   box-shadow: none;
   border: none;
   border-radius: 1000px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  font-weight: 100;
+
 }
 
 .teal {
-  background-color: teal;
+  background-color: #7A9E9F;
+  &:hover {
+    background-color: #427C89;
+  }
 }
 
 .orange {
-  background-color: #EB5E28;
+  background-color: #eb5e28;
+  &:hover {
+    background-color: #b33c12;
+  }
 }
+
+$size-s: 2em;
+$size-m: 3em;
 
 .size-m {
   height: 2em;
+  // todo
 }
 
 .size-s {
-  height: 2em;
+  height: $size-s;
+  line-height: $size-s;
   font-size: 0.8rem;
 }

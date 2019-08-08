@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
 import styles from "./button.module.scss";
+import { Link } from "gatsby";
 
-export default ({ children, className, variant = "orange", size = "m" }) => {
+export default ({
+  children,
+  className,
+  to,
+  variant = "orange",
+  size = "m"
+}) => {
   let colorClass;
   switch (variant) {
     case "orange":
@@ -31,8 +38,12 @@ export default ({ children, className, variant = "orange", size = "m" }) => {
   }
 
   return (
-    <button className={`${styles.button} ${colorClass} ${sizeClass} ${className}`}>
-      {children}
-    </button>
+    <Link to={to}>
+      <button
+        className={`${styles.button} ${colorClass} ${sizeClass} ${className}`}
+      >
+        {children}
+      </button>
+    </Link>
   );
 };
