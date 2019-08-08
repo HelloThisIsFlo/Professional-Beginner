@@ -22,13 +22,11 @@ body {
 
 .bullet-points {
   h2 {
-    // color: red;
     text-align: center;
     font-size: 1.5em;
   }
   ul {
-    // text-align: justify;
-    padding: 0 40px;
+    padding: 0 10px 0 30px
 
     li + li {
       margin-top: 10px;

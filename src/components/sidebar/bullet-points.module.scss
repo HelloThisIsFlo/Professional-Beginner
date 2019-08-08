@@ -1,0 +1,19 @@
+.bullet-points {
+  h2 {
+    text-align: center;
+    font-size: 1.5em;
+  }
+  ul {
+    padding: 0 10px 0 30px;
+
+    li + li {
+      margin-top: 10px;
+    }
+  }
+}
+
+.read-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
