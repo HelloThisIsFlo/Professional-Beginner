@@ -1,13 +1,7 @@
 import React from "react";
-import layoutStyles from "./layout.module.scss";
+import styles from "./layout.module.scss";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-
-const ListLink = ({ to, children }) => (
-  <li className={layoutStyles.link}>
-    <Link to={to}>{children}</Link>
-  </li>
-);
 
 export default ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,22 +15,21 @@ export default ({ children }) => {
   `);
 
   return (
-    <div className={layoutStyles.layout}>
+    <div className={styles.layout}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>{data.site.siteMetadata.title}</title>
       </Helmet>
-      <header>
-        <Link to="/" className={layoutStyles.home}>
-          <h3>My awesome site</h3>
-        </Link>
-        <ul className={layoutStyles.links}>
-          <ListLink to="/">Home</ListLink>
-          <ListLink to="/about">About</ListLink>
-          <ListLink to="/contact">Contact</ListLink>
-        </ul>
+      <header className={styles.headerContainer}>
+        <div className={styles.header}>
+          <Link to="/">
+            <h1>{data.site.siteMetadata.title}</h1>
+          </Link>
+          <Link to="/about">About</Link>
+        </div>
       </header>
-      {children}
+      <main className={styles.main}>{children}</main>
+      <aside className={styles.sidebar}>SIDEBAR</aside>
     </div>
   );
 };

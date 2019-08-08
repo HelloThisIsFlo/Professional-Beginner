@@ -1,13 +1,13 @@
 body {
   margin: 0;
 }
+* {
+  box-sizing: border-box;
+}
 
 $layout-breakpoint-large: 650px;
 $header-height: 80px;
 
-* {
-  box-sizing: border-box;
-}
 .sandbox {
   background-color: lightblue;
 
