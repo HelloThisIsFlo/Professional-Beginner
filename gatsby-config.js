@@ -5,6 +5,9 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: "Professional Beginner"
+  },
   plugins: [
     {
       resolve: "gatsby-plugin-postcss",
@@ -12,7 +15,14 @@ module.exports = {
         postCssPlugins: [require("autoprefixer")]
       }
     },
-    "gatsby-plugin-sass"
+    "gatsby-plugin-sass",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: `${__dirname}/blog/`
+      }
+    }
   ]
   /* Your site config here */
 };
