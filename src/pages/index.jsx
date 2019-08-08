@@ -9,6 +9,9 @@ export default ({ data }) => (
     <p>
       <Link to="/about-css-modules/">About CSS Modules</Link>
     </p>
+    <p>
+      <Link to="/sandbox">Sandbox</Link>
+    </p>
 
     <img
       style={{ borderRadius: "10px" }}
