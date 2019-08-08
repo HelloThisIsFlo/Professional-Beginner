@@ -61,15 +61,6 @@ p {
   margin: 15px;
 }
 
-.sidebar {
-  width: $sidebar-width;
-  height: 500px; //Temporary
-  margin: 15px;
-  margin-left: 0;
-  padding: 10px;
-  background-color: bisque;
-}
-
 @media screen and (min-width: $layout-breakpoint-large) {
   .layout {
     padding-top: $header-height;

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./layout.module.scss";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
+import Sidebar from "./sidebar";
 
 export default ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -29,7 +30,7 @@ export default ({ children }) => {
         </div>
       </header>
       <main className={styles.main}>{children}</main>
-      <aside className={styles.sidebar}>SIDEBAR</aside>
+      <Sidebar />
     </div>
   );
 };

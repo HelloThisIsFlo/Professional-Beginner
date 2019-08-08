@@ -1,0 +1,18 @@
+@import "../variables.module.scss";
+
+.sidebar {
+  width: $sidebar-width;
+  margin: 15px;
+  margin: 0;
+  margin-left: 0;
+  padding: 0;
+  // background-color: bisque;
+  flex-shrink: 0;
+}
+
+.separator {
+  height: 1px;
+  background-color: #F1EAE0;
+  margin: 30px 10px 15px 10px;
+  border: none;
+}
