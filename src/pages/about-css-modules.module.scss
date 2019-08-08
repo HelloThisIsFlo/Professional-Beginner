@@ -1,0 +1,37 @@
+// Is this processed as SCSS? If yes, this comment won't produce errors ;)
+
+.user {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 12px auto;
+}
+.user:last-child {
+  margin-bottom: 0;
+}
+.avatar {
+  flex: 0 0 96px;
+  width: 96px;
+  height: 96px;
+  margin: 0;
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px -2px;
+}
+
+.description {
+  flex: 1;
+  margin-left: 18px;
+  padding: 12px;
+
+  .username {
+    font-variant: small-caps;
+  }
+}
+
+.username {
+  margin: 0 0 12px 0;
+  padding: 0;
+  font-variant: normal; //Should be ignored
+}
+.excerpt {
+  margin: 0;
+}
