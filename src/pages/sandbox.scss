@@ -1,3 +1,5 @@
+@import "../variables.module.scss";
+
 body {
   margin: 0;
 }
@@ -5,74 +7,35 @@ body {
   box-sizing: border-box;
 }
 
-$layout-breakpoint-large: 650px;
-$header-height: 80px;
-
 .sandbox {
-  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 
-  h1 {
-    color: red;
+  .sidebar {
+    border: 1px solid red;
+    width: $sidebar-width;
   }
+}
 
-  header {
-    height: $header-height;
-    width: 100%;
-    padding: 20px;
-    background-color: yellow;
-    // background-color: rgba(229, 255, 0, 0.616);
+.bullet-points {
+  h2 {
+    // color: red;
+    text-align: center;
+    font-size: 1.5em;
   }
+  ul {
+    // text-align: justify;
+    padding: 0 40px;
 
-  .container {
-    display: flex;
-    max-width: 900px;
-    margin: auto;
-    background-color: lightblue;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    main {
-      width: 100%;
-
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-          padding: 10px;
-          h3 {
-            margin-top: 0;
-            text-transform: capitalize;
-          }
-        }
-      }
-
-      .post-entry {
-        margin: 15px;
-        background-color: limegreen;
-      }
-    }
-    aside {
-      width: 250px;
-      height: 500px; //Temporary
-      margin: 15px;
-      margin-left: 0;
-      padding: 10px;
-      background-color: bisque;
-    }
-    h1 {
-      margin: 0;
-    }
-
-    @media screen and (min-width: $layout-breakpoint-large) {
-      flex-wrap: nowrap;
-      padding-top: $header-height;
-
-      header {
-        position: fixed;
-        top: 0;
-      }
+    li + li {
+      margin-top: 10px;
     }
   }
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

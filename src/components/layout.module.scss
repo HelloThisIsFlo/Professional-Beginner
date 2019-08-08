@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i&display=swap");
+@import "../variables.module.scss";
 
 * {
   box-sizing: border-box;
@@ -10,15 +11,13 @@ body {
   color: #736f68;
   background-color: #fffcf5;
   font-size: 16px;
+  line-height: 1.5em;
   font-family: "Montserrat", sans-serif;
 }
 
 p {
   line-height: 1.5em;
 }
-
-$layout-breakpoint-large: 650px;
-$header-height: 80px;
 
 .layout {
   display: flex;
@@ -63,7 +62,7 @@ $header-height: 80px;
 }
 
 .sidebar {
-  width: 250px;
+  width: $sidebar-width;
   height: 500px; //Temporary
   margin: 15px;
   margin-left: 0;

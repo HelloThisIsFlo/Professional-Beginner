@@ -1,6 +1,9 @@
 import React from "react";
 import "./sandbox.scss";
 import { LoremIpsum } from "lorem-ipsum";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import Layout from "../components/layout";
+import BulletPoints from "../components/sidebar/bullet-points";
 
 const lorem = new LoremIpsum();
 
@@ -14,26 +17,36 @@ const FakePostEntry = () => {
   );
 };
 
-export default () => (
-  <div className="sandbox">
-    <div className="container">
-      <header>
-        <h1>Header Title</h1>
-      </header>
-      <main>
-        <ul>
-          <FakePostEntry />
-          <FakePostEntry />
-          <FakePostEntry />
-          <FakePostEntry />
-          <FakePostEntry />
-          <FakePostEntry />
-          <FakePostEntry />
-          <FakePostEntry />
-          <FakePostEntry />
-        </ul>
-      </main>
-      <aside>SIDEBAR</aside>
-    </div>
-  </div>
-);
+// const BulletPoints = () => {
+//   const data = useStaticQuery(graphql`
+//     query {
+//       markdownRemark(frontmatter: { title: { eq: "Bullet Points" } }) {
+//         html
+//       }
+//     }
+//   `);
+
+//   return (
+//     <div>
+//       <div
+//         className="bullet-points"
+//         dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+//       ></div>
+//       <div className="button">
+//         <Button size="s">Read More</Button>
+//       </div>
+//     </div>
+//   );
+// };
+
+export default () => {
+  return (
+    <Layout>
+      <div className="sandbox">
+        <div className="sidebar">
+          <BulletPoints />
+        </div>
+      </div>
+    </Layout>
+  );
+};
