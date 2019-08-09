@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Professional Beginner",
+    url: 'https://professionalbeginner.com',
     config: {
       postsPerPage: 6
     }
@@ -46,7 +47,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              inlineCodeMarker: '±',
+              inlineCodeMarker: "±",
               prompt: {
                 user: "floriankempenich",
                 host: "localhost",
@@ -84,6 +85,12 @@ module.exports = {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/pages/*`] }
     },
-    `gatsby-plugin-catch-links`
+    `gatsby-plugin-catch-links`,
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `professionalbeginner`
+      }
+    }
   ]
 };
