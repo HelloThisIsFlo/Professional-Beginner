@@ -4,8 +4,6 @@ import { graphql, Link } from "gatsby";
 import styles from "./posts-list.module.scss";
 
 export default ({ data, pageContext }) => {
-  console.log(data);
-  console.log(pageContext);
   const posts = data.allMarkdownRemark.edges.map(({ node }) => node);
 
   const isFirstPage = pageContext.currentPage === 1;

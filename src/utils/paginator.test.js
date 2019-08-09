@@ -95,5 +95,18 @@ describe("Paginator", () => {
       const a = [1, 2, 3, 4];
       expect(a.slice(2, 4)).toEqual([3, 4]);
     });
+
+    test('Regex', () => {
+      const res = /\/dynamic-pagination\/page\/(\d+)/.exec('/dynamic-pagination/page/2')
+      expect(res[1]).toBe('2')
+    })
+
+    test('Expand non-existing elements', () => {
+      // const [_, doesntExist] = [1]
+      // const [_, doesntExist] = null
+      // const res = /\/dynamic-pagination\/page\/(\d+)/.exec('/')
+      // console.log(res)
+      // console.log(doesntExist)
+    })
   });
 });
