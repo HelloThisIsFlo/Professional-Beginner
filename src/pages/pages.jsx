@@ -8,7 +8,7 @@ const PostEntry = ({ post }) => (
   <li key={post.fields.slug}>
     <Link to={post.fields.slug}>
       <h3>{post.frontmatter.title}</h3>
-      {/* <p>{post.excerpt}</p> */}
+      <p>{post.excerpt}</p>
     </Link>
   </li>
 );
