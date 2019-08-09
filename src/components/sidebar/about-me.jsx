@@ -23,14 +23,14 @@ export default () => {
   return (
     <div className={styles.aboutMe}>
       <h2>About me</h2>
-      <Link to="about#my-short-story">
+      <Link to="/about#my-short-story">
         <Img
           className={styles.profilePicture}
           fixed={data.file.childImageSharp.fixed}
         />
       </Link>
       <p dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      <Button to="about#my-short-story" className={styles.readMore} size="s">
+      <Button to="/about#my-short-story" className={styles.readMore} size="s">
         Read More
       </Button>
     </div>
