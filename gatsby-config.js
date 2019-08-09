@@ -71,6 +71,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/pages/*`] }
-    }
+    },
+    `gatsby-plugin-catch-links`
   ]
 };
