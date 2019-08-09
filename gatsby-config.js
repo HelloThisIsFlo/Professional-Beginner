@@ -42,6 +42,17 @@ module.exports = {
               showCaptions: true,
               quality: 100
             }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: '±',
+              prompt: {
+                user: "floriankempenich",
+                host: "localhost",
+                global: false
+              }
+            }
           }
         ]
       }
