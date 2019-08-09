@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
+import styles from './post.module.scss'
 
 export default ({ data }) => {
   const post = data.markdownRemark;
@@ -8,7 +9,7 @@ export default ({ data }) => {
     <Layout>
       <div>
         <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
+        <div className={styles.post} dangerouslySetInnerHTML={{ __html: post.html }}></div>
       </div>
     </Layout>
   );

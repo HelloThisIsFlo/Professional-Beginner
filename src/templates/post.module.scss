@@ -1,0 +1,9 @@
+.post {
+  overflow: hidden;
+
+  :global .gatsby-resp-image-background-image,
+  :global .gatsby-resp-image-image {
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+  }
+}

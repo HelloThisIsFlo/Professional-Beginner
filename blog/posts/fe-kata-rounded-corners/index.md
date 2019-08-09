@@ -6,7 +6,7 @@ date: "2019-07-03"
 
 Recently I have been dedicating some time to the study of the fundamentals of HTML and CSS. A couple of days ago I wrote a blog post on [my very first Front-End Kata](/post/13). The result is this Slack-like card:
 
-PICTURE:asdfads.123.123."Finished Slack Card"
+![Finished Slack Card](finished_slack_card.jpg)
 
 _The link to the CodePen: [Slack Card](https://codepen.io/FlorianKempenich/pen/xoYbrp)_
 
