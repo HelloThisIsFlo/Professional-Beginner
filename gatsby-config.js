@@ -24,7 +24,13 @@ module.exports = {
         path: `${__dirname}/src/images/`
       }
     },
-    "gatsby-transformer-remark",
+    {
+
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [],
+      }
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
