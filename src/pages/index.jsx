@@ -37,8 +37,6 @@ const CurrentSecondsCounter = () => {
 
 export default ({ data }) => {
   const blogPosts = data.allMarkdownRemark.edges.map(({ node }) => node);
-  const blogPosts3Times = [...blogPosts, ...blogPosts, ...blogPosts];
-
   return (
     <Layout>
       <p>
@@ -54,10 +52,11 @@ export default ({ data }) => {
       <div className="blog-posts">
         <h2>Blog Posts</h2>
         <ul>
-          {blogPosts3Times.map(node => (
+          {blogPosts.map(node => (
             <li>
               <Link to={node.fields.slug}>
                 <h3>{node.frontmatter.title}</h3>
+                <h5>{node.frontmatter.date}</h5>
                 <p>{node.excerpt}</p>
                 <pre>{node.fields.slug}</pre>
               </Link>
@@ -89,6 +88,7 @@ export const query = graphql`
           frontmatter {
             title
             tags
+            date
           }
         }
       }
