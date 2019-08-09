@@ -50,12 +50,6 @@ export default ({ data }) => {
         <Link to="/sandbox">Sandbox</Link>
       </p>
 
-      <img
-        style={{ borderRadius: "10px" }}
-        src="https://source.unsplash.com/random/400x200"
-        alt=""
-      />
-
       <hr />
       <div className="blog-posts">
         <h2>Blog Posts</h2>

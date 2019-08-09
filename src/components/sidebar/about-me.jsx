@@ -20,7 +20,6 @@ export default () => {
     }
   `);
 
-  console.log(styles);
   return (
     <div className={styles.aboutMe}>
       <h2>About me</h2>

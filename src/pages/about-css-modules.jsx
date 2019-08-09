@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
 import styles from "./about-css-modules.module.scss"
-console.log(styles)
 
 const User = props => (
   <div className={styles.user}>
