@@ -55,6 +55,10 @@ module.exports = {
         defaultQuality: 100
       }
     },
-    "gatsby-transformer-sharp"
+    "gatsby-transformer-sharp",
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/dynamic-pagination/*`] }
+    }
   ]
 };
