@@ -32,7 +32,7 @@ def fake_post():
 
 
 
-for _ in range(0, 3):
+for _ in range(0, 30):
     post = fake_post()
     post_dir = './fake_posts/' + post['slug']
     os.makedirs(post_dir)
