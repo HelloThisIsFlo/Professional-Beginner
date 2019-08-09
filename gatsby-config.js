@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "Professional Beginner"
+    title: "Professional Beginner",
+    config: {
+      postsPerPage: 6
+    }
   },
   plugins: [
     {
@@ -25,10 +28,9 @@ module.exports = {
       }
     },
     {
-
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [],
+        plugins: []
       }
     },
     {
