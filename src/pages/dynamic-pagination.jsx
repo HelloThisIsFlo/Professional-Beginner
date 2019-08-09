@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/layout";
 import styles from "./dynamic-pagination.module.scss";
 import { graphql, Link } from "gatsby";
+import Paginator, { PostWithDate } from "../utils/paginator";
 
 const PostEntry = ({ post }) => (
   <li key={post.fields.slug}>
@@ -13,20 +14,24 @@ const PostEntry = ({ post }) => (
 );
 
 export default ({ location, data }) => {
-  console.log(data);
-  console.log(location);
-
-  const posts = data.allMarkdownRemark.edges.map(({ node }) => node);
-  const postsPerPage = data.site.siteMetadata.config.postsPerPage;
+  function buildPaginator(posts) {
+    const postsPerPage = data.site.siteMetadata.config.postsPerPage;
+    const now = new Date();
+    const postsWithDate = posts.map(
+      post => new PostWithDate(post, new Date(post.frontmatter.date))
+    );
+    return new Paginator(postsPerPage, now, postsWithDate);
+  }
 
   const currentPage = (location.state && location.state.pageNum) || 1;
-  const totalNumberOfPosts = posts.length;
-  const totalNumberOfPages = Math.ceil(totalNumberOfPosts / postsPerPage);
+  const posts = data.allMarkdownRemark.edges.map(({ node }) => node);
 
+  const paginator = buildPaginator(posts);
+  const postsOnCurrentPage = paginator.getPage(currentPage);
 
   const isFirstPage = currentPage === 1;
   const isSecondPage = currentPage === 2;
-  const isLastPage = currentPage === 4; // FIXME: Compute number of pages
+  const isLastPage = currentPage === paginator.numberOfPages();
 
   const previousPageLink = isFirstPage ? (
     <div></div>
@@ -57,24 +62,11 @@ export default ({ location, data }) => {
   return (
     <Layout>
       <h1>Dynamic Pagination</h1>
-      <Link to="/dynamic-pagination">Root</Link>
-      <ul>
-        {[1, 2, 3, 4].map(i => {
-          const link = `/dynamic-pagination/page/${i}`;
-          return (
-            <li key={i}>
-              <Link to={link} state={{ pageNum: i }}>
-                Page {i}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
       <h2>Current Page: {currentPage}</h2>
       <hr />
       <h2>Blog Posts</h2>
       <ul>
-        {posts.map(post => (
+        {postsOnCurrentPage.map(post => (
           <PostEntry post={post} />
         ))}
       </ul>
