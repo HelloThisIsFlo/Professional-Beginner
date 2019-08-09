@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/layout";
-import styles from "./dynamic-pagination.module.scss";
+import styles from "./pages.module.scss";
 import { navigate, graphql, Link } from "gatsby";
 import Paginator, { PostWithDate } from "../utils/paginator";
 
@@ -19,10 +19,10 @@ export default ({ location, data }) => {
     return <div></div>;
   }
   function getCurrentPage() {
-    const isFirstPage = /\/dynamic-pagination\/$/.test(location.pathname);
-    const regexMatch = /\/dynamic-pagination\/page\/(\d+)/.exec(
-      location.pathname
-    );
+    // return 1;
+
+    const isFirstPage = /\/$/.test(location.pathname);
+    const regexMatch = /\/pages\/(\d+)/.exec(location.pathname);
 
     if (isFirstPage) return 1;
     try {
@@ -60,19 +60,15 @@ export default ({ location, data }) => {
   const previousPageLink = isFirstPage ? (
     <div></div>
   ) : isSecondPage ? (
-    <Link to={"/dynamic-pagination/"}>{"< Newer posts"}</Link>
+    <Link to={"/"}>{"< Newer posts"}</Link>
   ) : (
-    <Link to={`/dynamic-pagination/page/${currentPage - 1}`}>
-      {"< Newer posts"}
-    </Link>
+    <Link to={`/pages/${currentPage - 1}`}>{"< Newer posts"}</Link>
   );
 
   const nextPageLink = isLastPage ? (
     <div></div>
   ) : (
-    <Link to={`/dynamic-pagination/page/${currentPage + 1}`}>
-      {"Older posts >"}
-    </Link>
+    <Link to={`/pages/${currentPage + 1}`}>{"Older posts >"}</Link>
   );
 
   return (
