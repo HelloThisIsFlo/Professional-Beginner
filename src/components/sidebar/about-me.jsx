@@ -29,7 +29,7 @@ export default () => {
           fixed={data.file.childImageSharp.fixed}
         />
       </Link>
-      <p dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} ></div>
       <Button to="/about#my-short-story" className={styles.readMore} size="s">
         Read More
       </Button>
