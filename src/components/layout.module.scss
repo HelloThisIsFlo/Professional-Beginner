@@ -25,7 +25,7 @@ p {
 
 .layout {
   display: flex;
-  max-width: 900px;
+  max-width: 1150px;
   margin: auto;
   flex-wrap: wrap;
   justify-content: center;
@@ -40,7 +40,7 @@ p {
 .header {
   display: flex;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1300px;
   height: $header-height;
   margin: auto;
   padding: 0 1.5em;
@@ -63,7 +63,7 @@ p {
 
 .main {
   width: 100%;
-  margin: 15px;
+  margin: 25px 50px;
 }
 
 @media screen and (min-width: $layout-breakpoint-large) {
