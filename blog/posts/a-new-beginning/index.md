@@ -4,7 +4,7 @@ tags: ["featured"]
 date: "2019-05-25"
 ---
 
-Two and a half year after the last update, I still considered this blog to be well and alive, simply experiencing a slight hiatus. Now, I see how, maybe, it was dead all along. That realization was key to allow for what's going to happen next.
+Two and a half year after the last update, I still considered this blog to be well and alive, simply experiencing a slight hiatus. Now, I see how, maybe, it was dead all along. That realization was key to allow for what's going to happen next<!--end-->.
 
 #### This Blog is now ready for a Rebirth
 

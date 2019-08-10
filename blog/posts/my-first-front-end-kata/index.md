@@ -5,6 +5,7 @@ date: "2019-07-02"
 ---
 
 I recently decided to brush up my Front-End skills, in parts because I want to rebuilt this blog from the ground up, but also simply because it is a thing I have meant to do for a very long time. And now is the perfect time 😊 (Hint: "Now" is always the perfect time 😊)
+<!--end-->
 
 ## Where am I coming from?
 

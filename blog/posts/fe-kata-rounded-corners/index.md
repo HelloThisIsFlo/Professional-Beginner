@@ -4,7 +4,7 @@ tags: ["html/css", "web", "learning"]
 date: "2019-07-03"
 ---
 
-Recently I have been dedicating some time to the study of the fundamentals of HTML and CSS. A couple of days ago I wrote a blog post on [my very first Front-End Kata](/my-first-front-end-kata). <!-- end --> The result is this Slack-like card:
+Recently I have been dedicating some time to the study of the fundamentals of HTML and CSS. A couple of days ago I wrote a blog post on [my very first Front-End Kata](/my-first-front-end-kata)<!--end-->. The result is this Slack-like card:
 
 ![Finished Slack Card](finished_slack_card.jpg)
 
