@@ -2,3 +2,46 @@
   display: flex;
   justify-content: space-between;
 }
+
+.posts {
+  list-style: none;
+
+  li + li {
+    margin-top: 80px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: unset;
+  }
+}
+
+.post {
+  text-align: center;
+}
+.post-excerpt::after {
+  content: " . . .";
+}
+.post-img {
+  position: relative;
+  width: 90%;
+  height: 250px;
+  margin: auto;
+  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+  overflow: visible !important;
+}
+
+.post-img::before {
+  position: absolute;
+  display: block;
+  background-image: url("https://static.tumblr.com/i21wc39/coTmrkw40/shadow.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 0;
+  content: "";
+  bottom: -12%;
+  left: -12%;
+  right: 0;
+  top: 0;
+}

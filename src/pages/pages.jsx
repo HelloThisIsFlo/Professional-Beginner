@@ -3,15 +3,29 @@ import Layout from "../components/layout";
 import styles from "./pages.module.scss";
 import { navigate, graphql, Link } from "gatsby";
 import Paginator, { PostWithDate } from "../utils/paginator";
+import Img from "gatsby-image";
 
-const PostEntry = ({ post }) => (
-  <li key={post.fields.slug}>
-    <Link to={post.fields.slug}>
-      <h3>{post.frontmatter.title}</h3>
-      <p>{post.excerpt}</p>
-    </Link>
-  </li>
-);
+const PostEntry = ({ post, allHeroImgs }) => {
+  const postImgNode = allHeroImgs.find(heroImg =>
+    heroImg.relativePath.includes(post.fields.slug)
+  );
+
+  const postImg = postImgNode ? (
+    <Img className={styles.postImg} fluid={postImgNode.childImageSharp.fluid} />
+  ) : (
+    <div className={styles.postImg}></div>
+  );
+
+  return (
+    <li className={styles.post} key={post.fields.slug}>
+      <Link to={post.fields.slug}>
+        <h3>{post.frontmatter.title}</h3>
+        {postImg}
+        <p className={styles.postExcerpt}>{post.excerpt}</p>
+      </Link>
+    </li>
+  );
+};
 
 export default ({ location, data }) => {
   function redirectTo404() {
@@ -19,8 +33,6 @@ export default ({ location, data }) => {
     return <div></div>;
   }
   function getCurrentPage() {
-    // return 1;
-
     const isFirstPage = /\/$/.test(location.pathname);
     const regexMatch = /\/pages\/(\d+)/.exec(location.pathname);
 
@@ -41,6 +53,8 @@ export default ({ location, data }) => {
   }
 
   const posts = data.allMarkdownRemark.edges.map(({ node }) => node);
+  const allHeroImgs = data.allFile.edges.map(({ node }) => node);
+
   const paginator = buildPaginator(posts);
   const currentPage = getCurrentPage();
   if (
@@ -77,9 +91,9 @@ export default ({ location, data }) => {
       <h2>Current Page: {currentPage}</h2>
       <hr />
       <h2>Blog Posts</h2>
-      <ul>
+      <ul className={styles.posts}>
         {postsOnCurrentPage.map(post => (
-          <PostEntry post={post} />
+          <PostEntry post={post} allHeroImgs={allHeroImgs} />
         ))}
       </ul>
       <div className={styles.pageNavigation}>
@@ -100,13 +114,14 @@ export const allBlogPostsQuery = graphql`
         }
       }
     }
+
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { glob: "**/blog/posts/**/index.md" } }
+      filter: { fileAbsolutePath: { glob: "**/posts/**/index.md" } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
         node {
-          excerpt(pruneLength: 140)
+          excerpt
           fields {
             slug
           }
@@ -114,6 +129,19 @@ export const allBlogPostsQuery = graphql`
             title
             tags
             date
+          }
+        }
+      }
+    }
+
+    allFile(filter: { relativePath: { glob: "posts/**/hero.*" } }) {
+      edges {
+        node {
+          relativePath
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
