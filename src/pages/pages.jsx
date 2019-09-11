@@ -87,10 +87,6 @@ export default ({ location, data }) => {
 
   return (
     <Layout>
-      <h1>Dynamic Pagination</h1>
-      <h2>Current Page: {currentPage}</h2>
-      <hr />
-      <h2>Blog Posts</h2>
       <ul className={styles.posts}>
         {postsOnCurrentPage.map(post => (
           <PostEntry post={post} allHeroImgs={allHeroImgs} />
