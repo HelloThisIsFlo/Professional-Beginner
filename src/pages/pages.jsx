@@ -4,6 +4,7 @@ import styles from "./pages.module.scss";
 import { navigate, graphql, Link } from "gatsby";
 import Paginator, { PostWithDate } from "../utils/paginator";
 import Img from "gatsby-image";
+import moment from "moment";
 
 const PostEntry = ({ post, allHeroImgs }) => {
   const postImgNode = allHeroImgs.find(heroImg =>
@@ -16,10 +17,24 @@ const PostEntry = ({ post, allHeroImgs }) => {
     <div className={styles.postImg}></div>
   );
 
+  const formattedDate = moment(post.frontmatter.date).format("MMMM Do, YYYY");
+
+  const tags = post.frontmatter.tags || []
+
   return (
     <li className={styles.post} key={post.fields.slug}>
       <Link to={post.fields.slug}>
+        <ul className={styles.tags}>
+          {tags.map(tag => (
+            <li>{tag}</li>
+          ))}
+        </ul>
         <h3>{post.frontmatter.title}</h3>
+        <p>
+          <span className={styles.timeToRead}>{post.timeToRead} min read</span>
+          {" - "}
+          <span className={styles.date}>{formattedDate}</span>
+        </p>
         {postImg}
         <p className={styles.postExcerpt}>{post.excerpt}</p>
       </Link>
@@ -62,6 +77,9 @@ export default ({ location, data }) => {
     currentPage > paginator.numberOfPages() ||
     currentPage <= 0
   ) {
+    console.log(currentPage);
+    console.log(paginator.numberOfPages());
+    console.log("wtf");
     return redirectTo404();
   }
 
@@ -121,6 +139,7 @@ export const allBlogPostsQuery = graphql`
           fields {
             slug
           }
+          timeToRead
           frontmatter {
             title
             tags
