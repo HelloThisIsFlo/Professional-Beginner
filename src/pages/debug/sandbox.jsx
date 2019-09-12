@@ -2,11 +2,11 @@ import React from "react";
 import "./sandbox.scss";
 import { LoremIpsum } from "lorem-ipsum";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import Layout from "../components/layout";
-import BulletPoints from "../components/sidebar/bullet-points";
-import AboutMe from "../components/sidebar/about-me";
+import Layout from "../../components/layout";
+import BulletPoints from "../../components/sidebar/bullet-points";
+import AboutMe from "../../components/sidebar/about-me";
 import Img from "gatsby-image";
-import Button from '../components/button'
+import Button from '../../components/button'
 
 const lorem = new LoremIpsum();
 

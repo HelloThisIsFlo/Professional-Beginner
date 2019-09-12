@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/header";
+import Header from "../../components/header";
 import { Link, graphql } from "gatsby";
-import Layout from "../components/layout";
+import Layout from "../../components/layout";
 
 const CurrentSecondsCounter = () => {
   const getCurrentSeconds = () => new Date().getSeconds();
