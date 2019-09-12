@@ -6,6 +6,7 @@ import Paginator, { PostWithDate } from "../utils/paginator";
 import Img from "gatsby-image";
 import moment from "moment";
 import Button from "../components/button";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const PostEntry = ({ post, allHeroImgs }) => {
   const postImgNode = allHeroImgs.find(heroImg =>
@@ -97,15 +98,25 @@ export default ({ location, data }) => {
   const previousPageLink = isFirstPage ? (
     <div></div>
   ) : isSecondPage ? (
-    <Link to={"/"}>{"< Newer posts"}</Link>
+    <Link className={styles.paginationLink} to="/">
+      <FaAngleLeft className={styles.previous} /> {"Newer posts"}
+    </Link>
   ) : (
-    <Link to={`/pages/${currentPage - 1}`}>{"< Newer posts"}</Link>
+    <Link
+      className={styles.paginationLink}
+      to={`/pages/${currentPage - 1}`}
+    >
+      <FaAngleLeft className={styles.previous} /> {"Newer posts"}
+    </Link>
   );
 
   const nextPageLink = isLastPage ? (
     <div></div>
   ) : (
-    <Link to={`/pages/${currentPage + 1}`}>{"Older posts >"}</Link>
+    <Link className={styles.paginationLink} to={`/pages/${currentPage + 1}`}>
+      {"Older posts "}
+      <FaAngleRight className={styles.next} />
+    </Link>
   );
 
   return (
@@ -119,7 +130,7 @@ export default ({ location, data }) => {
           />
         ))}
       </ul>
-      <div className={styles.pageNavigation}>
+      <div className={styles.pagination}>
         {previousPageLink}
         {nextPageLink}
       </div>
