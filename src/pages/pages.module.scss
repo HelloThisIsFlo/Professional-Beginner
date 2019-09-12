@@ -35,6 +35,9 @@
 .post:last-child {
   padding-bottom: 0;
 }
+.post-excerpt {
+  margin-top: 2.5em;
+}
 .post-excerpt::after {
   content: " . . .";
 }
