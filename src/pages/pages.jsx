@@ -5,6 +5,7 @@ import { navigate, graphql, Link } from "gatsby";
 import Paginator, { PostWithDate } from "../utils/paginator";
 import Img from "gatsby-image";
 import moment from "moment";
+import Button from "../components/button";
 
 const PostEntry = ({ post, allHeroImgs }) => {
   const postImgNode = allHeroImgs.find(heroImg =>
@@ -19,16 +20,20 @@ const PostEntry = ({ post, allHeroImgs }) => {
 
   const formattedDate = moment(post.frontmatter.date).format("MMMM Do, YYYY");
 
-  const tags = post.frontmatter.tags || []
+  const tags = post.frontmatter.tags || [];
 
   return (
-    <li className={styles.post} key={post.fields.slug}>
+    <li className={styles.post}>
+      <ul className={styles.tags}>
+        {tags.map((tag, i) => (
+          <li key={i}>
+            <Button variant="teal" size="s" to="/">
+              {tag.toUpperCase()}
+            </Button>
+          </li>
+        ))}
+      </ul>
       <Link to={post.fields.slug}>
-        <ul className={styles.tags}>
-          {tags.map(tag => (
-            <li>{tag}</li>
-          ))}
-        </ul>
         <h3>{post.frontmatter.title}</h3>
         <p>
           <span className={styles.timeToRead}>{post.timeToRead} min read</span>
@@ -107,7 +112,11 @@ export default ({ location, data }) => {
     <Layout>
       <ul className={styles.posts}>
         {postsOnCurrentPage.map(post => (
-          <PostEntry post={post} allHeroImgs={allHeroImgs} />
+          <PostEntry
+            post={post}
+            allHeroImgs={allHeroImgs}
+            key={post.fields.slug}
+          />
         ))}
       </ul>
       <div className={styles.pageNavigation}>

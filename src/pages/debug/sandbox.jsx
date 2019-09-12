@@ -6,7 +6,7 @@ import Layout from "../../components/layout";
 import BulletPoints from "../../components/sidebar/bullet-points";
 import AboutMe from "../../components/sidebar/about-me";
 import Img from "gatsby-image";
-import Button from '../../components/button'
+import Button from "../../components/button";
 
 const lorem = new LoremIpsum();
 
@@ -48,8 +48,19 @@ export default () => {
   return (
     <Layout>
       <div className="sandbox">
-        <div className="sidebar">
-          <AboutMe />
+        <div className="tags">
+          <Button variant="teal" size="s">
+            HTML / CSS
+          </Button>
+          <Button variant="teal" size="s">
+            TDD
+          </Button>
+          <Button variant="teal" size="s">
+            ARCHITECTURE
+          </Button>
+          <Button variant="teal" size="s">
+            FEATURED
+          </Button>
         </div>
       </div>
     </Layout>
