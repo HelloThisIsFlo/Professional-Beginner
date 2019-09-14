@@ -1,5 +1,8 @@
+@import "../variables.module.scss";
+
 .post {
   overflow: hidden;
+  overflow-wrap: break-word;
 
   :global {
     .gatsby-resp-image-background-image,
@@ -14,12 +17,12 @@
     }
 
     .gatsby-highlight-code-line {
-      background-color: #feb;
       display: block;
-      margin-right: -1em;
       margin-left: -1em;
-      padding-right: 1em;
+      margin-right: -1em;
       padding-left: 0.75em;
+      padding-right: 1em;
+      background-color: #feb;
       border-left: 0.25em solid #f99;
     }
 
@@ -28,10 +31,10 @@
      * and overflow that we removed from <pre>.
      */
     .gatsby-highlight {
-      background-color: #fdf6e3;
-      border-radius: 0.3em;
       margin: 0.5em 0;
       padding: 1em;
+      background-color: #fdf6e3;
+      border-radius: 0.3em;
       overflow: auto;
     }
 
@@ -43,11 +46,11 @@
      * 3. Adjust the position of the line numbers
      */
     .gatsby-highlight pre[class*="language-"] {
-      background-color: transparent;
+      float: left; /* 1 */
       margin: 0;
       padding: 0;
+      background-color: transparent;
       overflow: initial;
-      float: left; /* 1 */
       min-width: 100%; /* 2 */
     }
 
@@ -65,11 +68,10 @@
     }
 
     .command-line-prompt > span:before {
-      // color: #999717;
-      color: #999;
-      content: " ";
       display: block;
       padding-right: 0.8em;
+      color: #999;
+      content: " ";
     }
 
     /* Prompt for all users */
@@ -85,5 +87,69 @@
     .command-line-prompt > span[data-prompt]:before {
       content: attr(data-prompt);
     }
+  }
+
+  h1 {
+    margin: 0 auto 0.5em auto;
+    font-size: 3.5em;
+    font-weight: 300;
+    line-height: 1.1em;
+    text-align: center;
+
+    @media screen and (min-width: $layout-breakpoint-large) {
+      font-size: 4.5em;
+    }
+  }
+  h2 {
+    margin-bottom: 0.5em;
+    font-size: 2.5em;
+    font-weight: 200;
+    line-height: 1em;
+
+    @media screen and (min-width: $layout-breakpoint-large) {
+      font-size: 3em;
+    }
+  }
+  h3 {
+  }
+  h4 {
+    font-size: 1.5em;
+    font-weight: 200;
+  }
+  h5 {
+  }
+  h6 {
+  }
+  p {
+    font-weight: 300;
+    text-align: justify;
+  }
+  a {
+    color: #eb5e28;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.2s;
+    &:hover {
+      color: #b33c12;
+    }
+  }
+  em {
+  }
+  strong {
+  }
+  blockquote {
+    margin: 0 0 20px;
+    padding: 10px 20px;
+    border-left: 5px solid #eee;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  figcaption {
+    margin: 1em 0 3em 0;
+    font-weight: 500;
+    text-align: center;
   }
 }

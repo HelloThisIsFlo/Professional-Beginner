@@ -5,6 +5,8 @@ import styles from "./post.module.scss";
 import { Disqus, CommentCount } from "gatsby-plugin-disqus";
 
 export default ({ data, location }) => {
+  const addExtraFormatting = html =>
+    html.replace("---", "—").replace("...", "…");
   const post = data.markdownRemark;
   const postUrl = data.site.siteMetadata.url + location.pathname;
   const disqusConfig = {
@@ -12,13 +14,13 @@ export default ({ data, location }) => {
     identifier: post.fields.slug.slice(1),
     title: post.frontmatter.title
   };
+
   return (
     <Layout>
-      <div>
+      <div className={styles.post}>
         <h1>{post.frontmatter.title}</h1>
         <div
-          className={styles.post}
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: addExtraFormatting(post.html) }}
         ></div>
         <Disqus config={disqusConfig} />
       </div>
