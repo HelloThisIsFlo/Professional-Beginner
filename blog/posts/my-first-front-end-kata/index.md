@@ -19,20 +19,20 @@ I am currently following a course on Udacity, I went for the Front-End Nanodegre
 
 That put aside, after learning the bits of CSS, there was this one mini-quizz where an incomplete HTML/CSS file was given and the goal was to add the missing classes to make it look like this:
 
-PICTURE:slackCard.1200.687."Slack Card"
+![Expected Slack Card](expected_slack_card.jpg)
 
 But I figured it didn't seem too complex in terms of layout, most things were just one below the other. Yet, it still felt impressive... out of reach. And that means it would be a perfect mini-project to build from the ground up. Challenging enough to be compelling, but not too much to be demotivation. Goldilocks principle 101.
 
 So, instead of performing the exercise of adding classes to a pre-existing HTML/CSS file, I started from a blank slate.
 
 ###### It went from this
-PICTURE:slackScratch1.1200.687."Slack Card"
+![Slack Card - Start](start_slack_card.jpg)
 
 ###### To this
-PICTURE:slackScratch1.1200.687."Slack Card"
+![Slack Card - WIP](intermediate_slack_card.jpg)
 
 ###### To finally this
-PICTURE:slackScratch2.1200.687."Slack Card"
+![Slack Card - Complete](finished_slack_card.jpg)
 
 ## The Front-End Kata
 
