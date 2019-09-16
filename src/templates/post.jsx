@@ -18,7 +18,7 @@ export default ({ data, location }) => {
   return (
     <Layout>
       <div className={styles.post}>
-        <h1>{post.frontmatter.title}</h1>
+        <h1 id='post-title'>{post.frontmatter.title}</h1>
         <div
           dangerouslySetInnerHTML={{ __html: addExtraFormatting(post.html) }}
         ></div>
