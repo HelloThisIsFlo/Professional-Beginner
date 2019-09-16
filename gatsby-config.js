@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Professional Beginner",
-    url: 'https://professionalbeginner.com',
+    url: "https://professionalbeginner.com",
     config: {
       postsPerPage: 6
     }
@@ -54,7 +54,8 @@ module.exports = {
                 global: false
               }
             }
-          }
+          },
+          `gatsby-remark-autolink-headers`
         ]
       }
     },
