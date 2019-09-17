@@ -60,13 +60,50 @@ exports.createPages = async ({ graphql, actions }) => {
   }
   function createIndex() {
     createPage({
-      path: '/',
-      component: path.resolve('./src/pages/pages.jsx')
-    })
+      path: "/",
+      component: path.resolve("./src/pages/pages.jsx")
+    });
+  }
+  function createRedirectForOldPosts() {
+    [
+      ["/post/1", "/about"],
+      ["/post/2", "/my-learning-path"],
+      ["/post/3", "/tdd-my-hopes"],
+      ["/post/4", "/hexagonal-android-pt1-intro"],
+      ["/post/5", "/hexagonal-android-pt2-architecture"],
+      ["/post/6", "/hexagonal-android-pt3-boundaries"],
+      ["/post/7", "/open-articles"],
+      ["/post/8", "/the-dto-dilemma"],
+      ["/post/9", "/the-web-pt1"],
+      ["/post/01", "/about"],
+      ["/post/02", "/my-learning-path"],
+      ["/post/03", "/tdd-my-hopes"],
+      ["/post/04", "/hexagonal-android-pt1-intro"],
+      ["/post/05", "/hexagonal-android-pt2-architecture"],
+      ["/post/06", "/hexagonal-android-pt3-boundaries"],
+      ["/post/07", "/open-articles"],
+      ["/post/08", "/the-dto-dilemma"],
+      ["/post/09", "/the-web-pt1"],
+      ["/post/10", "/the-web-pt2"],
+      ["/post/11", "/my-java-archetype"],
+      ["/post/12", "/a-new-beginning"],
+      ["/post/13", "/my-first-fe-kata"],
+      ["/post/14", "/background-image-with-rounded-corners"],
+      ["/post/15", "/static-vs-relative"]
+    ].forEach(([oldPath, newPath]) => {
+      createPage({
+        path: oldPath,
+        component: path.resolve("./src/templates/oldPostsRedirect.jsx"),
+        context: {
+          redirectTo: newPath
+        }
+      });
+    });
   }
 
   const { createPage } = actions;
   const blogPosts = await getAllBlogPosts();
   createBlogPostsPages();
   createIndex();
+  createRedirectForOldPosts();
 };
