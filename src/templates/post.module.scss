@@ -89,6 +89,33 @@
     }
   }
 
+  $heading-jumpto-offset-wo-sticky-header: 0.5em;
+  $heading-jumpto-offset-with-sticky-header: calc(#{$header-height} + 0.5em);
+
+  h1::before,
+  h2::before,
+  h3::before,
+  h4::before,
+  h5::before,
+  h6::before {
+    content: "";
+    display: block;
+    padding-top: $heading-jumpto-offset-wo-sticky-header;
+    margin-top: calc(-1 * #{$heading-jumpto-offset-wo-sticky-header});
+  }
+
+  @media screen and (min-width: $layout-breakpoint-large) {
+    h1::before,
+    h2::before,
+    h3::before,
+    h4::before,
+    h5::before,
+    h6::before {
+      padding-top: $heading-jumpto-offset-with-sticky-header;
+      margin-top: calc(-1 * #{$heading-jumpto-offset-with-sticky-header});
+    }
+  }
+
   h1 {
     margin: 0 auto 0.5em auto;
     font-size: 3.5em;
