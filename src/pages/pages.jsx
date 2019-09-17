@@ -83,9 +83,6 @@ export default ({ location, data }) => {
     currentPage > paginator.numberOfPages() ||
     currentPage <= 0
   ) {
-    console.log(currentPage);
-    console.log(paginator.numberOfPages());
-    console.log("wtf");
     return redirectTo404();
   }
 
