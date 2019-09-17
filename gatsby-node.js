@@ -66,6 +66,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
   function createRedirectForOldPosts() {
     [
+      ['/manifesto', '/about'],
       ["/post/1", "/about"],
       ["/post/2", "/my-learning-path"],
       ["/post/3", "/tdd-my-hopes"],
