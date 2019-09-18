@@ -19,7 +19,7 @@ export default () => {
         dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
       ></div>
       <div className={styles.readMore}>
-        <Button to="/about#professional-beginner" size="s">Read More</Button>
+        <Button to="/about" size="s">Read More</Button>
       </div>
     </div>
   );
