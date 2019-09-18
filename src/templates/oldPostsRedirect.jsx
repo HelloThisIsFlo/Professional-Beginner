@@ -1,10 +1,12 @@
-import React from "react";
-import Layout from "../components/layout";
+import React, { useEffect } from "react";
 import postStyles from "../templates/post.module.scss";
 import { addExtraFormatting } from "./post";
 import { navigate } from "gatsby";
+import Layout from '../components/layout';
 
 export default ({ pageContext: { redirectTo } }) => {
-  navigate(redirectTo, { replace: true });
-  return <div></div>;
+  useEffect(() => {
+    navigate(redirectTo, { replace: true });
+  }, []);
+  return <Layout></Layout>
 };

@@ -36,14 +36,9 @@ describe("Paginator", () => {
       expect(paginator.numberOfPages()).toBe(3);
     });
 
-    it("throws if page requested doesn' exist", () => {
-      expect(() => {
-        paginator.getPage(-1);
-      }).toThrow("Page '-1' doesn't exist. Valid pages: [1 - 3]");
-
-      expect(() => {
-        paginator.getPage(4);
-      }).toThrow("Page '4' doesn't exist. Valid pages: [1 - 3]");
+    it("return empty page if page requested doesn't exist", () => {
+      expect(paginator.getPage(-1)).toEqual([]);
+      expect(paginator.getPage(4)).toEqual([]);
     });
 
     it("returns page 1", () => {
@@ -89,6 +84,19 @@ describe("Paginator", () => {
       expect(paginator.getPage(2)).toEqual(expectedPage2);
     });
   });
+
+  describe("Empty list of posts", () => {
+    beforeEach(() => {
+      const someDate = new Date("2019-07-05T12:00");
+      paginator = new Paginator(10, someDate, [])
+    })
+    it('has 1 page', () => {
+      expect(paginator.numberOfPages()).toBe(1)
+    })
+    it('shows an empty page', () => {
+      expect(paginator.getPage(1)).toEqual([])
+    })
+  })
 
   describe("Learning tests", () => {
     test("'slice' takes a start and end, not start and length", () => {

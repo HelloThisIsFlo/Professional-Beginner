@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import styles from "./pages.module.scss";
 import { navigate, graphql, Link } from "gatsby";
@@ -49,10 +49,6 @@ const PostEntry = ({ post, allHeroImgs }) => {
 };
 
 export default ({ location, data }) => {
-  function redirectTo404() {
-    navigate("/404", { replace: true });
-    return <div></div>;
-  }
   function getCurrentPage() {
     const isFirstPage = /\/$/.test(location.pathname);
     const regexMatch = /\/pages\/(\d+)/.exec(location.pathname);
@@ -73,18 +69,58 @@ export default ({ location, data }) => {
     return new Paginator(postsPerPage, now, postsWithDate);
   }
 
-  const posts = data.allMarkdownRemark.edges.map(({ node }) => node);
-  const allHeroImgs = data.allFile.edges.map(({ node }) => node);
+  const [posts, setPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(null);
+  const [paginator, setPaginator] = useState(buildPaginator([]));
+  const [paginatorBuiltWithAllPages, setPaginatorBuiltWithAllPages] = useState(
+    false
+  );
 
-  const paginator = buildPaginator(posts);
-  const currentPage = getCurrentPage();
-  if (
-    currentPage === null ||
-    currentPage > paginator.numberOfPages() ||
-    currentPage <= 0
-  ) {
-    return redirectTo404();
-  }
+  useEffect(() => {
+    console.debug("PAGES: RUNNING EFFECT 'setCurrentPage'");
+    setCurrentPage(getCurrentPage());
+  }, [location]);
+
+  useEffect(() => {
+    console.debug("PAGES: RUNNING EFFECT 'setPosts'");
+    const allPosts = data.allMarkdownRemark.edges.map(({ node }) => node);
+    setPosts(allPosts);
+  }, [data]);
+
+  useEffect(() => {
+    console.debug(
+      "PAGES: RUNNING EFFECT 'setPaginator' and (?) 'setPaginatorBuiltWithAllPages'"
+    );
+    setPaginator(buildPaginator(posts));
+    if (posts.length !== 0) {
+      console.debug("PAGES: PAGINATOR NOW BUILT WITH ALL PAGES");
+      setPaginatorBuiltWithAllPages(true);
+    }
+  }, [posts]);
+
+  useEffect(() => {
+    console.debug("PAGES: RUNNING EFFECT 'check if current page is valid''");
+    if (!paginatorBuiltWithAllPages) {
+      console.debug("PAGES: Paginator not built with all posts yet, skipping");
+      return;
+    }
+
+    console.debug("PAGES: PAGINATOR BUILT WITH ALL POSTS, CHECKING");
+    if (
+      currentPage === null ||
+      currentPage > paginator.numberOfPages() ||
+      currentPage <= 0
+    ) {
+      console.debug("PAGES: REDIRECTING TO 404");
+      navigate("/404", { replace: true });
+    }
+  }, [currentPage, paginatorBuiltWithAllPages]);
+
+  console.debug("PAGES: posts.length", posts.length);
+  console.debug("PAGES: currentPage", currentPage);
+  console.debug("PAGES: paginator.numberOfPages()", paginator.numberOfPages());
+
+  const allHeroImgs = data.allFile.edges.map(({ node }) => node);
 
   const postsOnCurrentPage = paginator.getPage(currentPage);
 
@@ -99,10 +135,7 @@ export default ({ location, data }) => {
       <FaAngleLeft className={styles.previous} /> {"Newer posts"}
     </Link>
   ) : (
-    <Link
-      className={styles.paginationLink}
-      to={`/pages/${currentPage - 1}`}
-    >
+    <Link className={styles.paginationLink} to={`/pages/${currentPage - 1}`}>
       <FaAngleLeft className={styles.previous} /> {"Newer posts"}
     </Link>
   );
