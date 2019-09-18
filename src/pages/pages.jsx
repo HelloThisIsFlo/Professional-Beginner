@@ -28,7 +28,7 @@ const PostEntry = ({ post, allHeroImgs }) => {
       <ul className={styles.tags}>
         {tags.map((tag, i) => (
           <li key={i}>
-            <Button variant="teal" size="s" to="/">
+            <Button clickable={false} variant="teal" size="s" to="/">
               {tag.toUpperCase()}
             </Button>
           </li>

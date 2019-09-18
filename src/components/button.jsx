@@ -7,7 +7,8 @@ export default ({
   className,
   to,
   variant = "orange",
-  size = "m"
+  size = "m",
+  clickable = true
 }) => {
   let colorClass;
   switch (variant) {
@@ -37,8 +38,9 @@ export default ({
       throw "The only available size variants are 'm' and 's'";
   }
 
+
   return (
-    <Link to={to}>
+    <Link className={clickable ? '' : styles.notClickable} to={to}>
       <button
         className={`${styles.button} ${colorClass} ${sizeClass} ${className}`}
       >

@@ -22,6 +22,10 @@
   }
 }
 
+.not-clickable {
+  pointer-events: none;
+}
+
 $size-s: 2em;
 $size-m: 3em;
 
