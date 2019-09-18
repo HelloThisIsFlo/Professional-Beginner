@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Professional Beginner",
-    url: "https://professionalbeginner.com",
+    siteUrl: "https://professionalbeginner.com",
     config: {
       postsPerPage: 6
     }
@@ -91,6 +91,12 @@ module.exports = {
       resolve: `gatsby-plugin-disqus`,
       options: {
         shortname: `professionalbeginner`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ["/post/*", `/debug/*`, `/manifesto`]
       }
     }
   ]

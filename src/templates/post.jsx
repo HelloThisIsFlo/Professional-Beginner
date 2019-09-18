@@ -9,7 +9,7 @@ export const addExtraFormatting = html =>
 
 export default ({ data, location }) => {
   const post = data.markdownRemark;
-  const postUrl = data.site.siteMetadata.url + location.pathname;
+  const postUrl = data.site.siteMetadata.siteUrl + location.pathname;
   const disqusConfig = {
     url: postUrl,
     identifier: post.fields.slug.slice(1),
@@ -44,7 +44,7 @@ export const query = graphql`
     }
     site {
       siteMetadata {
-        url
+        siteUrl
       }
     }
   }
