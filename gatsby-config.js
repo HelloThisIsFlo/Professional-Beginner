@@ -108,6 +108,18 @@ module.exports = {
         exclude: ["/post/*", `/debug/*`, `/manifesto`]
       }
     },
-    `gatsby-plugin-remove-trailing-slashes`
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        policy: [
+          {
+            userAgent: "*",
+            allow: "/",
+            disallow: ["/debug"]
+          }
+        ]
+      }
+    }
   ]
 };
