@@ -98,6 +98,14 @@ module.exports = {
       options: {
         exclude: ["/post/*", `/debug/*`, `/manifesto`]
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-61995895-2",
+        anonymize: true,
+        exclude: ["/post/*", `/debug/*`, `/manifesto`]
+      }
     }
   ]
 };
