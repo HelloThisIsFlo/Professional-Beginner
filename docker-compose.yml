@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  engine:
+    build: .
+    restart: always
+    ports:
+      - published: 2000
+        target: 9000
+    command: ["gatsby", "serve", "-H", "0.0.0.0"]
