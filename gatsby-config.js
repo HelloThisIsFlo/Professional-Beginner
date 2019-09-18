@@ -55,7 +55,8 @@ module.exports = {
               }
             }
           },
-          `gatsby-remark-autolink-headers`
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-copy-linked-files`
         ]
       }
     },
@@ -106,6 +107,7 @@ module.exports = {
         anonymize: true,
         exclude: ["/post/*", `/debug/*`, `/manifesto`]
       }
-    }
+    },
+    `gatsby-plugin-remove-trailing-slashes`
   ]
 };
