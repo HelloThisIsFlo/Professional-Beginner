@@ -6,10 +6,11 @@ const app = express();
 
 const port = 3000;
 const rssFeedPath = "/rss.xml";
+const allPostsDataFromFrontendUrl = "http://frontend:9000/allPosts.json";
 const now = Date.now();
 
 function isReleased(RSSFeedItem) {
-  const releaseDate = new Date(RSSFeedItem.date)
+  const releaseDate = new Date(RSSFeedItem.date);
   return releaseDate.getTime() <= now;
 }
 
@@ -52,7 +53,7 @@ app.get(rssFeedPath, (_, res) => {
   const logError = error => console.error(error);
 
   axios
-    .get("https://professionalbeginner.com/allPosts.json")
+    .get(allPostsDataFromFrontendUrl)
     .then(extractDataAsJSON)
     .then(mapToRSSFeed)
     .then(sendRSSFeedAsXML)
