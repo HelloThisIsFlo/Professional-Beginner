@@ -176,7 +176,8 @@ module.exports = {
                   title: edge.node.frontmatter.title,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  html: edge.node.html
+                  html: edge.node.html,
+                  description: edge.node.excerpt
                 };
               });
             }
