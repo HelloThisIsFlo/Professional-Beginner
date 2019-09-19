@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: "Professional Beginner",
+    description:
+      'My name is Florian Kempenich, and I am the Professional Beginner. I apply the "Beginner\'s Mind" to the world of Software and share on this blog what I learn throughout my Journey. My focus is on Software Crafting. That is an emphasis on readable code, made reliable by tests, and a desire to collaborate with those who love to learn, and share teachings of their own.',
+    author: "Florian Kempenich",
     siteUrl: "https://professionalbeginner.com",
     config: {
       postsPerPage: 6
@@ -117,6 +120,66 @@ module.exports = {
             userAgent: "*",
             allow: "/",
             disallow: ["/debug"]
+          }
+        ]
+      }
+    },
+    {
+      resolve: "gatsby-plugin-feed-generator",
+      options: {
+        generator: `GatsbyJS`,
+        rss: false,
+        json: true,
+        siteQuery: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              author
+            }
+          }
+        }
+      `,
+        feeds: [
+          {
+            name: "allPosts", // This determines the name of your feed file => feed.json & feed.xml
+            query: `
+            {
+              allMarkdownRemark(
+                filter: { fileAbsolutePath: { glob: "**/posts/**/index.md" } }
+                sort: { fields: frontmatter___date, order: DESC },
+                limit: 100
+              ) {
+                edges {
+                  node {
+                    excerpt
+                    fields {
+                      slug
+                    }
+                    timeToRead
+                    html
+                    frontmatter {
+                      title
+                      tags
+                      date
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            normalize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return {
+                  title: edge.node.frontmatter.title,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  html: edge.node.html
+                };
+              });
+            }
           }
         ]
       }
