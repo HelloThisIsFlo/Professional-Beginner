@@ -1,0 +1,19 @@
+@startuml
+skinparam BoxPadding 10
+
+
+title RSS Feed
+
+
+
+actor User
+participant RSS_feed
+participant Engine
+
+User -> RSS_feed: ""GET""\n""https://professionalbeginner.com/rss.xml""
+RSS_feed -> Engine: Get info about ALL posts (even un-released)
+RSS_feed <- Engine: Info about ALL posts (even un-released)
+RSS_feed -> RSS_feed: Build RSS Feed
+User <- RSS_feed: RSS Feed
+
+@enduml
