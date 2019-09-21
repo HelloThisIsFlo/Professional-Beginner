@@ -26,7 +26,6 @@ const PostEntry = ({ post, allHeroImgs }) => {
 
   return (
     <li className={styles.post}>
-      <SEO />
       <ul className={styles.tags}>
         {tags.map((tag, i) => (
           <li key={i}>
@@ -153,6 +152,7 @@ export default ({ location, data }) => {
 
   return (
     <Layout>
+      <SEO />
       <ul className={styles.posts}>
         {postsOnCurrentPage.map(post => (
           <PostEntry
