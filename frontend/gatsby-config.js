@@ -4,6 +4,7 @@ module.exports = {
     description:
       'My name is Florian Kempenich, and I am the Professional Beginner. I apply the "Beginner\'s Mind" to the world of Software and share on this blog what I learn throughout my Journey',
     author: "Florian Kempenich",
+    twitterUsername: "ThisIsFlorianK",
     siteUrl: "https://professionalbeginner.com",
     keywords: [
       "software",

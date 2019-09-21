@@ -16,6 +16,7 @@ export default ({ title, description, image }) => {
           siteUrl
           title
           keywords
+          twitterUsername
         }
       }
     }
@@ -35,7 +36,7 @@ export default ({ title, description, image }) => {
       <meta name="twitter:title" content={title} />
       <meta property="og:title" content={title} />
 
-      <meta name="twitter:creator" content={siteMetadata.author} />
+      <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
 
       <meta name="keywords" content={siteMetadata.keywords.join(",")} />
 
