@@ -54,7 +54,8 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 650,
               showCaptions: true,
-              quality: 100
+              quality: 90,
+              withWebp: true
             }
           },
           {
