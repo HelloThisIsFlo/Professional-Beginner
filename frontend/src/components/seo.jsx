@@ -19,16 +19,27 @@ export default ({ title, description, image }) => {
           twitterUsername
         }
       }
+
+      file(relativePath: { eq: "profile_picture.jpeg" }) {
+        childImageSharp {
+          fixed {
+            height
+            width
+            src
+          }
+        }
+      }
     }
   `);
 
   const siteMetadata = data.site.siteMetadata;
+  const shouldUseLargeTwitterCard = image ? true : false;
 
   title = title || siteMetadata.title;
   description = description || siteMetadata.description;
-  const imageSrcAbsolute =
-    image && image.src ? `${siteMetadata.siteUrl}${image.src}` : "";
-  console.log("imageSrcAbsolute :", imageSrcAbsolute);
+  image = image || data.file.childImageSharp.fixed;
+
+  const imageSrcAbsolute = `${siteMetadata.siteUrl}${image.src}`;
 
   return (
     <Helmet>
@@ -44,13 +55,11 @@ export default ({ title, description, image }) => {
       <meta name="twitter:description" content={description} />
       <meta property="og:description" content={description} />
 
-      {image ? (
-        [
-          <meta property="og:image" content={imageSrcAbsolute} />,
-          <meta property="og:image:width" content={image.width} />,
-          <meta property="og:image:height" content={image.height} />,
-          <meta name="twitter:card" content="summary_large_image" />
-        ]
+      <meta property="og:image" content={imageSrcAbsolute} />
+      <meta property="og:image:width" content={image.width} />
+      <meta property="og:image:height" content={image.height} />
+      {shouldUseLargeTwitterCard ? (
+        <meta name="twitter:card" content="summary_large_image" />
       ) : (
         <meta name="twitter:card" content="summary" />
       )}
