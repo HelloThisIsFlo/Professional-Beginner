@@ -53,7 +53,8 @@ exports.createPages = async ({ graphql, actions }) => {
           path: slug,
           component: path.resolve("./src/templates/post.jsx"),
           context: {
-            slug: slug
+            slug: slug,
+            heroGlob: `posts${slug}/hero.*`
           }
         });
       });

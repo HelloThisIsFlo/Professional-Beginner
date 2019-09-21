@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import styles from "./post.module.scss";
 import { Disqus, CommentCount } from "gatsby-plugin-disqus";
+import SEO from "../components/seo";
 
 export const addExtraFormatting = html =>
   html.replace("---", "—").replace("...", "…");
@@ -10,6 +11,7 @@ export const addExtraFormatting = html =>
 export default ({ data, location }) => {
   const post = data.markdownRemark;
   const postUrl = data.site.siteMetadata.siteUrl + location.pathname;
+  const heroImage = data.file.childImageSharp.fixed;
   const disqusConfig = {
     url: postUrl,
     identifier: post.fields.slug.slice(1),
@@ -18,6 +20,11 @@ export default ({ data, location }) => {
 
   return (
     <Layout>
+      <SEO 
+      title={post.frontmatter.title} 
+      image={heroImage} 
+      description={post.excerpt}
+      />
       <div className={styles.post}>
         <h1 id="post-title">{post.frontmatter.title}</h1>
         <div
@@ -30,9 +37,10 @@ export default ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $heroGlob: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
+      excerpt
       fields {
         slug
       }
@@ -45,6 +53,16 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
+      }
+    }
+
+    file(relativePath: { glob: $heroGlob }) {
+      childImageSharp {
+        fixed {
+          height
+          width
+          src
+        }
       }
     }
   }

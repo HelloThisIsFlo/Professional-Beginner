@@ -2,9 +2,19 @@ module.exports = {
   siteMetadata: {
     title: "Professional Beginner",
     description:
-      'My name is Florian Kempenich, and I am the Professional Beginner. I apply the "Beginner\'s Mind" to the world of Software and share on this blog what I learn throughout my Journey. My focus is on Software Crafting. That is an emphasis on readable code, made reliable by tests, and a desire to collaborate with those who love to learn, and share teachings of their own.',
+      'My name is Florian Kempenich, and I am the Professional Beginner. I apply the "Beginner\'s Mind" to the world of Software and share on this blog what I learn throughout my Journey',
     author: "Florian Kempenich",
     siteUrl: "https://professionalbeginner.com",
+    keywords: [
+      "software",
+      "crafting",
+      "TDD",
+      "testing",
+      "code",
+      "developer",
+      "learning",
+      "Florian Kempenich"
+    ],
     config: {
       postsPerPage: 6
     }

@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 import moment from "moment";
 import Button from "../components/button";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import SEO from '../components/seo'
 
 const PostEntry = ({ post, allHeroImgs }) => {
   const postImgNode = allHeroImgs.find(heroImg =>
@@ -25,6 +26,7 @@ const PostEntry = ({ post, allHeroImgs }) => {
 
   return (
     <li className={styles.post}>
+      <SEO />
       <ul className={styles.tags}>
         {tags.map((tag, i) => (
           <li key={i}>

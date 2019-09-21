@@ -19,7 +19,6 @@ export default ({ children }) => {
     <div className={styles.layout}>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{data.site.siteMetadata.title}</title>
       </Helmet>
       <header className={styles.headerContainer}>
         <div className={styles.header}>
