@@ -20,6 +20,7 @@ module.exports = {
       postsPerPage: 6
     }
   },
+  trailingSlash: 'never',
   plugins: [
     {
       resolve: "gatsby-plugin-postcss",
@@ -112,7 +113,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: ["/post/*", `/debug/*`, `/manifesto`]
+        excludes: ["/post/*", `/debug/*`, `/manifesto`]
       }
     },
     {
@@ -123,7 +124,6 @@ module.exports = {
         exclude: ["/post/*", `/debug/*`, `/manifesto`]
       }
     },
-    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
@@ -161,7 +161,7 @@ module.exports = {
             {
               allMarkdownRemark(
                 filter: { fileAbsolutePath: { glob: "**/posts/**/index.md" } }
-                sort: { fields: frontmatter___date, order: DESC },
+                sort: { frontmatter: { date: DESC } },
                 limit: 100
               ) {
                 edges {

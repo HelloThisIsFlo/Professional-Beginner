@@ -1,14 +1,12 @@
+import * as styles from "./post.module.scss";
 import React from "react";
-import { graphql } from "gatsby";
+import {graphql} from "gatsby";
 import Layout from "../components/layout";
-import styles from "./post.module.scss";
-import { Disqus, CommentCount } from "gatsby-plugin-disqus";
+import {Disqus} from "gatsby-plugin-disqus";
 import SEO from "../components/seo";
+import addExtraFormatting from "../utils/addExtraFormatting";
 
-export const addExtraFormatting = html =>
-  html.replace("---", "—").replace("...", "…");
-
-export default ({ data, location }) => {
+const Post = ({data, location}) => {
   const post = data.markdownRemark;
   const postUrl = data.site.siteMetadata.siteUrl + location.pathname;
   const heroImage = data.file.childImageSharp.fixed;
@@ -19,22 +17,23 @@ export default ({ data, location }) => {
   };
 
   return (
-    <Layout>
-      <SEO 
-      title={post.frontmatter.title} 
-      image={heroImage} 
-      description={post.excerpt}
-      />
-      <div className={styles.post}>
-        <h1 id="post-title">{post.frontmatter.title}</h1>
-        <div
-          dangerouslySetInnerHTML={{ __html: addExtraFormatting(post.html) }}
-        ></div>
-        <Disqus config={disqusConfig} />
-      </div>
-    </Layout>
+      <Layout>
+        <SEO
+            title={post.frontmatter.title}
+            image={heroImage}
+            description={post.excerpt}
+        />
+        <div className={styles.post}>
+          <h1 id="post-title">{post.frontmatter.title}</h1>
+          <div
+              dangerouslySetInnerHTML={{__html: addExtraFormatting(post.html)}}
+          ></div>
+          <Disqus config={disqusConfig}/>
+        </div>
+      </Layout>
   );
 };
+export default Post;
 
 export const query = graphql`
   query($slug: String!, $heroGlob: String!) {

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./sidebar.module.scss";
+import * as styles from "./sidebar.module.scss";
 import AboutMe from "./sidebar/about-me";
 import BulletPoints from "./sidebar/bullet-points";
 

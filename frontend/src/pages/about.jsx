@@ -1,21 +1,22 @@
+import * as postStyles from "../templates/post.module.scss";
 import React from "react";
 import Layout from "../components/layout";
-import postStyles from "../templates/post.module.scss";
-import { addExtraFormatting } from "../templates/post";
 import { graphql  } from "gatsby";
+import addExtraFormatting from "../utils/addExtraFormatting";
 
-export default ({ data }) => {
+const About = ({ data }) => {
   const about = data.markdownRemark;
   return (
-    <Layout>
-      <div className={postStyles.post}>
-        <div
-          dangerouslySetInnerHTML={{ __html: addExtraFormatting(about.html) }}
-        ></div>
-      </div>
-    </Layout>
+      <Layout>
+        <div className={postStyles.post}>
+          <div
+              dangerouslySetInnerHTML={{ __html: addExtraFormatting(about.html) }}
+          ></div>
+        </div>
+      </Layout>
   );
 };
+export default About;
 
 export const query = graphql`
   query {

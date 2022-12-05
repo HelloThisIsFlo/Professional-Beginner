@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
-import styles from "./pages.module.scss";
+import * as styles from "./pages.module.scss";
 import { navigate, graphql, Link } from "gatsby";
 import Paginator, { PostWithDate } from "../utils/paginator";
 import Img from "gatsby-image";
@@ -172,46 +172,44 @@ export default ({ location, data }) => {
 
 export const allBlogPostsQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-        config {
-          postsPerPage
-        }
-      }
-    }
-
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { glob: "**/posts/**/index.md" } }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
+      site {
+          siteMetadata {
+              title
+              config {
+                  postsPerPage
+              }
           }
-          timeToRead
-          frontmatter {
-            title
-            tags
-            date
-          }
-        }
       }
-    }
-
-    allFile(filter: { relativePath: { glob: "posts/**/hero.*" } }) {
-      edges {
-        node {
-          relativePath
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+      allMarkdownRemark(
+          filter: {fileAbsolutePath: {glob: "**/posts/**/index.md"}}
+          sort: {frontmatter: {date: DESC}}
+      ) {
+          edges {
+              node {
+                  excerpt
+                  fields {
+                      slug
+                  }
+                  timeToRead
+                  frontmatter {
+                      title
+                      tags
+                      date
+                  }
+              }
           }
-        }
       }
-    }
+      allFile(filter: {relativePath: {glob: "posts/**/hero.*"}}) {
+          edges {
+              node {
+                  relativePath
+                  childImageSharp {
+                      fluid {
+                          ...GatsbyImageSharpFluid
+                      }
+                  }
+              }
+          }
+      }
   }
 `;

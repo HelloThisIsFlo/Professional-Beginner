@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./button.module.scss";
+import * as styles from './button.module.scss';
 import { Link } from "gatsby";
 
 export default ({

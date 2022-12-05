@@ -69,29 +69,29 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { glob: "**/blog/posts/**/index.md" } }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            tags
-            date
-          }
+    query {
+        site {
+            siteMetadata {
+                title
+            }
         }
-      }
+        allMarkdownRemark(
+            filter: {fileAbsolutePath: {glob: "**/blog/posts/**/index.md"}}
+            sort: {frontmatter: {date: DESC}}
+        ) {
+            edges {
+                node {
+                    excerpt
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        title
+                        tags
+                        date
+                    }
+                }
+            }
+        }
     }
-  }
 `;

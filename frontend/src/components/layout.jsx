@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./layout.module.scss";
+import * as styles from "./layout.module.scss";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Sidebar from "./sidebar";

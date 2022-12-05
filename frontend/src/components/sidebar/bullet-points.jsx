@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Button from "../button";
-import styles from './bullet-points.module.scss'
+import * as styles from './bullet-points.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`
