@@ -3,7 +3,7 @@ FROM node:lts
 RUN mkdir /app
 WORKDIR /app
 
-RUN npm install -g yarn
+#RUN npm install -g yarn
 RUN npm install -g gatsby-cli
 
 ADD package.json .
