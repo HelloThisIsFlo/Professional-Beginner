@@ -1,15 +1,15 @@
+import * as styles from "./pages.module.scss";
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
-import * as styles from "./pages.module.scss";
 import { navigate, graphql, Link } from "gatsby";
 import Paginator, { PostWithDate } from "../utils/paginator";
 import Img from "gatsby-image";
 import moment from "moment";
 import Button from "../components/button";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 
-const PostEntry = ({ post, allHeroImgs }) => {
+function PostEntry({ post, allHeroImgs })  {
   const postImgNode = allHeroImgs.find(heroImg =>
     heroImg.relativePath.includes(post.fields.slug)
   );
@@ -49,18 +49,8 @@ const PostEntry = ({ post, allHeroImgs }) => {
   );
 };
 
-export default ({ location, data }) => {
-  function getCurrentPage() {
-    const isFirstPage = /\/$/.test(location.pathname);
-    const regexMatch = /\/pages\/(\d+)/.exec(location.pathname);
+export default function Pages({ location, data }) {
 
-    if (isFirstPage) return 1;
-    try {
-      return parseInt(regexMatch[1]);
-    } catch {
-      return null;
-    }
-  }
   function buildPaginator(posts) {
     const postsPerPage = data.site.siteMetadata.config.postsPerPage;
     const now = new Date();
@@ -79,6 +69,17 @@ export default ({ location, data }) => {
 
   useEffect(() => {
     console.debug("PAGES: RUNNING EFFECT 'setCurrentPage'");
+    function getCurrentPage() {
+      const isFirstPage = /\/$/.test(location.pathname);
+      const regexMatch = /\/pages\/(\d+)/.exec(location.pathname);
+
+      if (isFirstPage) return 1;
+      try {
+        return parseInt(regexMatch[1]);
+      } catch {
+        return null;
+      }
+    }
     setCurrentPage(getCurrentPage());
   }, [location]);
 
@@ -115,7 +116,7 @@ export default ({ location, data }) => {
       console.debug("PAGES: REDIRECTING TO 404");
       navigate("/404", { replace: true });
     }
-  }, [currentPage, paginatorBuiltWithAllPages]);
+  }, [currentPage, paginatorBuiltWithAllPages, paginator]);
 
   console.debug("PAGES: posts.length", posts.length);
   console.debug("PAGES: currentPage", currentPage);
@@ -152,7 +153,7 @@ export default ({ location, data }) => {
 
   return (
     <Layout>
-      <SEO />
+      <Seo />
       <ul className={styles.posts}>
         {postsOnCurrentPage.map(post => (
           <PostEntry

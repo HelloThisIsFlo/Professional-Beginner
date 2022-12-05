@@ -1,15 +1,15 @@
-import React from "react";
 import * as styles from './button.module.scss';
+import React from "react";
 import { Link } from "gatsby";
 
-export default ({
+export default function Button({
   children,
   className,
   to,
   variant = "orange",
   size = "m",
   clickable = true
-}) => {
+}) {
   let colorClass;
   switch (variant) {
     case "orange":
@@ -21,7 +21,7 @@ export default ({
       break;
 
     default:
-      throw "The only available color variants are 'orange' and 'teal'";
+      throw new Error("The only available color variants are 'orange' and 'teal'");
   }
 
   let sizeClass;
@@ -35,7 +35,7 @@ export default ({
       break;
 
     default:
-      throw "The only available size variants are 'm' and 's'";
+      throw new Error("The only available size variants are 'm' and 's'");
   }
 
 
