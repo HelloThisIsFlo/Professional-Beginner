@@ -89,6 +89,20 @@
     }
   }
 
+  .read-time-and-date {
+    text-align: center;
+    font-style: italic;
+    margin-top: 1.1em;
+    margin-bottom: 1.5em;
+    font-size: 0.95em;
+
+    @media screen and (min-width: $layout-breakpoint-large) {
+      font-size: 1em;
+      margin-bottom: 2em;
+    }
+
+  }
+
   $heading-jumpto-offset-wo-sticky-header: 0.5em;
   $heading-jumpto-offset-with-sticky-header: calc(#{$header-height} + 0.5em);
 
@@ -117,7 +131,7 @@
   }
 
   h1 {
-    margin: 0 auto 0.5em auto;
+    margin: 0 auto 0 auto;
     font-size: 3.5em;
     font-weight: 300;
     line-height: 1.1em;
@@ -193,3 +207,4 @@
     border: none;
   }
 }
+
