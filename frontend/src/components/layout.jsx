@@ -1,6 +1,6 @@
 import React from "react";
 import * as styles from "./layout.module.scss";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
 import Sidebar from "./sidebar";
 

@@ -1,16 +1,16 @@
 import * as styles from "./pages.module.scss";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/layout";
-import { navigate, graphql, Link } from "gatsby";
+import { graphql, Link, navigate } from "gatsby";
 import Paginator, { PostWithDate } from "../utils/paginator";
 import Img from "gatsby-image";
 import moment from "moment";
 import Button from "../components/button";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import Seo from '../components/seo'
+import Seo from "../components/seo";
 
-function PostEntry({ post, allHeroImgs })  {
-  const postImgNode = allHeroImgs.find(heroImg =>
+function PostEntry({ post, allHeroImgs }) {
+  const postImgNode = allHeroImgs.find((heroImg) =>
     heroImg.relativePath.includes(post.fields.slug)
   );
 
@@ -47,15 +47,14 @@ function PostEntry({ post, allHeroImgs })  {
       </Link>
     </li>
   );
-};
+}
 
 export default function Pages({ location, data }) {
-
   function buildPaginator(posts) {
     const postsPerPage = data.site.siteMetadata.config.postsPerPage;
     const now = new Date();
     const postsWithDate = posts.map(
-      post => new PostWithDate(post, new Date(post.frontmatter.date))
+      (post) => new PostWithDate(post, new Date(post.frontmatter.date))
     );
     return new Paginator(postsPerPage, now, postsWithDate);
   }
@@ -63,23 +62,26 @@ export default function Pages({ location, data }) {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(null);
   const [paginator, setPaginator] = useState(buildPaginator([]));
-  const [paginatorBuiltWithAllPages, setPaginatorBuiltWithAllPages] = useState(
-    false
-  );
+  const [paginatorBuiltWithAllPages, setPaginatorBuiltWithAllPages] =
+    useState(false);
 
   useEffect(() => {
     console.debug("PAGES: RUNNING EFFECT 'setCurrentPage'");
+
     function getCurrentPage() {
       const isFirstPage = /\/$/.test(location.pathname);
       const regexMatch = /\/pages\/(\d+)/.exec(location.pathname);
 
-      if (isFirstPage) return 1;
+      if (isFirstPage) {
+        return 1;
+      }
       try {
         return parseInt(regexMatch[1]);
       } catch {
         return null;
       }
     }
+
     setCurrentPage(getCurrentPage());
   }, [location]);
 
@@ -155,7 +157,7 @@ export default function Pages({ location, data }) {
     <Layout>
       <Seo />
       <ul className={styles.posts}>
-        {postsOnCurrentPage.map(post => (
+        {postsOnCurrentPage.map((post) => (
           <PostEntry
             post={post}
             allHeroImgs={allHeroImgs}
@@ -169,48 +171,48 @@ export default function Pages({ location, data }) {
       </div>
     </Layout>
   );
-};
+}
 
 export const allBlogPostsQuery = graphql`
   query {
-      site {
-          siteMetadata {
-              title
-              config {
-                  postsPerPage
-              }
-          }
+    site {
+      siteMetadata {
+        title
+        config {
+          postsPerPage
+        }
       }
-      allMarkdownRemark(
-          filter: {fileAbsolutePath: {glob: "**/posts/**/index.md"}}
-          sort: {frontmatter: {date: DESC}}
-      ) {
-          edges {
-              node {
-                  excerpt
-                  fields {
-                      slug
-                  }
-                  timeToRead
-                  frontmatter {
-                      title
-                      tags
-                      date
-                  }
-              }
+    }
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/posts/**/index.md" } }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
           }
-      }
-      allFile(filter: {relativePath: {glob: "posts/**/hero.*"}}) {
-          edges {
-              node {
-                  relativePath
-                  childImageSharp {
-                      fluid {
-                          ...GatsbyImageSharpFluid
-                      }
-                  }
-              }
+          timeToRead
+          frontmatter {
+            title
+            tags
+            date
           }
+        }
       }
+    }
+    allFile(filter: { relativePath: { glob: "posts/**/hero.*" } }) {
+      edges {
+        node {
+          relativePath
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
   }
 `;

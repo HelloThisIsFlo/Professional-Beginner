@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Header from "../../components/header";
-import { Link, graphql } from "gatsby";
+import React, { useEffect, useState } from "react";
+import { graphql, Link } from "gatsby";
 import Layout from "../../components/layout";
 
 const CurrentSecondsCounter = () => {
@@ -27,7 +26,7 @@ const CurrentSecondsCounter = () => {
           <td>{secondWhenPageLoaded}</td>
         </tr>
         <tr>
-          <th>Currently: </th>
+          <th>Currently:</th>
           <td>{currentSeconds}</td>
         </tr>
       </table>
@@ -52,7 +51,7 @@ export default ({ data }) => {
       <div className="blog-posts">
         <h2>Blog Posts</h2>
         <ul>
-          {blogPosts.map(node => (
+          {blogPosts.map((node) => (
             <li>
               <Link to={node.fields.slug}>
                 <h3>{node.frontmatter.title}</h3>
@@ -69,29 +68,29 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-        allMarkdownRemark(
-            filter: {fileAbsolutePath: {glob: "**/blog/posts/**/index.md"}}
-            sort: {frontmatter: {date: DESC}}
-        ) {
-            edges {
-                node {
-                    excerpt
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        title
-                        tags
-                        date
-                    }
-                }
-            }
-        }
+  query {
+    site {
+      siteMetadata {
+        title
+      }
     }
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/blog/posts/**/index.md" } }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            tags
+            date
+          }
+        }
+      }
+    }
+  }
 `;

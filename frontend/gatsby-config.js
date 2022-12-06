@@ -14,34 +14,34 @@ module.exports = {
       "code",
       "developer",
       "learning",
-      "Florian Kempenich"
+      "Florian Kempenich",
     ],
     config: {
-      postsPerPage: 6
-    }
+      postsPerPage: 6,
+    },
   },
-  trailingSlash: 'never',
+  trailingSlash: "never",
   plugins: [
     {
       resolve: "gatsby-plugin-postcss",
       options: {
-        postCssPlugins: [require("autoprefixer")]
-      }
+        postCssPlugins: [require("autoprefixer")],
+      },
     },
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blog",
-        path: `${__dirname}/blog/`
-      }
+        path: `${__dirname}/blog/`,
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/src/images/`
-      }
+        path: `${__dirname}/src/images/`,
+      },
     },
     {
       resolve: "gatsby-transformer-remark",
@@ -57,8 +57,8 @@ module.exports = {
               maxWidth: 650,
               showCaptions: true,
               quality: 90,
-              withWebp: true
-            }
+              withWebp: true,
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
@@ -67,14 +67,14 @@ module.exports = {
               prompt: {
                 user: "floriankempenich",
                 host: "localhost",
-                global: false
-              }
-            }
+                global: false,
+              },
+            },
           },
           `gatsby-remark-autolink-headers`,
-          `gatsby-remark-copy-linked-files`
-        ]
-      }
+          `gatsby-remark-copy-linked-files`,
+        ],
+      },
     },
     {
       resolve: "gatsby-plugin-manifest",
@@ -87,42 +87,42 @@ module.exports = {
         // Enaables the "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "standalone",
-        icon: "src/images/icon.png"
-      }
+        icon: "src/images/icon.png",
+      },
     },
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-sharp",
       options: {
-        defaultQuality: 100
-      }
+        defaultQuality: 100,
+      },
     },
     "gatsby-transformer-sharp",
     {
       resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/pages/*`] }
+      options: { prefixes: [`/pages/*`] },
     },
     `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `professionalbeginner`
-      }
+        shortname: `professionalbeginner`,
+      },
     },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: ["/post/*", `/debug/*`, `/manifesto`]
-      }
+        excludes: ["/post/*", `/debug/*`, `/manifesto`],
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-61995895-2",
         anonymize: true,
-        exclude: ["/post/*", `/debug/*`, `/manifesto`]
-      }
+        exclude: ["/post/*", `/debug/*`, `/manifesto`],
+      },
     },
     {
       resolve: "gatsby-plugin-robots-txt",
@@ -131,10 +131,10 @@ module.exports = {
           {
             userAgent: "*",
             allow: "/",
-            disallow: ["/debug"]
-          }
-        ]
-      }
+            disallow: ["/debug"],
+          },
+        ],
+      },
     },
     {
       resolve: "gatsby-plugin-feed-generator",
@@ -183,19 +183,19 @@ module.exports = {
             }
             `,
             normalize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return {
                   title: edge.node.frontmatter.title,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   html: edge.node.html,
-                  description: edge.node.excerpt
+                  description: edge.node.excerpt,
                 };
               });
-            }
-          }
-        ]
-      }
-    }
-  ]
+            },
+          },
+        ],
+      },
+    },
+  ],
 };

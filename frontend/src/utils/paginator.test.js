@@ -1,7 +1,7 @@
 import Paginator, { PostWithDate } from "./paginator";
 
 describe("Paginator", () => {
-  const fakePost = title => ({ frontmatter: { title: title } });
+  const fakePost = (title) => ({ frontmatter: { title: title } });
   const postWithDate = (title, dateString) =>
     new PostWithDate(fakePost(title), new Date(dateString));
 
@@ -13,7 +13,7 @@ describe("Paginator", () => {
     postWithDate("fake post july 05 morning", "2019-07-05T09:15"),
     postWithDate("fake post july 05 afternoon", "2019-07-05T17:30"),
     postWithDate("fake post july 06", "2019-07-06"),
-    postWithDate("fake post july 07", "2019-07-07")
+    postWithDate("fake post july 07", "2019-07-07"),
   ];
   const postsPerPage = 3;
 
@@ -45,7 +45,7 @@ describe("Paginator", () => {
       const expectedPage1 = [
         fakePost("fake post july 01"),
         fakePost("fake post july 02"),
-        fakePost("fake post july 03")
+        fakePost("fake post july 03"),
       ];
       expect(paginator.getPage(1)).toEqual(expectedPage1);
     });
@@ -53,7 +53,7 @@ describe("Paginator", () => {
     it("returns last page", () => {
       const expectedPage3 = [
         fakePost("fake post july 06"),
-        fakePost("fake post july 07")
+        fakePost("fake post july 07"),
       ];
       expect(paginator.getPage(3)).toEqual(expectedPage3);
     });
@@ -72,11 +72,11 @@ describe("Paginator", () => {
       const expectedPage1 = [
         fakePost("fake post july 01"),
         fakePost("fake post july 02"),
-        fakePost("fake post july 03")
+        fakePost("fake post july 03"),
       ];
       const expectedPage2 = [
         fakePost("fake post july 04"),
-        fakePost("fake post july 05 morning")
+        fakePost("fake post july 05 morning"),
       ];
 
       expect(paginator.numberOfPages()).toBe(2);
@@ -88,15 +88,15 @@ describe("Paginator", () => {
   describe("Empty list of posts", () => {
     beforeEach(() => {
       const someDate = new Date("2019-07-05T12:00");
-      paginator = new Paginator(10, someDate, [])
-    })
-    it('has 1 page', () => {
-      expect(paginator.numberOfPages()).toBe(1)
-    })
-    it('shows an empty page', () => {
-      expect(paginator.getPage(1)).toEqual([])
-    })
-  })
+      paginator = new Paginator(10, someDate, []);
+    });
+    it("has 1 page", () => {
+      expect(paginator.numberOfPages()).toBe(1);
+    });
+    it("shows an empty page", () => {
+      expect(paginator.getPage(1)).toEqual([]);
+    });
+  });
 
   describe("Learning tests", () => {
     test("'slice' takes a start and end, not start and length", () => {
@@ -104,17 +104,19 @@ describe("Paginator", () => {
       expect(a.slice(2, 4)).toEqual([3, 4]);
     });
 
-    test('Regex', () => {
-      const res = /\/dynamic-pagination\/page\/(\d+)/.exec('/dynamic-pagination/page/2')
-      expect(res[1]).toBe('2')
-    })
+    test("Regex", () => {
+      const res = /\/dynamic-pagination\/page\/(\d+)/.exec(
+        "/dynamic-pagination/page/2"
+      );
+      expect(res[1]).toBe("2");
+    });
 
-    test('Expand non-existing elements', () => {
+    test("Expand non-existing elements", () => {
       // const [_, doesntExist] = [1]
       // const [_, doesntExist] = null
       // const res = /\/dynamic-pagination\/page\/(\d+)/.exec('/')
       // console.log(res)
       // console.log(doesntExist)
-    })
+    });
   });
 });

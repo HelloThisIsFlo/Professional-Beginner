@@ -1,7 +1,6 @@
-import React from "react"
-import { Link } from "gatsby"
-import Header from "../../components/header"
-import Layout from "../../components/layout"
+import React from "react";
+import Header from "../../components/header";
+import Layout from "../../components/layout";
 
 export default () => (
   <Layout>
@@ -10,4 +9,4 @@ export default () => (
       <p>Send us a message!</p>
     </div>
   </Layout>
-)
+);

@@ -22,13 +22,15 @@ export default class Paginator {
   }
 
   getPage(pageNum) {
-    if (isInvalidPage.call(this, pageNum)) return [];
+    if (isInvalidPage.call(this, pageNum)) {
+      return [];
+    }
 
     const start = (pageNum - 1) * this.numOfPostsPerPage;
     const end = start + this.numOfPostsPerPage;
     return this.publishedBlogPosts
       .slice(start, end)
-      .map(postWithDate => postWithDate.post);
+      .map((postWithDate) => postWithDate.post);
   }
 }
 

@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-weight: 300;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -25,14 +26,14 @@ body {
     text-align: center;
     font-size: 1.5em;
   }
-  ul {
-    padding: 0 10px 0 30px
 
-    li + li {
+  ul {
+    padding: 0 10px 0 30px li + li {
       margin-top: 10px;
     }
   }
 }
+
 .button {
   display: flex;
   justify-content: center;

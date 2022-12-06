@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
 
 /*
@@ -33,7 +33,7 @@ export default ({ title, description, image }) => {
   `);
 
   const siteMetadata = data.site.siteMetadata;
-  const shouldUseLargeTwitterCard = image ? true : false;
+  const shouldUseLargeTwitterCard = !!image;
 
   title = title || siteMetadata.title;
   description = description || siteMetadata.description;

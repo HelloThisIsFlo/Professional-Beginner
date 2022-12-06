@@ -7,7 +7,7 @@ export default () => {
   return (
     <aside className={styles.sidebar}>
       <BulletPoints />
-      <hr className={styles.separator}/>
+      <hr className={styles.separator} />
       <AboutMe />
     </aside>
   );

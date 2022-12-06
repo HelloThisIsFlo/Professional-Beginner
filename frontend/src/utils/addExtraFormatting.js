@@ -1,2 +1,1 @@
-export default html =>
-    html.replace("---", "—").replace("...", "…");
+export default (html) => html.replace("---", "—").replace("...", "…");

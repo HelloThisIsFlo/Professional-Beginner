@@ -1,7 +1,7 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import Button from "../button";
-import * as styles from './bullet-points.module.scss'
+import * as styles from "./bullet-points.module.scss";
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -19,7 +19,9 @@ export default () => {
         dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
       ></div>
       <div className={styles.readMore}>
-        <Button to="/about" size="s">Read More</Button>
+        <Button to="/about" size="s">
+          Read More
+        </Button>
       </div>
     </div>
   );

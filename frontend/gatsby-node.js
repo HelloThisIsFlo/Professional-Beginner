@@ -13,13 +13,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       getNode,
       basePath: "posts/",
-      trailingSlash: false
+      trailingSlash: false,
     });
 
     createNodeField({
       node,
       name: "slug",
-      value: slug
+      value: slug,
     });
   }
 };
@@ -47,27 +47,29 @@ exports.createPages = async ({ graphql, actions }) => {
 
   function createBlogPostsPages() {
     blogPosts
-      .map(post => post.fields.slug)
-      .forEach(slug => {
+      .map((post) => post.fields.slug)
+      .forEach((slug) => {
         createPage({
           path: slug,
           component: path.resolve("./src/templates/post.jsx"),
           context: {
             slug: slug,
-            heroGlob: `posts${slug}/hero.*`
-          }
+            heroGlob: `posts${slug}/hero.*`,
+          },
         });
       });
   }
+
   function createIndex() {
     createPage({
       path: "/",
-      component: path.resolve("./src/pages/pages.jsx")
+      component: path.resolve("./src/pages/pages.jsx"),
     });
   }
+
   function createRedirectForOldPosts() {
     [
-      ['/manifesto', '/about'],
+      ["/manifesto", "/about"],
       ["/post/1", "/about"],
       ["/post/2", "/my-learning-path"],
       ["/post/3", "/tdd-my-hopes"],
@@ -91,14 +93,14 @@ exports.createPages = async ({ graphql, actions }) => {
       ["/post/12", "/a-new-beginning"],
       ["/post/13", "/my-first-fe-kata"],
       ["/post/14", "/background-image-with-rounded-corners"],
-      ["/post/15", "/static-vs-relative"]
+      ["/post/15", "/static-vs-relative"],
     ].forEach(([oldPath, newPath]) => {
       createPage({
         path: oldPath,
         component: path.resolve("./src/templates/oldPostsRedirect.jsx"),
         context: {
-          redirectTo: newPath
-        }
+          redirectTo: newPath,
+        },
       });
     });
   }

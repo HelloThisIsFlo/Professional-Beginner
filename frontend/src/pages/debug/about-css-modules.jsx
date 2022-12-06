@@ -1,8 +1,8 @@
-import React from "react"
-import Layout from "../../components/layout"
-import * as styles from "./about-css-modules.module.scss"
+import React from "react";
+import Layout from "../../components/layout";
+import * as styles from "./about-css-modules.module.scss";
 
-const User = props => (
+const User = (props) => (
   <div className={styles.user}>
     <img src={props.avatar} className={styles.avatar} alt="Avatar" />
     <div className={styles.description}>
@@ -10,7 +10,7 @@ const User = props => (
       <p className={styles.excerpt}>{props.excerpt}</p>
     </div>
   </div>
-)
+);
 
 export default () => (
   <Layout>
@@ -27,4 +27,4 @@ export default () => (
       excerpt="I'm Bob Smith, a vertically aligned type of guy. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
     />
   </Layout>
-)
+);

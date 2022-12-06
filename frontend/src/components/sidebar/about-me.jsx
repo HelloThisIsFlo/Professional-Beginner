@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import Button from "../button";
 import * as styles from "./about-me.module.scss";
@@ -29,7 +29,7 @@ export default () => {
           fixed={data.file.childImageSharp.fixed}
         />
       </Link>
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} ></div>
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
       <Button to="/about" className={styles.readMore} size="s">
         Read More
       </Button>

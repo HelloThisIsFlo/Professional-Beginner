@@ -63,6 +63,7 @@
     .line-numbers-rows {
       border-right: 1px dashed lightgrey;
     }
+
     .command-line-prompt {
       border-right: none;
     }
@@ -141,6 +142,7 @@
       font-size: 4.5em;
     }
   }
+
   h2 {
     margin-bottom: 0.5em;
     font-size: 2.5em;
@@ -151,39 +153,49 @@
       font-size: 3em;
     }
   }
+
   h3 {
     font-size: 1.8em;
   }
+
   h4 {
     font-size: 1.5em;
     font-weight: 200;
   }
+
   h5 {
     font-size: 1.25em;
   }
+
   h6 {
     margin: 10px auto;
     font-size: 0.9em;
     font-weight: 600;
     text-transform: uppercase;
   }
+
   p {
     font-weight: 300;
     text-align: justify;
   }
+
   a {
     color: #eb5e28;
     font-weight: 400;
     text-decoration: none;
     transition: color 0.2s;
+
     &:hover {
       color: #b33c12;
     }
   }
+
   em {
   }
+
   strong {
   }
+
   blockquote {
     margin: 0 0 20px;
     padding: 10px 20px;
@@ -194,11 +206,13 @@
       margin: 0;
     }
   }
+
   figcaption {
     margin: 1em 0 3em 0;
     font-weight: 500;
     text-align: center;
   }
+
   hr {
     width: 90%;
     height: 1px;

@@ -1,4 +1,4 @@
-import * as styles from './button.module.scss';
+import * as styles from "./button.module.scss";
 import React from "react";
 import { Link } from "gatsby";
 
@@ -8,7 +8,7 @@ export default function Button({
   to,
   variant = "orange",
   size = "m",
-  clickable = true
+  clickable = true,
 }) {
   let colorClass;
   switch (variant) {
@@ -21,7 +21,9 @@ export default function Button({
       break;
 
     default:
-      throw new Error("The only available color variants are 'orange' and 'teal'");
+      throw new Error(
+        "The only available color variants are 'orange' and 'teal'"
+      );
   }
 
   let sizeClass;
@@ -38,9 +40,8 @@ export default function Button({
       throw new Error("The only available size variants are 'm' and 's'");
   }
 
-
   return (
-    <Link className={clickable ? '' : styles.notClickable} to={to}>
+    <Link className={clickable ? "" : styles.notClickable} to={to}>
       <button
         className={`${styles.button} ${colorClass} ${sizeClass} ${className}`}
       >
@@ -48,4 +49,4 @@ export default function Button({
       </button>
     </Link>
   );
-};
+}
