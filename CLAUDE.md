@@ -17,7 +17,7 @@ Professional Beginner (professionalbeginner.com) — a personal blog by Florian 
 ### Frontend (run from `frontend/`)
 
 ```bash
-yarn install              # Install dependencies
+npm install               # Install dependencies
 npm run develop           # Dev server on port 9000
 npm run build             # Production build
 npm run serve             # Serve production build
