@@ -7,11 +7,9 @@ const app = express();
 const port = 3000;
 const rssFeedPath = "/rss.xml";
 const allPostsDataFromFrontendUrl = "http://frontend:9000/allPosts.json";
-const now = Date.now();
-
 function isReleased(RSSFeedItem) {
   const releaseDate = new Date(RSSFeedItem.date);
-  return releaseDate.getTime() <= now;
+  return releaseDate.getTime() <= Date.now();
 }
 
 function mapToRSSFeed(dataFromFrontend) {
