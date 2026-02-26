@@ -12,18 +12,21 @@ docker compose -f docker-compose.prod.yml pull
 docker compose -f docker-compose.prod.yml up -d
 ```
 
-## Next Up: Cloudflare Analytics
+## Investigate: Cloudflare Analytics
 
-We want to add analytics. Flo already uses Cloudflare for DNS.
+Cloudflare Web Analytics is already showing data (Core Web Vitals, visits, page views) — likely auto-injected because the domain is proxied. No JS snippet was added to the site.
 
-**Setup steps:**
-1. Cloudflare dashboard → `professionalbeginner.com` → **Web Analytics** → **Add site**
-2. Copy the beacon token
-3. Add the script to `baseof.html` before `</body>`:
-   ```html
-   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
-   ```
-4. (Or set the token in `hugo.toml` under `[params] cloudflareAnalytics` — placeholder already exists)
+**To explore:** Dashboard → `professionalbeginner.com` → Analytics & logs → Web analytics. Check if per-page breakdowns, referrers, and time-on-page are available, or if the JS beacon would add more detail.
+
+**If more detail is needed**, add the beacon script to `baseof.html` before `</body>`:
+```html
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
+```
+The token is public (visible in page source to all visitors), so it's safe to commit directly.
+
+## Nice-to-Have: Gitleaks Pre-commit Hook
+
+Add [gitleaks](https://github.com/gitleaks/gitleaks) as a pre-commit hook to prevent accidentally committing secrets. Repo is currently clean (scanned Feb 26 2026).
 
 ## Nice-to-Have: Image Optimization
 
