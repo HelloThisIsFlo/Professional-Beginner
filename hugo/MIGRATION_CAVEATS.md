@@ -49,9 +49,14 @@ Hugo generates pages at `/tags/`, `/tags/learning/`, etc. These are functional b
 
 ## Nice-to-Haves for Later
 
-- **Image optimization** — Add Hugo image processing for responsive images and WebP
-- **Heading anchor links** — Custom `render-heading.html` hook
+- **Analytics (Cloudflare Web Analytics)** — Free, no cookies, GDPR-friendly. Add to `baseof.html` before `</body>`:
+  ```html
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
+  ```
+  Get the token from Cloudflare dashboard → Web Analytics → Add site. Can be gated on a hugo.toml param (see `GUIDE.md` for pattern).
+- **Hero image hover animation** — The original Gatsby site had an animated shadow effect on hero images (expanding shadow PNG from Tumblr). Current Hugo version uses a simpler `scale(1.02)` hover. Could recreate with CSS `box-shadow` animation.
+- **Heading anchor links** — Custom `render-heading.html` hook to add a visible `#` icon next to headings for copying permalink
 - **Dart Sass migration** — `libsass` is deprecated; switch to `dartsass` when ready
 - **Google Fonts self-hosting** — Eliminate third-party CDN request
-- **Twitter meta tags** — Add `twitter:creator` with `@HelloThisIsFlo`
-- **Hero image presentation on index** — The original Gatsby site had an animated shadow effect on hero images. Current Hugo version uses a simpler `scale(1.02)` hover
+- **Twitter/X meta tags** — Add `twitter:creator` with `@HelloThisIsFlo`
+- **Image optimization** — Add Hugo image processing for responsive images and WebP
