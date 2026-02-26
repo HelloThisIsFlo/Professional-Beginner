@@ -22,7 +22,12 @@
         <img class="post-img" src="{{ .RelPermalink }}" alt="{{ $.Title }}">
       </div>
       {{ end }}
-      <p class="post-excerpt">{{ .Summary | plainify | truncate 200 }}</p>
+      {{ $excerpt := .Summary | plainify | htmlUnescape }}
+      {{ if $excerpt }}
+      <p class="post-excerpt">{{ $excerpt | replaceRE "\\s*…\\s*$" "" | replaceRE "\\s*\\.\\.\\.$" "" | truncate 200 " . . ." }}</p>
+      {{ else }}
+      <p class="post-excerpt">. . .</p>
+      {{ end }}
     </a>
   </li>
   {{ end }}

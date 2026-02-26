@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i&display=swap");
 @import "variables";
+@import "chroma";
 
 // ==========================================================================
 // Base / Reset
@@ -260,10 +261,6 @@ p {
   margin-top: 2.5em;
 }
 
-.post-excerpt::after {
-  content: " . . .";
-}
-
 .post-img-wrapper {
   position: relative;
   width: 90%;
@@ -274,24 +271,12 @@ p {
   box-shadow: 0 2px 2px #ccc5b980;
 }
 
-.post-img-wrapper::before {
-  position: absolute;
-  display: block;
-  background-image: url("https://static.tumblr.com/i21wc39/coTmrkw40/shadow.png");
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  z-index: 0;
-  content: "";
-  bottom: -12%;
-  left: -12%;
-  right: 0;
-  top: 0;
-  transition: all 0.2s;
+.post-img-wrapper {
+  transition: transform 0.2s;
 }
 
-.post-img-wrapper:hover::before {
-  transform: scale(1.05) translate(10px, 0px);
+.post-img-wrapper:hover {
+  transform: scale(1.02);
 }
 
 .post-img {
