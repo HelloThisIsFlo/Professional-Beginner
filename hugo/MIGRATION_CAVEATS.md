@@ -4,7 +4,7 @@ Things that weren't fully migrated, known differences, and items to verify befor
 
 ## Features Explicitly Skipped
 
-- **Disqus comments** — Not ported. See `GUIDE.md` for setup instructions (Disqus, Giscus, or Utterances)
+- ~~**Disqus comments**~~ — Ported. Uses Hugo built-in template with shortname `professionalbeginner`. Comments carry over from Gatsby (same URLs).
 - **Google Analytics** — Not enabled. Placeholder in `hugo.toml`, instructions in `GUIDE.md`
 - **PWA / Service Worker** — Not ported. Overkill for a static blog
 - **Jest tests** — Not applicable (no JavaScript application layer in Hugo)

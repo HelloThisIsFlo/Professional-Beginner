@@ -58,10 +58,26 @@ docker-compose up --build   # Build and serve on port 2000
 - Excerpt separator: `<!--more-->`
 - Hero images: named `hero.*` in the page bundle directory
 
+## CI/CD
+
+- GitHub Actions builds and pushes to `ghcr.io/hellothisisflo/professional-beginner` on push to `main`
+- Image tagged with `latest` and git SHA (e.g., `sha-abc1234`)
+- See `.github/workflows/publish.yml`
+
+## Current Work
+
+**Read `WIP.md` first** — contains active discussions, pending tasks, and recent context.
+
 ## Migration History
 
 This site was migrated from Gatsby 5 in Feb 2026. See:
 - `hugo/MIGRATION_LOG.md` — Full record of changes
-- `hugo/MIGRATION_CAVEATS.md` — Known gaps and things to verify
+- `hugo/MIGRATION_CAVEATS.md` — Known gaps, nice-to-haves, and things to verify
 - `hugo/GUIDE.md` — How to add analytics, comments, write posts
 - Tag `last-gatsby-version` marks the final Gatsby commit for reference
+
+## User Preferences
+
+- Prefers **Flo** (not Florian)
+- Make decisions autonomously, don't ask questions halfway
+- Commit locally as you go, separate commits for separate concerns
