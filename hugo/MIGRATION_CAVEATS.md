@@ -61,4 +61,5 @@ Hugo generates pages at `/tags/`, `/tags/learning/`, etc. These are functional b
 - **Heading anchor links** — Custom `render-heading.html` hook to add a visible `#` icon next to headings for copying permalink
 - **Dart Sass migration** — `libsass` is deprecated; switch to `dartsass` when ready
 - **Google Fonts self-hosting** — Eliminate third-party CDN request
+- **Tip jar** — Add a "Buy Me a Coffee" or Ko-fi button/link
 - **Image optimization** — Add Hugo image processing for responsive images and WebP
