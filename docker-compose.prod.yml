@@ -1,0 +1,7 @@
+services:
+  blog:
+    image: ghcr.io/hellothisisflo/professional-beginner:latest
+    restart: always
+    ports:
+      - published: 2000
+        target: 80
