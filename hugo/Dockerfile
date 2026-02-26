@@ -1,4 +1,43 @@
-# Stage 1: Download Hugo binary (Alpine has wget built-in, avoids apt-get)
+# Multi-stage build: each FROM starts a fresh stage. Only the final
+# stage (nginx) ends up in the shipped image. Earlier stages are
+# throwaway workbenches — we just COPY specific files out of them.
+#
+# ┌─────────────────────────────────────────┐
+# │ Stage 1: "downloader" (Alpine)          │
+# │                                         │
+# │  Downloads Hugo binary using Alpine's   │
+# │  built-in wget. Alpine is used instead  │
+# │  of Debian because Debian-slim doesn't  │
+# │  ship wget and apt-get can be fragile.  │
+# │                                         │
+# │  ❌ Thrown away                          │
+# │  ✅ We grab /hugo from it               │
+# └──────────────┬──────────────────────────┘
+#                │ COPY --from=downloader /hugo
+#                ▼
+# ┌─────────────────────────────────────────┐
+# │ Stage 2: "builder" (Debian-slim)        │
+# │                                         │
+# │  Runs Hugo to build the site. Debian    │
+# │  is needed because Hugo Extended        │
+# │  requires glibc (for SCSS processing).  │
+# │                                         │
+# │  ❌ Thrown away too                      │
+# │  ✅ We grab /site/public from it        │
+# └──────────────┬──────────────────────────┘
+#                │ COPY --from=builder /site/public
+#                ▼
+# ┌─────────────────────────────────────────┐
+# │ Stage 3: final image (nginx:alpine)     │
+# │                                         │
+# │  Serves the static files. No Hugo,      │
+# │  no Debian, no source code — just       │
+# │  nginx + the built HTML/CSS/images.     │
+# │                                         │
+# │  ✅ THIS is the final Docker image      │
+# └─────────────────────────────────────────┘
+
+# Stage 1: Download Hugo binary
 FROM alpine:3 AS downloader
 
 ARG HUGO_VERSION=0.142.0
