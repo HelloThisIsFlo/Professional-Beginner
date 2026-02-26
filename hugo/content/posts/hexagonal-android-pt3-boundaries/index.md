@@ -61,7 +61,7 @@ Now let's take a deeper look at our **domain** in the context of the **TicTac ap
 ---
 
 
-##Domain in the TicTacToe App
+## Domain in the TicTacToe App
 
 After few iterations of [Test Driven Developement](/tdd-my-hopes) the resulting domain looked like this.
 
@@ -93,7 +93,7 @@ Yet that just **didn't** quite **felt right**!
 
 All this **decoupling** work to now use the **domain** as if it were only from a **different package**. Sure we've achieved the **greater goal**: All the logic of our application is now well **tested**. But yeah something just did not **feel right**, not enough **separation of concerns** to my taste.
 
-##Crossing boundaries
+## Crossing boundaries
 So I did my **research** and started to **try and understand** what should really be at this **boundary**. And what **kind** of objects should **cross** the boundary.
 
 Turns out this was the source of a big headache and a good conversation with a fellow craftsman.
@@ -107,14 +107,14 @@ The bottom line is: Only **DTOs** should be allowed to cross the Border. With th
 
 Yes, the picture is **intentionally** un-readable, but the point is it gets way more **complex**, at least in **appearence**. I am not going to go over the whole process here. Check the [previously mentionned](/the-dto-dilemma) article for that. But the basic **idea** is:
 
-######When creating a new Game:
+###### When creating a new Game:
 
 - A new **Game** is Created from the game **Factory**
 - This **game** is mapped to a **GameStatus** by the **GameMapper**
 - The **GameStatus** is stored in a **Repository**, an **id** is returned
 - The **Id** is used to access the **Game**
 
-######When adding a move to the new Game:
+###### When adding a move to the new Game:
 
 - A **GameStatus** is retrieved from the **Repository** with the **Id** generated at the initialization
 - The **GameStatus** is mapped to a **Game** by the **GameMapper**
@@ -132,7 +132,7 @@ The point is that now **domain objects** do not cross the domain's **boundaries*
 ![DTO at the boundaries](dtoBoundaries.jpg)
 
 
-###Keep It Simple, Stupid
+### Keep It Simple, Stupid
 
 Now we have a wonderful **domain API** with only **Factories**, **Repositories** and **DTO** crossing the border. A bit better in terms of **separation of concerns**, but still not entirely satisfying when it comes to **encapsulation**.
 
@@ -144,7 +144,7 @@ To solve both the problem of **objects ownership**, and **simplify** the domain 
 
 > Note: As of today this is my first project with a clear separation of the domain. I have yet to explore the proper way to code the domain. So, I have at the moment no idea about entities, services, and other domain-related concepts. I am after all the Professional **Beginner** ;) (And yes Domain Driven Desing by Eric Evans is already on my bookshelf)
 
-##The application layer
+## The application layer
 
 The Application Layer is just at the **border** between the **domain** and its **consumer**. That's where the **driving** adapters belong.
 That's also where I decided to put the **interfaces** for the **driven** adapters.
@@ -155,7 +155,7 @@ Its **role** is to use objects of the **domain** to create an **easy to use** in
 
 I'm sure there are **multiple ways** to approach this particular layer of our application. But as a matter of personal preference, I decided to focus on an implementation that is my interpretation of a concept made popular by **Robert C Martin**, and originally presented by **Ivar Jacobson** : A Use-case driven approach.
 
-###Use-case approach
+### Use-case approach
 
 The idea as presented in this [blog post](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html) and this [talk](https://vimeo.com/43612849) by Uncle's Bob, is to have a couple of **Interactors** taking care of the **orchestration** of operations in the domain to realize a specific **use-case**.
 
@@ -174,12 +174,12 @@ They are the **perfect answer** to what I was looking for because:
 From now on, whenever a new game needs to be created, or a move needs to be added. The interaction is reduced to a **single call** to a UseCase Object.
 
 
-######When creating a new Game:
+###### When creating a new Game:
 
 - Call the *execute* method of the **InitNewGameUseCase**
 - The **ID** necessary to take further actions on the game is retrieved through a callback previously provided to the use-case.
 
-######When adding a move to the new Game:
+###### When adding a move to the new Game:
 
 - Create a new **Move**
 - Pass it to **AddMoveUseCase**
@@ -188,7 +188,7 @@ From now on, whenever a new game needs to be created, or a move needs to be adde
 The **AddMoveUseCase** takes care of fetching the correct **GameStatus** from the **repository**, do the **mapping**, execute the **move**, re-maps the **Game** to a **GameStatus** and returns it to the **consumer** through a callback previously provided.
 
 
-##Conclusion
+## Conclusion
 
 Oddly what took me quite some time to wrap my head around how ***use-cases*** could be represented as concrete classes. To be honest I'm still **skeptical** that the way I handled things for this TicTacToe project is the **absolute correct way**. I guess it'll either become more obvious with time, or I'll update this article once I have a deeper understanding of the Application layer.
 About this very problem, thanks again to [Fernando Cejas](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/) for making it real clear how use cases could be represented.

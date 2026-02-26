@@ -14,7 +14,7 @@ When implementing the **hexagonal architecture** in my TicTacToe Project, and th
 
 After implementing two project using strictly DTOs, I am not sure anymore the idealistic abstraction of boundaries is **worth the trouble**. What's your take on that?
 
-##Clean boundaries
+## Clean boundaries
 The main aspect of the Hexagonal architecture is: **separation of concerns**. To that extend the Domain is **free** of any dependencies.
 
 *To have a better overview of the Hexagonal Architecture, check out my series on the topic: [Hexagonal Architecture](/hexagonal-android-pt1-intro*)
@@ -25,7 +25,7 @@ Indeed, if all the Domain objects were **accessible** from the different modules
 
 The solution for that is to **abstract the boundary** between the domain and the other modules. From the point of view of the modules; What we really want: is to **ask** the domain to do something, realize a service. What we do not want: is to **know** how that's done.
 
-##Matryoshka, or the Micro Network
+## Matryoshka, or the Micro Network
 
 The easiest way to picture this abstraction, in my opinion, is to imagine the **Domain as a remote server**, and all the Modules as clients of this server. They can interact. In both directions, but their interaction is **normalized**.
 
@@ -34,11 +34,11 @@ The most decoupled way to communicate with a server is through a **REST** interf
 There comes the ~~king~~ **DTO**.
 
 
-### The Data Transfer Object
+###  The Data Transfer Object
 
 The **Data Transfer Object** is an object whose sole purpose is to hold other values. **No logic**, nothing, simply values. Since there is no logic at all, using public fields should perfectly fine.
 
-######A typical DTO would look like this
+###### A typical DTO would look like this
 
 ~~~ java
 public class PersonDto {
@@ -56,7 +56,7 @@ public class PersonDto {
 
 Following our previous analogy, the DTO is the equivalent of a JSON object. It is a **code representation of a serialized state** that can be passed around without any worries. Why that? Because even thought the DTO is used to share state. It itself is completely **stateless**. It is a snapshot of an object at a given time.
 
-###Mapping, mapping, mapping
+### Mapping, mapping, mapping
 In this heaven of boundaries abstraction, the Domain **shares** data with the different modules using exclusively DTOs.
 
 But the domain **does not manipulate** DTOs. As their name imply they are exclusively used to **transfer** data. Domain objects **need** to have behavior, DTOs **intentionally don't**.
@@ -65,13 +65,13 @@ Therefore every time a DTO is shared, a corresponding object, with **behavior**,
 
 Then the domain objects are used in the Domain just as before the introduction of DTOs. And when a result is ready to be made available to the module that requested it, the **Mapper** will immortalize a snapshot of the Domain object to a DTO to share it across the boundary.
 
-###Example: Translation of an Article
+### Example: Translation of an Article
 To make things clearer here is an **example**: The translation to a different language of a text Article.
 
 The service offered by the Domain to another module, say the Presentation module, for instance, is to **translate** the content of an article.
 
-####Building Blocks
-######The Article and its corresponding DTO
+#### Building Blocks
+###### The Article and its corresponding DTO
 
 ~~~ java
 public class ArticleDto {
@@ -109,7 +109,7 @@ public class Article {
 }
 ~~~
 
-######Some Translator
+###### Some Translator
 ~~~ java
 public enum Language {
     ENGLISH,
@@ -130,14 +130,14 @@ public class Translator {
 
 As we can see from the building blocks, the article possesses a method that translates its content to a given language. This is done through the use of a **Translator**. Nothing interesting so far.
 
-####The Use Case
+#### The Use Case
 The **way** this service is offered to external modules is, however, interesting. The Presentation module would access this service through a dedicated **UseCase** class whose standardized way to communicate is through the use of **DTO**.
 
 Then the DTO would be **mapped** to a domain object. From this point, we enter the **Domain realm** and things go as initially planned.
 
 Finally, when a result is available, it is **mapped** again to a DTO and sent to the presentation layer.
 
-######The UseCase
+###### The UseCase
 ~~~ java
 public class TranslateArticleUseCase {
 
@@ -160,7 +160,7 @@ public class TranslateArticleUseCase {
 }
 ~~~
 
-######The Mapper
+###### The Mapper
 ~~~ java
 public class ArticleMapper {
 
@@ -180,7 +180,7 @@ public class ArticleMapper {
 }
 ~~~
 
-###Conclusion
+### Conclusion
 
 After this introduction on the use of DTO at the Domain boundary, we can see that there is nothing difficult to understand.
 
@@ -188,7 +188,7 @@ It simply consists of a set of **conventions** that, when followed, offer a **lo
 
 Using DTO is definitely effective to reduce coupling in the application, but, as always, it is not a Silver Buller. 
 
-##Mapping, mapping, mapping. Take two!
+## Mapping, mapping, mapping. Take two!
 To summarize in one sentence: Using DTOs at the boundary of the Domain is the POJO equivalent of serializing the data before transmitting it to the modules.
 
 This serialization - deserialization is done with the help of **Mappers**. They map DTOs to Domain Objects.
@@ -199,7 +199,7 @@ But are DTOs really helping maintainability?
 
 Taking a look back at the **Mappers**, they don't only convert DTOs to Domain Objects. They also convert DTOs to Presentation Objects, DTOs to Persistence Objects, DTOs to NetworkObjects, . . . That is **a lot** of mapping.
 
-###Is decoupling an illusion?
+### Is decoupling an illusion?
 With all this mapping are the modules and the Domain really more decoupled than they would be without the use of DTOs? 
 
 Sure if the 'Article' Domain object decided to change his **behavior** this wouldn't **affect** at all any of the other modules. But, if OOP is done right, even **without** the uses of DTOs it shouldn't either.
@@ -218,10 +218,10 @@ And that is: **The DTO dilemma**
 
 
 
-##The DTO dilemma
+## The DTO dilemma
 
 The **DTO dilemma** follows the **DTO paradox**. The DTO paradox goes like this:
-######Both these sentences are true: 
+###### Both these sentences are true: 
 
  - Using DTOs **reduces** coupling therefore **increase** maintainability
  - Using DTOs **increases** duplication therefore **reduces** maintainability

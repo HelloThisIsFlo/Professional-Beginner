@@ -17,16 +17,16 @@ There are mainly 2 ways of doing things, but today let's start with the basics a
 
 *The second part of this series is just there: [The Web Pt.2](/the-web-pt2)*
 
-## Server-side rendering
+##  Server-side rendering
 
 Don't fear the complex name, **Server side rendering** is actually a pretty simple process.
 But in order to understand it, let's first backtrack a little bit. 
 
 Imagine a simple **non-web** application: **A command line application.**
 
-### Before the web
+###  Before the web
 
-######How would you display information to the user?
+###### How would you display information to the user?
 
 1. The application would produce some data (Do some computation, fetch files from the disk ...)
 2. **The result would be formatted**
@@ -50,7 +50,7 @@ end
 ###### Human readable result
 ~~~ bash
 ####################
-###    RESULT    ###
+###     RESULT    ###
 ####################
 
 // Hello, I am a human readable result! //
@@ -64,7 +64,7 @@ Well, a **web application** using **server side rendering** works exactly the sa
 
 The only part that changes is **how** the result is formatted. Instead of using a combination of text characters to make the result look readable there is a tool specifically made for that: **HTML & CSS**
 
-### Formatting
+###  Formatting
 
 The role of **Html & CSS** is nothing more than to format the information to display it to the user. **Html** defines the **structure**, and **CSS** defines how to "make it **look** beautiful".
 
@@ -80,7 +80,7 @@ To understand, let's first imagine a simple non-web application: A command line 
 Into this:
 ![HTML & CSS formatted result](afterhtml.jpg)
 
-### Printing the output
+###  Printing the output
 
 After the result is formatted, just as for the command line application, the result is sent to the **output** that will **print** it.
 
@@ -88,7 +88,7 @@ Except that for a website the **output** is the **client browser**. The browser 
 
 And that's what **browsers** do: **Intepret HTML and print it**.
 
-### The missing link
+###  The missing link
 
 Ok, let's sum up what we've seen by now.
 
@@ -119,7 +119,7 @@ A few questions then come in mind:
 
 How do you connect your application to the web?
 
-#### The web-frameworks, and other jargon
+####  The web-frameworks, and other jargon
 
 You've probably heard of Rails (Ruby), Django (Python), Spring (Java), and maybe you even know they are web-frameworks.
 
@@ -131,7 +131,7 @@ Then after receiving a result from your application, you can **format** it with 
 
 ![Role of the Web-Framework](webframework.jpg)
 
-#####HTTP, TCP, IP
+##### HTTP, TCP, IP
 
 In this article I will not delve deep into how **HTTP, TCP, and IP** work. What really matter is what they achieve when they are **combined together**.
 
@@ -145,18 +145,18 @@ A simplistic but practical representation of what they each do is:
  - **TCP**: Locates the application on the server, and provide a communication channel
  - **HTTP**: Uses this TCP channel to transmit information
 
-#### Almost there
+####  Almost there
 
 At this point, we now have a pretty good idea how a server side rendered web application works. However, there are still 2 points I'd like to cover in this article.
 
-#####Template engine
+##### Template engine
 
 When I mentioned earlier that the result of an operation was **formatted** using HTML&CSS. I didn't explain **how** that was done in practice.
 Sure we could concatenate a set of strings to create the desired HTML result. But obviously, there is a better way, a simpler way.
 
 Comes into play the **template engine**. The template engine simply allows you to define **HTML templates** with "holes" in it.
 
-######The template
+###### The template
 ~~~html
 <!DOCTYPE html>
 <html>
@@ -178,7 +178,7 @@ Then all you have to do is to hand over to the template engine the **template** 
 </html>
 ~~~
 
-#####Javascript
+##### Javascript
 All this time we have been talking about how websites work, how servers process requests, how HTML web pages are interpreted by the browser. 
 
 And yet **we did not mention** a single time: **Javascript**. The #1 language on the web.
@@ -188,12 +188,12 @@ Why is that? Well because on a **server side rendered** application, Javascript 
 **Javascript** is a language that is **sent**, along with the HTML&CSS web page, **to the client.**
 Javascript is exectued on the **client browser**.
 
-######The problem before Javascript
+###### The problem before Javascript
 With our current model, **each click** of the user generates a **web request** to the server. The server then generates a **new page** and sends it back to the client.
 
 That would mean that the smallest interactions would require to **reload** another page.
 
-######The solution with Javascript
+###### The solution with Javascript
 To allow **interaction with the page itself**, without creating a new page, **javascript** runs on the **client browser** and allows to **modify the structure of an existing page**.
 
 Now if we want to **expand** a menu for instance. There is no need to request a new web page with the menu visible. We would delegate this action to **Javascript** which would simply make the menu visible on the existing web page
@@ -208,7 +208,7 @@ Javascript: when clicking menu, do: |
 ~~~
 
 
-### The Big Picture
+###  The Big Picture
 
 This concludes the first article of my 2 part series on how the web works.
 

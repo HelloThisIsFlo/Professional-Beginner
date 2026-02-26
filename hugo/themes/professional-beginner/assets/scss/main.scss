@@ -314,14 +314,9 @@ p {
 .pagination-arrow-next {
   transition: all 0.3s;
   display: inline-block;
-}
-
-.pagination-arrow-prev {
-  vertical-align: -0.15em;
-}
-
-.pagination-arrow-next {
-  vertical-align: -0.25em;
+  font-size: 1.3em;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .pagination-link:hover .pagination-arrow-prev {
@@ -503,7 +498,8 @@ p {
 
   // Image captions (figcaption from render hook)
   figure {
-    margin: 1em 0;
+    margin: 1em auto;
+    max-width: 80%;
     text-align: center;
 
     img {

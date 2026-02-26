@@ -13,7 +13,7 @@ Now, I know that **TDD** can be quite **controversial**. Some live by its **prin
 
 I'm not here for the **hype**, I really have my **hopes** for **TDD**. Will it live up to my **expectations**?
 
-##Tests are boring, TDD is amazing
+## Tests are boring, TDD is amazing
 
 We all have that feeling that writing tests is a **boring**, repetitive and not productive task. Yet when I practice **TDD**, **never** have I had this sentiment of uselessness. In fact, it's quite the **opposite**. It feels **amazing!**
 
@@ -24,13 +24,13 @@ At the very **beginning** of my journey in January, I had 2 **major issues**. Th
 
 **TDD** solved both these problems for me.
 
-##Imperfectionphobia
+## Imperfectionphobia
 
 If you've read my "[About me](/about#my-short-story)" section. You may see what **drives** me in this adventure. I always wanted to do things the **right** way. The **problem** comes with the fact that: In programming, I could try my **whole life** trying to do something **the** right way. Because there is **never** such thing. A right way **among many others**, for sure, but a **single absolute truth** . . .
 
 And yet, as a fool, I was trying to **reach it**.
 
-#####The result ?
+##### The result ?
 
 For every line of **code** I would write I would spend **hours** reading StackOverflow **posts**, blog **articles**, **source code**, to try and identify what the **line** I've just written **fundamentally does**.
 
@@ -40,7 +40,7 @@ Ok, maybe not ***every*** line. But you've got the idea.
 
 The problem **never was** the time spent reading about different problems and solutions. I **learned** a lot doing that, and actually keep doing it on a **daily basis**. No, the problem is that most of the times I was **afraid** of missing the point. I was afraid that the piece of code I've just written would **fail** miserably in an **edge case** I wouldn't have covered.
 
-###The edge case monster
+### The edge case monster
 So what would happen is, I would:
 
 - Write a fairly **simple** piece of code
@@ -61,7 +61,7 @@ Yep, that **wasn't helping**. But I didn't know **better**.
 
 Then I heard about **TDD**.
 
-##Red, green, refactor
+## Red, green, refactor
 
 ![Red-Green-Refactor: TDD cycle](tddCycle.jpg)
 
@@ -83,12 +83,12 @@ Since, with **TDD**, tests are **not** written to validate an **existing** behav
 
 And that is when I am talking about **Magic**. Because, pushing one step further, being covered by a **test harness** means that I can refactor **AT WILL** without the fear of breaking anything.
 
-###The real of creativity
+### The real of creativity
 This maybe the most important reason for my interest in **TDD**. Once the **Test Harness** is in place and refactoring is **safe**, we enter the **realm of creativity**.
 
 This is where I can try different **approaches** for the same problem, experiment with **design patterns**. Basically, this is where all my **learning** happen.
 
-######In the end for me the TDD cycle looks more like this
+###### In the end for me the TDD cycle looks more like this
 
 ![Refactoring as an continuous process](hero.jpg)
 
@@ -96,7 +96,7 @@ In this test-covered **Heaven**, everything is beautiful. But there is **one** t
 
 
 
-###The era of Quantify self
+### The era of Quantify self
 The other problem I mentioned I had before my discovery of **TDD** was my lack of **productivity**. Indeed as explained in the [previous section](#the-edge-case-monster "The edge case monster"), I would **waste** a lot of time looking into deeper and deeper options, only to realized I was **lost** in the end. **TDD** definitely **solved** that.
 
 **But that's not it!** If you know me in real life, you know I love to **track** everything. I **track** my activity, my food, my work hours, my learning progress (you're reading it). **Why?** Because it makes me more **motivated**, more **productive**. By **abstracting** away the notion of **progress** into a **tracking system**, and **removing** it from my **thoughts**. I can fully **focus** on my **work!** And then when **necessary**, and only then, I can take a look back to do a **retrospective analysis** backed by the collected data.
@@ -105,7 +105,7 @@ Where am I getting at? Well, the **Test Harness** created by **TDD**, not only p
 
 **Defining** the **behavior** of a system in terms of **tests**, allows for a very fine **tracking** of progress towards the **realization** of the project. And again this might just be only me, but personally, I cannot find anything else more **motivating** than that.
 
-###A Flawless system
+### A Flawless system
 
 Now am I saying that **TDD** by itself produces **flawless** systems? **Absolutely not!** But what I am saying is that if the **test harness** is here and enable **refactoring** at will. Then, a **bug** in the software, translate into writing a new **failing test**.
 
@@ -113,7 +113,7 @@ Doing so **further specify** the **behavior** of our piece of software, includin
 
 Then, the **TDD** process kicks in, a so called ***quick-fix*** is written and with no further delay **refactored** into proper clean code, thus reducing the growth of **technical debt**.
 
-## #NoSilverBullet
+##  #NoSilverBullet
 
 After reading this article I'm sure you're thinking **TDD** is **amazing** and want to **get started** right away. Well if that's really the case, great! Take a look at my [reading list](/my-learning-path#my-learning-path), to get some resources on the topic.
 
@@ -124,7 +124,7 @@ A **LOT** of debates, and opinions.
 
 But my point is **not** to enter those details. I just wanted to **share** with you why I'm so **enthusiastic** about a testing technique, and why I wish I could use it more **often**.
 
-###An ongoing journey
+### An ongoing journey
 Yes, I **wish** I could use **TDD** more **often**. What that means is that, there still is some **situations**, where I simply do not see **yet** how apply TDD. I'm **convinced** that it is possible, I just don't yet know how. I guess that's why I'm the ***professional beginner*** ;) Therefore, I will continue to post about TDD, but most likely in an [open article](/open-articles) format.
 
 That **concludes** this very long article. Thank you for keeping reading until this point. You're the best ;)

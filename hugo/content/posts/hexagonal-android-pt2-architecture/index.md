@@ -65,7 +65,7 @@ For now, all we want is a domain free of Android dependencies.
 ---
 
 
-##Domain
+## Domain
 
 With a domain **java only** testing is a breeze.
 
@@ -81,7 +81,7 @@ Well, anything that supports the **logic** of the application.
 
 The domain contains **all the business logic** necessary to your app. But is **free of any dependencies, android or other.**
 
-####What does not belong in the Domain
+#### What does not belong in the Domain
 
 But now, what if we want to **fetch** a list of objects from say a JSON **API**.
 
@@ -89,7 +89,7 @@ Let’s face it a lot of android applications are wrappers to provide a nice UX 
 
 In this case, we **wouldn’t** really want to get rid of all the dependencies and do the all the **HTTP connections and JSON processing by hand**. That seems to go really hard against the **don’t reinvent the wheel** principle.
 
-#####The Problem
+##### The Problem
 
 **Fetching JSON** is definitely better done when relying on some **3rd party library** for parsing the result from the API, same goes for **connecting to a server**.
 
@@ -97,7 +97,7 @@ Yet the domain should be **free of dependencies**: Android, other frameworks, an
 
 
 
-######Where to put this Network module?
+###### Where to put this Network module?
 
 Well, did I say **"module"** ?
 
@@ -113,7 +113,7 @@ If the network module is completely separated from the domain, and the android a
 
 Through the **domain** of course!
 
-##Boundaries
+## Boundaries
 
 The domain should present an *API* to be used by different modules.
 
@@ -133,7 +133,7 @@ But there's a **trick**, as mentioned in the introduction an *Android free* doma
 
 Following this model, there is a **problem** with the previous statement. How does the domain ***call*** the network or ***dispatch*** the information to the UI, if the domain not supposed to have **any knowledge** of the external modules?
 
-###Ports and Adapters
+### Ports and Adapters
 
 The Hexagonal architecture is called the **Port and adapters** architecture for a reason.
 
@@ -154,7 +154,7 @@ Now how can the domain ***call*** the network and ***dispatch*** the information
 Of course, there can be multiple **driven adapter** for a **single port**. And that's also the beauty of it. This allows to **easily swap components** of the system. Need a mock representation of the network module for testing? That's just one adapter away.
 
 
-######An example
+###### An example
 
 If you application requires a **list of prices** from an **API** then do the **sum** and **display** it :
 
@@ -166,7 +166,7 @@ If you application requires a **list of prices** from an **API** then do the **s
 - **UI** display sum
 
 
-##Conclusion
+## Conclusion
 
 To summarize, the **domain** contains all the **logic** of the application. It only handles business-related concerns and is **free of any dependencies**. It is used by/uses **modules** that depend on the **domain**. The communication between the **modules** and the **domain** is established through **ports**. The implementation of **ports** are **adapters**.
 
