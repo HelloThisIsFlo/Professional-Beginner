@@ -37,7 +37,9 @@ summaryLength = 40
 [outputs]
   home = ["HTML", "RSS"]
 
-disqusShortname = "professionalbeginner"
+[services]
+  [services.disqus]
+    shortname = "professionalbeginner"
 
 [taxonomies]
   tag = "tags"
