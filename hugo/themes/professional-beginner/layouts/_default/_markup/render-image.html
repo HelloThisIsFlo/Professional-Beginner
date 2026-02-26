@@ -1,9 +1,10 @@
 {{- $src := .Destination -}}
 {{- $alt := .Text -}}
 {{- $title := .Title -}}
-{{- /* Resolve page-relative images */ -}}
+{{- /* Resolve page-relative images and optimize */ -}}
 {{- $img := .Page.Resources.GetMatch $src -}}
 {{- if $img -}}
+  {{- $img = $img.Process "resize 1200x webp q85" -}}
   {{- $src = $img.RelPermalink -}}
 {{- end -}}
 <figure>

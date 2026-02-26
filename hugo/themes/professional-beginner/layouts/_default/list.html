@@ -18,8 +18,9 @@
       </p>
       {{ $hero := .Resources.GetMatch "hero.*" }}
       {{ with $hero }}
+      {{ $optimized := .Process "resize 800x webp q85" }}
       <div class="post-img-wrapper">
-        <img class="post-img" src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+        <img class="post-img" src="{{ $optimized.RelPermalink }}" alt="{{ $.Title }}">
       </div>
       {{ end }}
       {{ $excerpt := .Summary | plainify | htmlUnescape }}
