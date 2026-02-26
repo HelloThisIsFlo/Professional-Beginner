@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Professional Beginner (professionalbeginner.com) — a personal blog by Florian Kempenich, built with Hugo.
+Professional Beginner (professionalbeginner.com) — a personal blog by Flo Kempenich, built with Hugo.
 
 ## Repository Structure
 

@@ -43,6 +43,6 @@ And now, for my very first project in this new era, I will spend the next couple
 
 Oh and, one more thing: this blog will now revert to its original name. Welcome to "The Professional Beginner", where we apply a ["beginner's mind"](https://en.wikipedia.org/wiki/Shoshin) to the world of software.
 
-*Until next time --- Florian Kempenich, The Professional Beginner*
+*Until next time --- Flo Kempenich, The Professional Beginner*
 
 > The beach picture associated with this post, is actually the place where I finished writing it. In beautiful Lagos, Portugal 😍

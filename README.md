@@ -1,6 +1,6 @@
 # Professional Beginner
 
-Personal blog by Florian Kempenich — [professionalbeginner.com](https://professionalbeginner.com)
+Personal blog by Flo Kempenich — [professionalbeginner.com](https://professionalbeginner.com)
 
 Built with [Hugo](https://gohugo.io/) using a custom theme.
 

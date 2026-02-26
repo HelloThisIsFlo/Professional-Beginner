@@ -12,9 +12,9 @@ summaryLength = 40
   posts = "/:filename"
 
 [params]
-  description = "My name is Florian Kempenich, and I am the Professional Beginner. I apply the Beginner's Mind to the world of Software and share on this blog what I learn throughout my Journey"
-  author = "Florian Kempenich"
-  keywords = ["software", "crafting", "TDD", "testing", "code", "developer", "learning", "Florian Kempenich"]
+  description = "My name is Flo Kempenich, and I am the Professional Beginner. I apply the Beginner's Mind to the world of Software and share on this blog what I learn throughout my Journey"
+  author = "Flo Kempenich"
+  keywords = ["software", "crafting", "TDD", "testing", "code", "developer", "learning", "Flo Kempenich"]
   # Google Analytics - not enabled, but easy to add:
   # googleAnalytics = "G-XXXXXXXXXX"
   # Then add {{ template "_internal/google_analytics.html" . }} to head partial
