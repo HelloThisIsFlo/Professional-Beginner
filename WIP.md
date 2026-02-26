@@ -15,10 +15,6 @@ We want to add analytics. Flo already uses Cloudflare for DNS.
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
 ```
 
-## Pending Cleanup
-
-- **Delete stale dependabot branches on GitHub** — ~12 branches for the deleted frontend/ and RSS_feed/. Can be done via GitHub UI or `gh` CLI.
-
 ## Recently Completed
 
 - Gatsby → Hugo migration (full site, 15 posts, custom theme)
@@ -29,6 +25,7 @@ We want to add analytics. Flo already uses Cloudflare for DNS.
 - `twitter:creator` meta tag added (`@HelloThisIsFlo`)
 - All references updated: Florian → Flo, X handle, CodePen URLs
 - PNG images fixed in .gitignore (was ignoring all PNGs, now root-only)
+- Stale Dependabot branches deleted (12 branches for removed frontend/ and RSS_feed/)
 - nginx `absolute_redirect off` (fixes port loss in redirects)
 
 ## User Preferences
