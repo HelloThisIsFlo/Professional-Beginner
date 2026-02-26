@@ -5,8 +5,8 @@ hugo/resources/_gen/
 # Playwright MCP artifacts
 .playwright-mcp/
 
-# Screenshots
-*.png
+# Screenshots (root only)
+/*.png
 
 # MCP config
 .mcp.json
