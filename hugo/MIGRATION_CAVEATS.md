@@ -27,6 +27,9 @@ Gatsby provided SPA-like page transitions. Hugo is a traditional multi-page site
 - Hugo: `/page/2/` (singular, trailing slash)
 - Old `/pages/N` URLs from Gatsby will 404. If these were bookmarked/linked, consider adding nginx redirects.
 
+### Excerpt/Summary on Home Page
+Gatsby used `<!--end-->` as the excerpt separator. Hugo uses `<!--more-->` (all replaced during migration). Hugo's `.Summary` adds a trailing `…` automatically, but the original design used `. . .` (spaced dots). The list template strips Hugo's auto-ellipsis and applies `truncate 200 " . . ."` to match the original style. See `list.html` line 27.
+
 ### Code Highlighting Subtle Differences
 Both use solarized-light, but PrismJS (Gatsby) and Chroma (Hugo) may tokenize slightly differently. The Gatsby command-line prompt styling (`floriankempenich@localhost`) is not replicated.
 
@@ -41,7 +44,7 @@ Hugo generates pages at `/tags/`, `/tags/learning/`, etc. These are functional b
 3. ~~**Broken image in tdd-my-hopes** — `tddCycle.jpg` referenced but file is `refactorCycle.jpg`~~ Fixed
 
 ### Should Verify
-4. **Docker build** — Run `docker-compose -f docker-compose.hugo.yml up --build` and verify. The Dockerfile uses `apk add hugo` which may not install Hugo Extended (needed for SCSS). May need to download the binary instead.
+4. ~~**Docker build** — Dockerfile was using `apk add hugo` (no Extended). Fixed: now downloads Hugo Extended binary on Debian.~~ Fixed
 5. **All old URL redirects** — Test `/post/1` through `/post/15`, `/post/01` through `/post/09`, and `/manifesto`
 6. **Mobile layout** — Verify responsive breakpoints work on small screens
 7. **HTML/CSS tag** — Contains a forward slash, creating `/tags/html/css/`. Verify this works
@@ -58,5 +61,4 @@ Hugo generates pages at `/tags/`, `/tags/learning/`, etc. These are functional b
 - **Heading anchor links** — Custom `render-heading.html` hook to add a visible `#` icon next to headings for copying permalink
 - **Dart Sass migration** — `libsass` is deprecated; switch to `dartsass` when ready
 - **Google Fonts self-hosting** — Eliminate third-party CDN request
-- **Twitter/X meta tags** — Add `twitter:creator` with `@HelloThisIsFlo`
 - **Image optimization** — Add Hugo image processing for responsive images and WebP
