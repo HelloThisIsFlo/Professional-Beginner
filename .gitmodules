@@ -1,3 +1,0 @@
-[submodule "blog/posts"]
-	path = frontend/blog/posts
-	url = git@gitlab.com:the_blog/professional-beginner-articles.git

@@ -1,9 +1,0 @@
-version: "3.7"
-
-services:
-  frontend:
-    build: ./hugo
-    restart: always
-    ports:
-      - published: 2000
-        target: 80
