@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="post-single">
+  <h1 id="post-title">{{ .Title }}</h1>
+  <p class="read-time-and-date">
+    {{ math.Round (div (countwords .Content) 265.0) }} min read - {{ partial "ordinal-date.html" .Date }}
+  </p>
+  {{ .Content }}
+</div>
+{{ end }}

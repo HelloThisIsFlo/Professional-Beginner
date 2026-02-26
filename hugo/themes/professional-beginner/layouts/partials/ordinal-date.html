@@ -1,0 +1,11 @@
+{{- $day := .Day -}}
+{{- $suffix := "th" -}}
+{{- if eq $day 1 }}{{ $suffix = "st" }}
+{{- else if eq $day 2 }}{{ $suffix = "nd" }}
+{{- else if eq $day 3 }}{{ $suffix = "rd" }}
+{{- else if eq $day 21 }}{{ $suffix = "st" }}
+{{- else if eq $day 22 }}{{ $suffix = "nd" }}
+{{- else if eq $day 23 }}{{ $suffix = "rd" }}
+{{- else if eq $day 31 }}{{ $suffix = "st" }}
+{{- end -}}
+{{- .Format "January" }} {{ $day }}{{ $suffix }}, {{ .Format "2006" -}}

@@ -1,0 +1,50 @@
+{{ define "main" }}
+<ul class="posts">
+  {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
+  {{ range $paginator.Pages }}
+  <li class="post-entry">
+    <ul class="tags">
+      {{ range .Params.tags }}
+      <li>
+        <span class="button button-teal button-s button-not-clickable">{{ upper . }}</span>
+      </li>
+      {{ end }}
+    </ul>
+    <a href="{{ .RelPermalink }}">
+      <h3>{{ .Title }}</h3>
+      <p>
+        <span>{{ math.Round (div (countwords .Content) 265.0) }} min read</span>
+        - <span>{{ partial "ordinal-date.html" .Date }}</span>
+      </p>
+      {{ $hero := .Resources.GetMatch "hero.*" }}
+      {{ with $hero }}
+      <div class="post-img-wrapper">
+        <img class="post-img" src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+      </div>
+      {{ end }}
+      <p class="post-excerpt">{{ .Summary | plainify | truncate 200 }}</p>
+    </a>
+  </li>
+  {{ end }}
+</ul>
+
+{{ if gt $paginator.TotalPages 1 }}
+<div class="pagination">
+  {{ if $paginator.HasPrev }}
+  <a class="pagination-link" href="{{ $paginator.Prev.URL }}">
+    <span class="pagination-arrow-prev">&#x2039;</span> Newer posts
+  </a>
+  {{ else }}
+  <div></div>
+  {{ end }}
+
+  {{ if $paginator.HasNext }}
+  <a class="pagination-link" href="{{ $paginator.Next.URL }}">
+    Older posts <span class="pagination-arrow-next">&#x203a;</span>
+  </a>
+  {{ else }}
+  <div></div>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}

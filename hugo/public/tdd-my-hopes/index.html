@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>TDD, My hopes | Professional Beginner</title>
+<meta name="description" content="As you might have noticed in my &ldquo;Learning path&rdquo; article, the first part of my studies is focused on TDD. For a couple of months, I dedicated my time to the practice of this discipline, and you might have wondered why">
+<meta name="author" content="Florian Kempenich">
+<meta name="keywords" content="software, crafting, TDD, testing, code, developer, learning, Florian Kempenich">
+
+
+<meta property="og:title" content="TDD, My hopes">
+<meta property="og:description" content="As you might have noticed in my &ldquo;Learning path&rdquo; article, the first part of my studies is focused on TDD. For a couple of months, I dedicated my time to the practice of this discipline, and you might have wondered why">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/tdd-my-hopes/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TDD, My hopes">
+<meta name="twitter:description" content="As you might have noticed in my &ldquo;Learning path&rdquo; article, the first part of my studies is focused on TDD. For a couple of months, I dedicated my time to the practice of this discipline, and you might have wondered why">
+
+<link rel="canonical" href="http://localhost:1313/tdd-my-hopes/">
+<link rel="stylesheet" href="/scss/main.min.3333a4241fc1eed85138d65ede28078e94ad694c6a3dfa9892a51574566d83b9.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <div class="layout"><header class="header-container">
+  <div class="header">
+    <a href="/">
+      <h1>Professional Beginner</h1>
+    </a>
+    <a href="/about">About</a>
+  </div>
+</header>
+<main class="main">
+<div class="post-single">
+  <h1 id="post-title">TDD, My hopes</h1>
+  <p class="read-time-and-date">
+    6 min read - May 7nd, 2016
+  </p>
+  <p>As you might have <strong>noticed</strong> in my &ldquo;<a href="/my-learning-path">Learning path</a>&rdquo; article, the <strong>first part</strong> of my studies is focused on <strong>TDD</strong>. For a couple of months, I dedicated my time to the <strong>practice</strong> of this discipline, and you might have wondered <strong>why</strong></p>
+<p>. Why such <strong>emphasis</strong> on something that, in the end, is only a <strong>practice</strong>, and is not really related to any architectural concepts of <strong>clean object oriented code</strong>?</p>
+<p>Now, I know that <strong>TDD</strong> can be quite <strong>controversial</strong>. Some live by its <strong>principles</strong>, some are more <strong>dubitative</strong> let&rsquo;s say. My goal with this article is not to convince you that <strong>TDD</strong> is the way to go. I just want to lay down the <strong>benefits</strong> I got from it.</p>
+<p>I&rsquo;m not here for the <strong>hype</strong>, I really have my <strong>hopes</strong> for <strong>TDD</strong>. Will it live up to my <strong>expectations</strong>?</p>
+<p>##Tests are boring, TDD is amazing</p>
+<p>We all have that feeling that writing tests is a <strong>boring</strong>, repetitive and not productive task. Yet when I practice <strong>TDD</strong>, <strong>never</strong> have I had this sentiment of uselessness. In fact, it&rsquo;s quite the <strong>opposite</strong>. It feels <strong>amazing!</strong></p>
+<p>At the very <strong>beginning</strong> of my journey in January, I had 2 <strong>major issues</strong>. They were the 2 reasons <strong>preventing</strong> me to efficiently study advanced concepts of Object Oriented programming.</p>
+<ul>
+<li><strong>Lack of confidence</strong> in my code</li>
+<li><strong>Non-productivity</strong>, or at least the feeling thereof.</li>
+</ul>
+<p><strong>TDD</strong> solved both these problems for me.</p>
+<p>##Imperfectionphobia</p>
+<p>If you&rsquo;ve read my &ldquo;<a href="/about#my-short-story">About me</a>&rdquo; section. You may see what <strong>drives</strong> me in this adventure. I always wanted to do things the <strong>right</strong> way. The <strong>problem</strong> comes with the fact that: In programming, I could try my <strong>whole life</strong> trying to do something <strong>the</strong> right way. Because there is <strong>never</strong> such thing. A right way <strong>among many others</strong>, for sure, but a <strong>single absolute truth</strong> . . .</p>
+<p>And yet, as a fool, I was trying to <strong>reach it</strong>.</p>
+<p>#####The result ?</p>
+<p>For every line of <strong>code</strong> I would write I would spend <strong>hours</strong> reading StackOverflow <strong>posts</strong>, blog <strong>articles</strong>, <strong>source code</strong>, to try and identify what the <strong>line</strong> I&rsquo;ve just written <strong>fundamentally does</strong>.</p>
+<p>. . .</p>
+<p>Ok, maybe not <em><strong>every</strong></em> line. But you&rsquo;ve got the idea.</p>
+<p>The problem <strong>never was</strong> the time spent reading about different problems and solutions. I <strong>learned</strong> a lot doing that, and actually keep doing it on a <strong>daily basis</strong>. No, the problem is that most of the times I was <strong>afraid</strong> of missing the point. I was afraid that the piece of code I&rsquo;ve just written would <strong>fail</strong> miserably in an <strong>edge case</strong> I wouldn&rsquo;t have covered.</p>
+<p>###The edge case monster
+So what would happen is, I would:</p>
+<ul>
+<li>Write a fairly <strong>simple</strong> piece of code</li>
+<li>Check if there is a <strong>better</strong> way to do it
+<ul>
+<li>Alternatively, check if there isn&rsquo;t something I <strong>misunderstood</strong></li>
+</ul>
+</li>
+<li><strong>Implement</strong> my latest findings</li>
+<li><strong>Iterate</strong> over this list</li>
+</ul>
+<p>Without any kind of <strong>damage control</strong> you can imagine how this would look like after even a few iterations. <strong>Big, ugly, and ready to explode</strong>.</p>
+<p><strong>No big deal!</strong> At this point, I would start over with all my <strong>newly acquired knowledge</strong>. I would do something <strong>simple</strong> again. . . . <strong>Except</strong> then I would:</p>
+<ul>
+<li>Quickly <strong>check</strong> I didn&rsquo;t <strong>forget</strong> anything</li>
+<li><strong>Add</strong> what I inevitably <strong>forgot</strong></li>
+<li>. . . <strong>Iterate</strong> over this list</li>
+</ul>
+<p>Yep, that <strong>wasn&rsquo;t helping</strong>. But I didn&rsquo;t know <strong>better</strong>.</p>
+<p>Then I heard about <strong>TDD</strong>.</p>
+<p>##Red, green, refactor</p>
+<p><img src="tddCycle.jpg" alt="Red-Green-Refactor: TDD cycle"></p>
+<p>The <strong>basic principle</strong> of <strong>TDD</strong> is fairly simple. It&rsquo;s <strong>3 simple steps</strong>: Red, Green, Refactor.</p>
+<ul>
+<li>First, write a <strong>failing</strong> test.</li>
+<li>Then write the <strong>single easiest</strong> piece of code that would make the <strong>test pass</strong></li>
+<li>Finally <strong>refactor</strong> to make the code <strong>cleaner</strong>.</li>
+</ul>
+<p>Don&rsquo;t be fooled by the apparent <strong>naïveté</strong> of this process. Its <strong>simplicity</strong> is the very thing that makes it so <strong>powerful</strong>.</p>
+<blockquote>
+<p>To know more about the fundamentals of TDD I can only recommend this great book <a href="http://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530" title="Amazon link">Test-Driven Development by Example</a> by the &ldquo;rediscoverer&rdquo; of TDD, <a href="https://en.wikipedia.org/wiki/Kent_Beck" title="Wikipedia">Kent Beck</a></p>
+</blockquote>
+<p>Let&rsquo;s directly skip to the <strong>last</strong> and most <strong>important</strong> part of the cycle: <strong>Refactor</strong>. Writing the failing test and then making it pass, are a great way to get some fast <strong>progress</strong> and get going at a <strong>stable</strong> rhythm. But the real <strong>magic of TDD</strong> is in the <strong>refactor phase</strong>.</p>
+<p>The result of the first 2 phases is a <strong>Test Harness</strong> that ensure the consistency of a method, class, or system. They create a set of tests that <strong>guarantee</strong> that when they are <strong>passing</strong>, no matter the changes in the implementation, the system <strong>behaves as originally designed</strong>.</p>
+<p>Since, with <strong>TDD</strong>, tests are <strong>not</strong> written to validate an <strong>existing</strong> behavior, but rather constitute the <strong>pure description</strong> of how a system was <strong>intended</strong> to behave. That means: if all the tests are <strong>passing</strong>, the system irrevocably realize the <strong>intended behavior</strong>.</p>
+<p>And that is when I am talking about <strong>Magic</strong>. Because, pushing one step further, being covered by a <strong>test harness</strong> means that I can refactor <strong>AT WILL</strong> without the fear of breaking anything.</p>
+<p>###The real of creativity
+This maybe the most important reason for my interest in <strong>TDD</strong>. Once the <strong>Test Harness</strong> is in place and refactoring is <strong>safe</strong>, we enter the <strong>realm of creativity</strong>.</p>
+<p>This is where I can try different <strong>approaches</strong> for the same problem, experiment with <strong>design patterns</strong>. Basically, this is where all my <strong>learning</strong> happen.</p>
+<p>######In the end for me the TDD cycle looks more like this</p>
+<p><img src="hero.jpg" alt="Refactoring as an continuous process"></p>
+<p>In this test-covered <strong>Heaven</strong>, everything is beautiful. But there is <strong>one</strong> thing that could quickly turn it into <strong>Hell</strong>. <strong>Breaking</strong> too many tests while <strong>refactoring</strong>. When this happens, reaching the <strong>green state</strong> again can be a <strong>Nightmare</strong>. That is why the <strong>second</strong> part of my <a href="/my-learning-path">studies</a> is focused on <strong>incremental</strong> refactoring. I might do an article on the topic at some point in the future.</p>
+<p>###The era of Quantify self
+The other problem I mentioned I had before my discovery of <strong>TDD</strong> was my lack of <strong>productivity</strong>. Indeed as explained in the <a href="#the-edge-case-monster" title="The edge case monster">previous section</a>, I would <strong>waste</strong> a lot of time looking into deeper and deeper options, only to realized I was <strong>lost</strong> in the end. <strong>TDD</strong> definitely <strong>solved</strong> that.</p>
+<p><strong>But that&rsquo;s not it!</strong> If you know me in real life, you know I love to <strong>track</strong> everything. I <strong>track</strong> my activity, my food, my work hours, my learning progress (you&rsquo;re reading it). <strong>Why?</strong> Because it makes me more <strong>motivated</strong>, more <strong>productive</strong>. By <strong>abstracting</strong> away the notion of <strong>progress</strong> into a <strong>tracking system</strong>, and <strong>removing</strong> it from my <strong>thoughts</strong>. I can fully <strong>focus</strong> on my <strong>work!</strong> And then when <strong>necessary</strong>, and only then, I can take a look back to do a <strong>retrospective analysis</strong> backed by the collected data.</p>
+<p>Where am I getting at? Well, the <strong>Test Harness</strong> created by <strong>TDD</strong>, not only provide me with a fantastic <strong>safety net</strong> for <strong>refactoring</strong>, but also is a physical <strong>indicator of progress</strong> towards the <strong>complete system</strong>.</p>
+<p><strong>Defining</strong> the <strong>behavior</strong> of a system in terms of <strong>tests</strong>, allows for a very fine <strong>tracking</strong> of progress towards the <strong>realization</strong> of the project. And again this might just be only me, but personally, I cannot find anything else more <strong>motivating</strong> than that.</p>
+<p>###A Flawless system</p>
+<p>Now am I saying that <strong>TDD</strong> by itself produces <strong>flawless</strong> systems? <strong>Absolutely not!</strong> But what I am saying is that if the <strong>test harness</strong> is here and enable <strong>refactoring</strong> at will. Then, a <strong>bug</strong> in the software, translate into writing a new <strong>failing test</strong>.</p>
+<p>Doing so <strong>further specify</strong> the <strong>behavior</strong> of our piece of software, including its behavior in specific edge cases.</p>
+<p>Then, the <strong>TDD</strong> process kicks in, a so called <em><strong>quick-fix</strong></em> is written and with no further delay <strong>refactored</strong> into proper clean code, thus reducing the growth of <strong>technical debt</strong>.</p>
+<h2 id="nosilverbullet">#NoSilverBullet</h2>
+<p>After reading this article I&rsquo;m sure you&rsquo;re thinking <strong>TDD</strong> is <strong>amazing</strong> and want to <strong>get started</strong> right away. Well if that&rsquo;s really the case, great! Take a look at my <a href="/my-learning-path#my-learning-path">reading list</a>, to get some resources on the topic.</p>
+<p>However <strong>nothing</strong> ever is perfect, and the path to <strong>mastering TDD</strong> is a long and treacherous journey. If you start practicing <strong>TDD</strong> with no prior knowledge you will find that practice is, as always, <em><strong>trickier</strong></em> than theory. Starting to write tests first requires a certain period of <strong>adaptation</strong> to actually getting any <strong>benefits</strong> from it.</p>
+<p>Furthermore, I mentioned earlier that <strong>breaking</strong> too many tests at once while <strong>refactoring</strong> can transform the <strong>TDD</strong> experience into a <strong>nightmare</strong>. This could also come from a <strong>Test-Harness</strong> modeling the behavior of the system in a way that&rsquo;s <strong>too close</strong> to its actual <strong>implementation</strong>. There is a lot of <strong>debates</strong> about white box testing vs black box testing, Classicist vs Mockist, Chicago vs London style, Inside out vs Outside in, Depth-first vs Breath first . . . . .
+A <strong>LOT</strong> of debates, and opinions.</p>
+<p>But my point is <strong>not</strong> to enter those details. I just wanted to <strong>share</strong> with you why I&rsquo;m so <strong>enthusiastic</strong> about a testing technique, and why I wish I could use it more <strong>often</strong>.</p>
+<p>###An ongoing journey
+Yes, I <strong>wish</strong> I could use <strong>TDD</strong> more <strong>often</strong>. What that means is that, there still is some <strong>situations</strong>, where I simply do not see <strong>yet</strong> how apply TDD. I&rsquo;m <strong>convinced</strong> that it is possible, I just don&rsquo;t yet know how. I guess that&rsquo;s why I&rsquo;m the <em><strong>professional beginner</strong></em> ;) Therefore, I will continue to post about TDD, but most likely in an <a href="/open-articles">open article</a> format.</p>
+<p>That <strong>concludes</strong> this very long article. Thank you for keeping reading until this point. You&rsquo;re the best ;)</p>
+<p><em>Now it&rsquo;s your turn, I would love to hear your thoughts on TDD. Have you tried it, do you practice it on a daily basis? How did that work out for you? Let me know what you think in the comment section below.</em></p>
+<p><em>&mdash; The Professional Beginner</em></p>
+</div>
+</main><aside class="sidebar"><div class="bullet-points">
+  <h2>Professional Beginner</h2>
+  <ul>
+    <li>Everything is <strong>complex</strong> before it becomes <strong>simple</strong></li>
+    <li>Nothing needs to <strong>remain</strong> complex</li>
+    <li>The only thing required is <strong>the willingness to explore</strong></li>
+  </ul>
+</div>
+<div class="bullet-points-read-more">
+  <a href="/about" class="button button-orange button-s">Read More</a>
+</div>
+<hr class="sidebar-separator"><div class="about-me">
+  <h2>About me</h2>
+  <a href="/about">
+    <img class="profile-picture" src="/images/profile_picture.jpeg" alt="Florian Kempenich" width="190" height="190">
+  </a>
+  <p>My name is <strong>Flo</strong>, and I am the <strong>Professional Beginner</strong>.<br>
+  I apply the <em>"Beginner's Mind"</em> to the world of Software and share on this blog what I learn
+  throughout my Journey.<br>
+  My focus is on <strong>Software Crafting</strong>. That is an emphasis on <strong>readable code</strong>, made reliable by
+  <strong>tests</strong>, and a desire to collaborate with those who love to <strong>learn</strong>, and <strong>share</strong> teachings of
+  their own.</p>
+  <a href="/about" class="button button-orange button-s about-me-read-more">Read More</a>
+</div>
+</aside>
+</div>
+</body>
+</html>

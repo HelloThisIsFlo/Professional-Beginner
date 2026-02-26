@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open-Article on Professional Beginner</title>
+    <link>http://localhost:1313/tags/open-article/</link>
+    <description>Recent content in Open-Article on Professional Beginner</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Jul 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/open-article/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The DTO dilemma</title>
+      <link>http://localhost:1313/the-dto-dilemma/</link>
+      <pubDate>Sun, 24 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/the-dto-dilemma/</guid>
+      <description>&lt;p&gt;When implementing the &lt;strong&gt;hexagonal architecture&lt;/strong&gt; in my TicTacToe Project, and then in the &lt;a href=&#34;https://github.com/ShockN745/WebAppSpring&#34;&gt;Blog engine&lt;/a&gt; that &lt;em&gt;used to&lt;/em&gt; power this blog I was confronted with a problem. &lt;strong&gt;The DTO dilemma&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

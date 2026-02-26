@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Hexagonal Android - Part 3: Crossing Boundaries | Professional Beginner</title>
+<meta name="description" content="My name is Florian Kempenich, and I am the Professional Beginner. I apply the Beginner&#39;s Mind to the world of Software and share on this blog what I learn throughout my Journey">
+<meta name="author" content="Florian Kempenich">
+<meta name="keywords" content="software, crafting, TDD, testing, code, developer, learning, Florian Kempenich">
+
+
+<meta property="og:title" content="Hexagonal Android - Part 3: Crossing Boundaries">
+<meta property="og:description" content="My name is Florian Kempenich, and I am the Professional Beginner. I apply the Beginner&#39;s Mind to the world of Software and share on this blog what I learn throughout my Journey">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/hexagonal-android-pt3-boundaries/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hexagonal Android - Part 3: Crossing Boundaries">
+<meta name="twitter:description" content="My name is Florian Kempenich, and I am the Professional Beginner. I apply the Beginner&#39;s Mind to the world of Software and share on this blog what I learn throughout my Journey">
+
+<link rel="canonical" href="http://localhost:1313/hexagonal-android-pt3-boundaries/">
+<link rel="stylesheet" href="/scss/main.min.3333a4241fc1eed85138d65ede28078e94ad694c6a3dfa9892a51574566d83b9.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <div class="layout"><header class="header-container">
+  <div class="header">
+    <a href="/">
+      <h1>Professional Beginner</h1>
+    </a>
+    <a href="/about">About</a>
+  </div>
+</header>
+<main class="main">
+<div class="post-single">
+  <h1 id="post-title">Hexagonal Android - Part 3: Crossing Boundaries</h1>
+  <p class="read-time-and-date">
+    6 min read - May 22nd, 2016
+  </p>
+  <blockquote>
+<h6 id="update">Update</h6>
+<p>After month of research, study and trial and error, I finally have a much clearer vision on modular architectures.
+I invite you to discover the result of my research in the following article:</p>
+<p><a href="/my-java-archetype">My Java Archetype</a></p>
+<p>Feel free to continue reading this article, as it goes a bit more in-depth on certain aspects.</p>
+<p>I used a slightly different, more refined vocabulary in the article about <a href="/my-java-archetype">My Java Archetype</a>.
+To make the transitions as easy as possible between the two articles, here are the equivalent definitions.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Hexagonal Series</th>
+          <th></th>
+          <th>My Java Archetype</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Use-case</td>
+          <td></td>
+          <td>Application Service</td>
+      </tr>
+      <tr>
+          <td>Driving Adapter</td>
+          <td></td>
+          <td>Application Service</td>
+      </tr>
+      <tr>
+          <td>Port</td>
+          <td></td>
+          <td>Contract (Interface layer)</td>
+      </tr>
+      <tr>
+          <td>Driven Adatper</td>
+          <td></td>
+          <td>Contract Implementation</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<p>In the <a href="/hexagonal-android-pt2-architecture">previous article</a> I presented an overview of the basic principle behind the <strong>Hexagonal Architecture</strong>.</p>
+<p>To me, that&rsquo;s all there is to it for the moment. Of course, I might have <strong>oversimplified</strong>, but it&rsquo;s a <strong>good start</strong> to get a grasp at how to organize software to respect this style of architecture.</p>
+<p>Now let&rsquo;s take a deeper look at our <strong>domain</strong> in the context of the <strong>TicTac app.</strong></p>
+<hr>
+<p><em>This post is part of a series of post where I try my best at implementing the Hexagonal Architecture in an Android application.</em></p>
+<p><em>You can also check out the other parts:</em></p>
+<ul>
+<li><a href="/hexagonal-android-pt1-intro"><em>Part1: Introduction</em></a></li>
+<li><a href="/hexagonal-android-pt2-architecture"><em>Part2: The Architecture</em></a></li>
+<li><a href="/hexagonal-android-pt3-boundaries"><em>Part3: Crossing Boundaries</em></a></li>
+</ul>
+<p><em>The whole code for the application is available at:</em></p>
+<ul>
+<li><a href="https://github.com/ShockN745/TicTacToe" title="Tic Tac Toe"><em>Gitub repo</em></a></li>
+</ul>
+<p><em>This series is not meant to be a complete introduction to the Hexagonal architecture, for more information check these links :</em></p>
+<ul>
+<li><em><a href="http://alistair.cockburn.us/Hexagonal+architecture" title="Hexagonal Architecture">Alistair Cockburn&rsquo;s original Hexagonal Architecture</a></em></li>
+<li><em><a href="http://fideloper.com/hexagonal-architecture" title="Talk on Hexagonal Architecture">Fideloper&rsquo;s talk on Hexagonal Architecture</a></em></li>
+<li><em><a href="https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html" title="Clean Architecture">Uncle Bob&rsquo;s Clean architecture</a></em></li>
+</ul>
+<p><em>Moreover this project is very similar to the one of Fernando Cejas</em></p>
+<ul>
+<li><a href="http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/" title="Clean Android"><em>Clean android by Fernando Cejas</em></a></li>
+</ul>
+<hr>
+<p>##Domain in the TicTacToe App</p>
+<p>After few iterations of <a href="/tdd-my-hopes">Test Driven Developement</a> the resulting domain looked like this.</p>
+<p><img src="simpleUml.jpg" alt="Tic Tac Toe - Basic domain"></p>
+<ul>
+<li>The <strong>Game</strong>: the centerpiece of the domain. Where all the moves are played</li>
+<li>The <strong>Board</strong>: Add moves to the Board, and validates them beforehand. Also provide iterators to iterate through column, row, diagonals.</li>
+<li>The <strong>Coordinate</strong>: Represents and validates coordinates</li>
+<li>The <strong>Move</strong>: Represents and validate move</li>
+<li>The <strong>Player</strong>: Represents and validate a player</li>
+</ul>
+<p>So far nothing really complicated. Our <strong>domain</strong> is composed of fairly <strong>simple elements</strong> that go together in quite a <strong>simple manner</strong>.</p>
+<p>At this point I <strong>thought</strong> I could just:</p>
+<ul>
+<li><strong>Create an instance</strong> of the <strong>Game</strong> object in the <strong>Activity</strong></li>
+<li>Use it to keep the <strong>state</strong> of the game</li>
+<li>Create new <strong>moves</strong> and <strong>player</strong>.</li>
+</ul>
+<p>Basically <strong>exposing all the components</strong> of <strong>domain</strong> to the <strong>presentation</strong> layer.</p>
+<p>Doing this I would respect the principles of the <strong>hexagonal architecture</strong> right?</p>
+<ul>
+<li>All <strong>logic</strong> processing would be done with <strong>domain</strong> objects.</li>
+<li>There is <strong>no android dependency</strong> in the <strong>domain</strong>, as a matter of fact there is <strong>no external dependency</strong> at all in the <strong>domain</strong>.</li>
+</ul>
+<p>Yet that just <strong>didn&rsquo;t</strong> quite <strong>felt right</strong>!</p>
+<p>All this <strong>decoupling</strong> work to now use the <strong>domain</strong> as if it were only from a <strong>different package</strong>. Sure we&rsquo;ve achieved the <strong>greater goal</strong>: All the logic of our application is now well <strong>tested</strong>. But yeah something just did not <strong>feel right</strong>, not enough <strong>separation of concerns</strong> to my taste.</p>
+<p>##Crossing boundaries
+So I did my <strong>research</strong> and started to <strong>try and understand</strong> what should really be at this <strong>boundary</strong>. And what <strong>kind</strong> of objects should <strong>cross</strong> the boundary.</p>
+<p>Turns out this was the source of a big headache and a good conversation with a fellow craftsman.</p>
+<blockquote>
+<p>Since I&rsquo;m not 100% sure that the solution I decided to adopt in the end is the definite right one: this whole section deserved it&rsquo;s own Open-Article, which you can find here: <a href="/the-dto-dilemma">The DTO dilemma</a></p>
+</blockquote>
+<p>But <strong>for now let&rsquo;s assume I did pick the right solution</strong> after all.</p>
+<p>The bottom line is: Only <strong>DTOs</strong> should be allowed to cross the Border. With that in mind our <strong>simple model</strong> changed . . . just a <strong>tiny bit</strong>.</p>
+<p><img src="afterDto.jpg" alt="Tic Tac Toe - Domain after introduction of DTOs"></p>
+<p>Yes, the picture is <strong>intentionally</strong> un-readable, but the point is it gets way more <strong>complex</strong>, at least in <strong>appearence</strong>. I am not going to go over the whole process here. Check the <a href="/the-dto-dilemma">previously mentionned</a> article for that. But the basic <strong>idea</strong> is:</p>
+<p>######When creating a new Game:</p>
+<ul>
+<li>A new <strong>Game</strong> is Created from the game <strong>Factory</strong></li>
+<li>This <strong>game</strong> is mapped to a <strong>GameStatus</strong> by the <strong>GameMapper</strong></li>
+<li>The <strong>GameStatus</strong> is stored in a <strong>Repository</strong>, an <strong>id</strong> is returned</li>
+<li>The <strong>Id</strong> is used to access the <strong>Game</strong></li>
+</ul>
+<p>######When adding a move to the new Game:</p>
+<ul>
+<li>A <strong>GameStatus</strong> is retrieved from the <strong>Repository</strong> with the <strong>Id</strong> generated at the initialization</li>
+<li>The <strong>GameStatus</strong> is mapped to a <strong>Game</strong> by the <strong>GameMapper</strong></li>
+<li>A <strong>Move</strong> is played on the <strong>Game</strong></li>
+<li>The updated <strong>Game</strong> is <strong>Mapped</strong> again to a <strong>GameStatus</strong></li>
+<li>The <strong>GameStatus</strong> is stored in the <strong>Repository</strong> using the same <strong>Id</strong></li>
+<li>The same <strong>GameStatus</strong> is used to display the informations of the Game.</li>
+</ul>
+<p>Well that does sound a lot more <strong>complicated</strong> than just creating an <strong>instance</strong> of the game. But is it <strong>really</strong> ?
+Sure it doesn&rsquo;t look <em><strong>obvious</strong></em>, but if we decompose the steps is it really <strong>complicated</strong>, or just . . . <em><strong>complex</strong></em>?
+When I think about it: It all boils down to a <em><strong>complex</strong></em> sequence of fairly <strong>simple</strong> operations.</p>
+<p>The point is that now <strong>domain objects</strong> do not cross the domain&rsquo;s <strong>boundaries</strong> anymore.</p>
+<p><img src="dtoBoundaries.jpg" alt="DTO at the boundaries"></p>
+<p>###Keep It Simple, Stupid</p>
+<p>Now we have a wonderful <strong>domain API</strong> with only <strong>Factories</strong>, <strong>Repositories</strong> and <strong>DTO</strong> crossing the border. A bit better in terms of <strong>separation of concerns</strong>, but still not entirely satisfying when it comes to <strong>encapsulation</strong>.</p>
+<p>As a <strong>user</strong> [of the domain] I do not want to be polluted with <strong>persistence</strong> concern.</p>
+<p>Plus if we were to actually execute the <strong>processes</strong> described above in the <strong>Activity</strong> (Presentation layer object): We&rsquo;d have the <strong>same problem</strong> as before. The <strong>presentation layer</strong> would have <strong>access</strong> to the core <strong>objects of the domain</strong> (Game, Board, etc).</p>
+<p>To solve both the problem of <strong>objects ownership</strong>, and <strong>simplify</strong> the domain API, <strong>another layer</strong> is introduced. It sits just at the <strong>border</strong>. It is the <strong>Application Layer</strong>.</p>
+<blockquote>
+<p>Note: As of today this is my first project with a clear separation of the domain. I have yet to explore the proper way to code the domain. So, I have at the moment no idea about entities, services, and other domain-related concepts. I am after all the Professional <strong>Beginner</strong> ;) (And yes Domain Driven Desing by Eric Evans is already on my bookshelf)</p>
+</blockquote>
+<p>##The application layer</p>
+<p>The Application Layer is just at the <strong>border</strong> between the <strong>domain</strong> and its <strong>consumer</strong>. That&rsquo;s where the <strong>driving</strong> adapters belong.
+That&rsquo;s also where I decided to put the <strong>interfaces</strong> for the <strong>driven</strong> adapters.</p>
+<p><img src="appLayer.jpg" alt="The Application Layer"></p>
+<p>Its <strong>role</strong> is to use objects of the <strong>domain</strong> to create an <strong>easy to use</strong> interface for the <strong>consumer</strong>.</p>
+<p>I&rsquo;m sure there are <strong>multiple ways</strong> to approach this particular layer of our application. But as a matter of personal preference, I decided to focus on an implementation that is my interpretation of a concept made popular by <strong>Robert C Martin</strong>, and originally presented by <strong>Ivar Jacobson</strong> : A Use-case driven approach.</p>
+<p>###Use-case approach</p>
+<p>The idea as presented in this <a href="https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html">blog post</a> and this <a href="https://vimeo.com/43612849">talk</a> by Uncle&rsquo;s Bob, is to have a couple of <strong>Interactors</strong> taking care of the <strong>orchestration</strong> of operations in the domain to realize a specific <strong>use-case</strong>.</p>
+<p>And <strong>That</strong> is what I have been looking for the better part of this article.</p>
+<p>In the <strong>TicTacToe</strong> project these <strong>Interactors</strong> are called <strong>(something)UseCase</strong> but the idea remains the <strong>same</strong>.</p>
+<p>For every <strong>action</strong> on the domain, a specific object is created whose one and only task is to execute this very action. For the TicTacToe application there is 2 UseCases: <strong>InitNewGameUseCase</strong>, and <strong>AddMoveUseCase</strong></p>
+<p>They are the <strong>perfect answer</strong> to what I was looking for because:</p>
+<ul>
+<li>They <strong>orchestrate</strong> objects of the <strong>domain</strong> to create a <strong>seamless API</strong></li>
+<li>Allows the <strong>modules</strong> to communicate using only through <strong>DTO</strong></li>
+<li>They still <strong>belong</strong> to the <strong>domain</strong></li>
+</ul>
+<p>From now on, whenever a new game needs to be created, or a move needs to be added. The interaction is reduced to a <strong>single call</strong> to a UseCase Object.</p>
+<p>######When creating a new Game:</p>
+<ul>
+<li>Call the <em>execute</em> method of the <strong>InitNewGameUseCase</strong></li>
+<li>The <strong>ID</strong> necessary to take further actions on the game is retrieved through a callback previously provided to the use-case.</li>
+</ul>
+<p>######When adding a move to the new Game:</p>
+<ul>
+<li>Create a new <strong>Move</strong></li>
+<li>Pass it to <strong>AddMoveUseCase</strong></li>
+</ul>
+<p>The <strong>AddMoveUseCase</strong> takes care of fetching the correct <strong>GameStatus</strong> from the <strong>repository</strong>, do the <strong>mapping</strong>, execute the <strong>move</strong>, re-maps the <strong>Game</strong> to a <strong>GameStatus</strong> and returns it to the <strong>consumer</strong> through a callback previously provided.</p>
+<p>##Conclusion</p>
+<p>Oddly what took me quite some time to wrap my head around how <em><strong>use-cases</strong></em> could be represented as concrete classes. To be honest I&rsquo;m still <strong>skeptical</strong> that the way I handled things for this TicTacToe project is the <strong>absolute correct way</strong>. I guess it&rsquo;ll either become more obvious with time, or I&rsquo;ll update this article once I have a deeper understanding of the Application layer.
+About this very problem, thanks again to <a href="http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/">Fernando Cejas</a> for making it real clear how use cases could be represented.</p>
+<p>This part was the <strong>trickiest</strong> for me to implement but here&rsquo;s what I <strong>learned</strong>:</p>
+<ul>
+<li>Only <strong>DTO</strong> should cross the <strong>boundaries</strong> between layers (after dependencies injected)</li>
+<li>There is an <strong>extra layer</strong> surrounding the <strong>domain</strong> whose role is to <strong>orchestrate operations</strong> on the Domain</li>
+<li>Implementing real <strong>use-cases</strong> as <strong>concrete classes</strong>, streamlines the domain interface and allows standardized communications</li>
+</ul>
+<p><em>As mentioned this section is the one that gave me the most headaches. So if you have any comments that could help me understand better that part, I&rsquo;d love to hear from you. Same goes if you liked this article ;)</em></p>
+<p><em>&mdash; The Professional Beginner</em></p>
+</div>
+</main><aside class="sidebar"><div class="bullet-points">
+  <h2>Professional Beginner</h2>
+  <ul>
+    <li>Everything is <strong>complex</strong> before it becomes <strong>simple</strong></li>
+    <li>Nothing needs to <strong>remain</strong> complex</li>
+    <li>The only thing required is <strong>the willingness to explore</strong></li>
+  </ul>
+</div>
+<div class="bullet-points-read-more">
+  <a href="/about" class="button button-orange button-s">Read More</a>
+</div>
+<hr class="sidebar-separator"><div class="about-me">
+  <h2>About me</h2>
+  <a href="/about">
+    <img class="profile-picture" src="/images/profile_picture.jpeg" alt="Florian Kempenich" width="190" height="190">
+  </a>
+  <p>My name is <strong>Flo</strong>, and I am the <strong>Professional Beginner</strong>.<br>
+  I apply the <em>"Beginner's Mind"</em> to the world of Software and share on this blog what I learn
+  throughout my Journey.<br>
+  My focus is on <strong>Software Crafting</strong>. That is an emphasis on <strong>readable code</strong>, made reliable by
+  <strong>tests</strong>, and a desire to collaborate with those who love to <strong>learn</strong>, and <strong>share</strong> teachings of
+  their own.</p>
+  <a href="/about" class="button button-orange button-s about-me-read-more">Read More</a>
+</div>
+</aside>
+</div>
+</body>
+</html>

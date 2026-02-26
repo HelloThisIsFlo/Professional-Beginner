@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html/Css on Professional Beginner</title>
+    <link>http://localhost:1313/tags/html/css/</link>
+    <description>Recent content in Html/Css on Professional Beginner</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/html/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Static vs Relative</title>
+      <link>http://localhost:1313/static-vs-relative/</link>
+      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/static-vs-relative/</guid>
+      <description>&lt;p&gt;Recently I have been dedicating some time to the study of the fundamentals of HTML and CSS. A couple of days ago I wrote a blog post on &lt;a href=&#34;http://localhost:1313/my-first-fe-kata&#34;&gt;my very first Front-End Kata&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Background Image With Rounded Corners</title>
+      <link>http://localhost:1313/background-image-with-rounded-corners/</link>
+      <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/background-image-with-rounded-corners/</guid>
+      <description>&lt;p&gt;Recently I have been dedicating some time to the study of the fundamentals of HTML and CSS. A couple of days ago I wrote a blog post on &lt;a href=&#34;http://localhost:1313/my-first-fe-kata&#34;&gt;my very first Front-End Kata&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My First Front-End Kata</title>
+      <link>http://localhost:1313/my-first-fe-kata/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/my-first-fe-kata/</guid>
+      <description>&lt;p&gt;I recently decided to brush up my Front-End skills, in parts because I want to rebuild this blog from the ground up, but also simply because it is a thing I have meant to do for a very long time. And now is the perfect time 😊&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

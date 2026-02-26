@@ -1,0 +1,46 @@
+baseURL = "https://professionalbeginner.com"
+languageCode = "en-us"
+title = "Professional Beginner"
+theme = "professional-beginner"
+[pagination]
+  pagerSize = 6
+summaryLength = 40
+
+# No trailing slashes (matches Gatsby config)
+[permalinks]
+  posts = "/:filename"
+
+[params]
+  description = "My name is Florian Kempenich, and I am the Professional Beginner. I apply the Beginner's Mind to the world of Software and share on this blog what I learn throughout my Journey"
+  author = "Florian Kempenich"
+  keywords = ["software", "crafting", "TDD", "testing", "code", "developer", "learning", "Florian Kempenich"]
+  # Google Analytics - not enabled, but easy to add:
+  # googleAnalytics = "G-XXXXXXXXXX"
+  # Then add {{ template "_internal/google_analytics.html" . }} to head partial
+
+[markup]
+  [markup.highlight]
+    style = "solarized-light"
+    noClasses = false
+    lineNos = false
+    guessSyntax = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      typographer = true
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[outputFormats]
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "allPosts"
+
+[taxonomies]
+  tag = "tags"

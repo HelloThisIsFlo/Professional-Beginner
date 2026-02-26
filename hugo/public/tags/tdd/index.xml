@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tdd on Professional Beginner</title>
+    <link>http://localhost:1313/tags/tdd/</link>
+    <description>Recent content in Tdd on Professional Beginner</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tdd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Java Archetype</title>
+      <link>http://localhost:1313/my-java-archetype/</link>
+      <pubDate>Thu, 26 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/my-java-archetype/</guid>
+      <description>&lt;p&gt;When developing a new project in software development there seem to always be this Cornelian dilemma: Build fast and throw later or Build slow and re-use.&lt;/p&gt;&#xA;&lt;p&gt;I believe there is a third way, a middle ground where &lt;strong&gt;current productivity encounters future maintainability&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TDD, My hopes</title>
+      <link>http://localhost:1313/tdd-my-hopes/</link>
+      <pubDate>Sat, 07 May 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tdd-my-hopes/</guid>
+      <description>&lt;p&gt;As you might have &lt;strong&gt;noticed&lt;/strong&gt; in my &amp;ldquo;&lt;a href=&#34;http://localhost:1313/my-learning-path&#34;&gt;Learning path&lt;/a&gt;&amp;rdquo; article, the &lt;strong&gt;first part&lt;/strong&gt; of my studies is focused on &lt;strong&gt;TDD&lt;/strong&gt;. For a couple of months, I dedicated my time to the &lt;strong&gt;practice&lt;/strong&gt; of this discipline, and you might have wondered &lt;strong&gt;why&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

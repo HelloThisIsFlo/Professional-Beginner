@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Reflections on SoCraTes 2025 | Professional Beginner</title>
+<meta name="description" content="
+&ldquo;We&rsquo;re essentially mentoring the AI through the prompt.&rdquo;
+">
+<meta name="author" content="Florian Kempenich">
+<meta name="keywords" content="software, crafting, TDD, testing, code, developer, learning, Florian Kempenich">
+
+
+<meta property="og:title" content="Reflections on SoCraTes 2025">
+<meta property="og:description" content="
+&ldquo;We&rsquo;re essentially mentoring the AI through the prompt.&rdquo;
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/socrates-2025/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reflections on SoCraTes 2025">
+<meta name="twitter:description" content="
+&ldquo;We&rsquo;re essentially mentoring the AI through the prompt.&rdquo;
+">
+
+<link rel="canonical" href="http://localhost:1313/socrates-2025/">
+<link rel="stylesheet" href="/scss/main.min.3333a4241fc1eed85138d65ede28078e94ad694c6a3dfa9892a51574566d83b9.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <div class="layout"><header class="header-container">
+  <div class="header">
+    <a href="/">
+      <h1>Professional Beginner</h1>
+    </a>
+    <a href="/about">About</a>
+  </div>
+</header>
+<main class="main">
+<div class="post-single">
+  <h1 id="post-title">Reflections on SoCraTes 2025</h1>
+  <p class="read-time-and-date">
+    4 min read - August 15th, 2025
+  </p>
+  <blockquote>
+<p>&ldquo;We&rsquo;re essentially mentoring the AI through the prompt.&rdquo;</p>
+</blockquote>
+<p>So here&rsquo;s what happened. I was at SoCraTes Germany, a conference I&rsquo;ve been going to for seven, eight years now, and I was watching people walk up to the board to propose sessions. And I was sitting there thinking: I should propose something on AI agents. I&rsquo;ve spent the past year going deep on this stuff. I built a multi-agent system at work. I had weekly sessions with my friend Toni where we&rsquo;d just&hellip; explore the space together for months. I had things to say.</p>
+<p><figure>
+  <img src="/socrates-2025/marketplace.jpg" alt="The open space marketplace, where sessions are proposed each morning"><figcaption>The open space marketplace, where sessions are proposed each morning</figcaption></figure>
+</p>
+<p>The problem was that I had prepared absolutely nothing. Not &ldquo;I had some rough notes.&rdquo; Nothing. Life had been a lot (understatement of the year), and the preparation I kept telling myself I&rsquo;d do just never happened.</p>
+<p>And there was a second problem. The SoCraTes community has mixed feelings about AI, and I was genuinely afraid of being the person who walks in and starts evangelising about agents at a conference where the general mood is, let&rsquo;s say, cautious.</p>
+<p>But the morning energy was good. And at some point I just thought: f*ck it. I&rsquo;ll figure it out.</p>
+<p>I walked up and proposed the session without knowing what I was going to do in it.</p>
+<h3 id="the-idea">The idea</h3>
+<p>Right before going up, I had asked my friend Ajit, one of the organisers, how the schedule works. Turns out the whole conference schedule sits on a public URL. No auth, no API key, just the data. And if you&rsquo;ve been to SoCraTes, you know the schedule board situation: people crowding around it, taking photos on their phones, trying to figure out what overlaps with what.</p>
+<p>Public API. Real problem. A room full of engineers who&rsquo;ve (mostly) never seen an agent built from scratch.</p>
+<p>I grabbed Toni and we built the whole thing in about two hours. A scheduling assistant for SoCraTes. You ask it &ldquo;what&rsquo;s on this afternoon? I&rsquo;m interested in testing&rdquo; and it comes back with a personalised plan, flags conflicts, suggests alternatives. One system prompt, one tool (a scratch pad for your personal schedule), and the full conference schedule loaded fresh before every message. With maybe 200 attendees, dumping the whole schedule takes milliseconds, so there&rsquo;s no need for anything clever.</p>
+<p>I committed working checkpoints to a branch as I went, because live demos break and I wanted a fallback. The SoCraTes crowd would appreciate that kind of thing.</p>
+<h3 id="the-session">The session</h3>
+<p>About thirty people showed up.</p>
+<p><figure>
+  <img src="/socrates-2025/room.jpg" alt="The room during the session"><figcaption>The room during the session</figcaption></figure>
+</p>
+<p>At a conference where the community is cautious about AI, thirty experienced engineers came to hear about agents. And people kept arriving after we&rsquo;d started, which, at SoCraTes, means something. There&rsquo;s this cultural norm called the &ldquo;law of two feet&rdquo;: if a session isn&rsquo;t working for you, you leave. No drama, it&rsquo;s encouraged. So when people keep walking <em>in</em>, that&rsquo;s a signal.</p>
+<p>I spent the first half at the whiteboard. No code, just fundamentals. What is an agent? (For this session: an LLM that can call tools.) What is a tool? (A callable function.) How does conversation memory work? That last one is the one that gets people. When I first learned that every message sends the entire conversation history, it was a genuine &ldquo;wait, really?&rdquo; moment. So I made sure to explain it properly, because I think that&rsquo;s where the demystification actually begins.</p>
+<p><figure>
+  <img src="/socrates-2025/hero.png" alt="Explaining LLM &#43; Tools = Agent at the whiteboard"><figcaption>Explaining LLM + Tools = Agent at the whiteboard</figcaption></figure>
+</p>
+<p>I set definitions early and explicitly. &ldquo;I know there are other definitions. I know tools aren&rsquo;t always JSON. I know external memory exists. But my goal here is to demystify, so let&rsquo;s work with these.&rdquo; That helped keep the session focused, and after a few minutes the questions really opened up into genuine curiosity.</p>
+<p>One thing I said that seemed to land: &ldquo;We&rsquo;re essentially mentoring the AI through the prompt.&rdquo; For a community that cares deeply about craft and mentoring and clear communication, I think framing it that way made the whole thing feel less alien. It&rsquo;s not a black box doing magic. It&rsquo;s you, teaching something to be useful. And you already know how to do that.</p>
+<h3 id="the-live-coding">The live coding</h3>
+<p>Then the live coding. And yes, it broke (of course it broke). I laughed, fell back to a checkpoint, got it working. You know how it goes.</p>
+<p><figure>
+  <img src="/socrates-2025/coding.jpg" alt="Presenting the agent code"><figcaption>Presenting the agent code</figcaption></figure>
+</p>
+<blockquote>
+<p>&ldquo;Oh, but that&rsquo;s so simple.&rdquo;</p>
+</blockquote>
+<p>The reaction I found most interesting came after it was working. A few people said something like: &ldquo;Oh, but that&rsquo;s so simple.&rdquo; Almost&hellip; disappointed? As if the simplicity was somehow a flaw.</p>
+<p>And I think that&rsquo;s the thing I keep coming back to. The code <em>is</em> simple. But look at what it does. You ask a question in plain language about a real conference schedule and get a personalised, conflict-aware answer. That&rsquo;s not nothing. And the fact that the code is simple? That&rsquo;s&hellip; kind of the whole point. You can&rsquo;t improvise a conference session and build something useful in two hours if this stuff was actually complicated. The improvisation is the proof.</p>
+<h3 id="what-happened-after">What happened after</h3>
+<p>The session was supposed to be one hour. When time was up, I asked if people wanted to stop. Almost everyone wanted to keep going. We ran close to two hours and only stopped because someone else needed the room.</p>
+<p>Afterward, I put the agent on a shared link with my own API key (£30 spending limit, never came close). People actually used it for the rest of the conference to plan their days. I could see the requests coming in, and knowing that this improvised thing had become something people actually enjoyed using&hellip; that was probably the best part.</p>
+<p><figure>
+  <img src="/socrates-2025/venue-cropped.png" alt="The SoCraTes venue"><figcaption>The SoCraTes venue</figcaption></figure>
+</p>
+<h3 id="next-year">Next year</h3>
+<p>If I do this again (and I&rsquo;m planning to) I&rsquo;ll have the agent live <em>during</em> the session. QR code on the screen, everyone tries it on their phones while I&rsquo;m explaining. Even if we run over, the tool is already in people&rsquo;s hands. That&rsquo;s the one thing I&rsquo;d change.</p>
+<p>But the engagement, the excitement of people coming up to me afterwards, and that feeling of sharing something I genuinely love exploring&hellip; that, I would not change.</p>
+<hr>
+<p><em>Photos by Mari, the most supportive partner I could ask for. Thanks to Toni and Ajit for being great friends, and for the help and the tip that made this whole thing possible.</em></p>
+</div>
+</main><aside class="sidebar"><div class="bullet-points">
+  <h2>Professional Beginner</h2>
+  <ul>
+    <li>Everything is <strong>complex</strong> before it becomes <strong>simple</strong></li>
+    <li>Nothing needs to <strong>remain</strong> complex</li>
+    <li>The only thing required is <strong>the willingness to explore</strong></li>
+  </ul>
+</div>
+<div class="bullet-points-read-more">
+  <a href="/about" class="button button-orange button-s">Read More</a>
+</div>
+<hr class="sidebar-separator"><div class="about-me">
+  <h2>About me</h2>
+  <a href="/about">
+    <img class="profile-picture" src="/images/profile_picture.jpeg" alt="Florian Kempenich" width="190" height="190">
+  </a>
+  <p>My name is <strong>Flo</strong>, and I am the <strong>Professional Beginner</strong>.<br>
+  I apply the <em>"Beginner's Mind"</em> to the world of Software and share on this blog what I learn
+  throughout my Journey.<br>
+  My focus is on <strong>Software Crafting</strong>. That is an emphasis on <strong>readable code</strong>, made reliable by
+  <strong>tests</strong>, and a desire to collaborate with those who love to <strong>learn</strong>, and <strong>share</strong> teachings of
+  their own.</p>
+  <a href="/about" class="button button-orange button-s about-me-read-more">Read More</a>
+</div>
+</aside>
+</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+*.png
+.mcp.json
+.playwright-mcp/

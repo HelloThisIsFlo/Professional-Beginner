@@ -1,0 +1,14 @@
+{{- $src := .Destination -}}
+{{- $alt := .Text -}}
+{{- $title := .Title -}}
+{{- /* Resolve page-relative images */ -}}
+{{- $img := .Page.Resources.GetMatch $src -}}
+{{- if $img -}}
+  {{- $src = $img.RelPermalink -}}
+{{- end -}}
+<figure>
+  <img src="{{ $src }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}>
+  {{- with $alt -}}
+  <figcaption>{{ . }}</figcaption>
+  {{- end -}}
+</figure>
