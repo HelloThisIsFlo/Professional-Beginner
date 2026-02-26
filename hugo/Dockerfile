@@ -10,7 +10,7 @@
 # │  of Debian because Debian-slim doesn't  │
 # │  ship wget and apt-get can be fragile.  │
 # │                                         │
-# │  ❌ Thrown away                          │
+# │  ❌ Thrown away                         │
 # │  ✅ We grab /hugo from it               │
 # └──────────────┬──────────────────────────┘
 #                │ COPY --from=downloader /hugo
@@ -22,7 +22,7 @@
 # │  is needed because Hugo Extended        │
 # │  requires glibc (for SCSS processing).  │
 # │                                         │
-# │  ❌ Thrown away too                      │
+# │  ❌ Thrown away too                     │
 # │  ✅ We grab /site/public from it        │
 # └──────────────┬──────────────────────────┘
 #                │ COPY --from=builder /site/public

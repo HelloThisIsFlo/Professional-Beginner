@@ -81,3 +81,4 @@ This site was migrated from Gatsby 5 in Feb 2026. See:
 - Prefers **Flo** (not Florian)
 - Make decisions autonomously, don't ask questions halfway
 - Commit locally as you go, separate commits for separate concerns
+- **Never push to remote without explicit approval** — always ask before `git push`
