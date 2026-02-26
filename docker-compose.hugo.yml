@@ -7,13 +7,3 @@ services:
     ports:
       - published: 2000
         target: 80
-
-  rss:
-    build: ./RSS_feed
-    restart: always
-    ports:
-      - published: 2001
-        target: 3000
-    command: ["node", "index.js"]
-    environment:
-      - FRONTEND_URL=http://frontend:80

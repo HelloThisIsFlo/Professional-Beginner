@@ -2,6 +2,7 @@ baseURL = "https://professionalbeginner.com"
 languageCode = "en-us"
 title = "Professional Beginner"
 theme = "professional-beginner"
+enableRobotsTXT = true
 [pagination]
   pagerSize = 6
 summaryLength = 40
@@ -35,12 +36,7 @@ summaryLength = 40
   priority = 0.5
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
-
-[outputFormats]
-  [outputFormats.JSON]
-    mediaType = "application/json"
-    baseName = "allPosts"
+  home = ["HTML", "RSS"]
 
 [taxonomies]
   tag = "tags"
