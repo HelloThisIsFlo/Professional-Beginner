@@ -10,7 +10,7 @@ Recently I have been dedicating some time to the study of the fundamentals of HT
 
 ![Finished Slack Card](finished_slack_card.jpg)
 
-_The link to the CodePen: [Slack Card](https://codepen.io/FlorianKempenich/pen/xoYbrp)_
+_The link to the CodePen: [Slack Card](https://codepen.io/HelloThisIsFlo/pen/xoYbrp)_
 
 I decided to write a couple of follow up articles to share a few things I learned through this experience. It isn't mean to teach the basics of CSS, just meant to share 2 or 3 interesting pieces of info I remembered the most 🙂. Today is the first one of the series.
 
@@ -60,7 +60,7 @@ I could see at least 2 other possibilities for solving this problem:
 
 That being said, I wasn't a fan of the first alternative because of the redundancy it induces, and I wasn't a fan of the second one because I wasn't sure how the shadow would behave.
 
-Either way, if you have arguments for one or the other of the alternative solutions, or maybe even a third idea, be sure to let me know in the comments or [@ThisIsFlorianK](https://twitter.com/home?status=%40ThisIsFlorianK) on Twitter ;) 
+Either way, if you have arguments for one or the other of the alternative solutions, or maybe even a third idea, be sure to let me know in the comments or [@HelloThisIsFlo](https://x.com/HelloThisIsFlo) on X ;) 
 
 
 *Until next time --- The Professional Beginner*

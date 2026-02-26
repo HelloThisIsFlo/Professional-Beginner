@@ -53,5 +53,5 @@ Hugo generates pages at `/tags/`, `/tags/learning/`, etc. These are functional b
 - **Heading anchor links** — Custom `render-heading.html` hook
 - **Dart Sass migration** — `libsass` is deprecated; switch to `dartsass` when ready
 - **Google Fonts self-hosting** — Eliminate third-party CDN request
-- **Twitter meta tags** — Add `twitter:creator` with `@ThisIsFlorianK`
+- **Twitter meta tags** — Add `twitter:creator` with `@HelloThisIsFlo`
 - **Hero image presentation on index** — The original Gatsby site had an animated shadow effect on hero images. Current Hugo version uses a simpler `scale(1.02)` hover

@@ -62,7 +62,7 @@ And now comes the tricky and frankly counter-intuitive part, for me at least. By
 
 To make the `.parent` act as and **Anchor** for the `.child`, simply changing `position:` to `relative` will do the trick. Since we haven't specified `bottom`, `top`, `left` or `right` values in the `.parent`, its position will not change when switching from `position: static` to `position: relative`, see [above](#allows-offsetting). But it will now **act as an Anchor**. And, finally, `.child` will be positioned `25px` from the bottom of `.parent`. In CSS jargon we would say the element `.parent` is now **"positioned"**
 
-_See the proof, and experiment for yourself: [Codepen - Acting as an Anchor for child elements](https://codepen.io/FlorianKempenich/pen/WqMOoK)_
+_See the proof, and experiment for yourself: [Codepen - Acting as an Anchor for child elements](https://codepen.io/HelloThisIsFlo/pen/WqMOoK)_
 
 
 And that's it for today, I hope it was helpful 😃
