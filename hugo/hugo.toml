@@ -17,6 +17,9 @@ summaryLength = 40
   keywords = ["software", "crafting", "TDD", "testing", "code", "developer", "learning", "Flo Kempenich"]
   # Cloudflare Web Analytics beacon token (set in Cloudflare dashboard)
   # cloudflareAnalytics = "your-token-here"
+  # PostHog analytics (public project API key — safe to commit)
+  postHogApiKey = "phc_CnletHt3c7lUcGFDCBUdcgNznkZHWBScN9evAmB7UgT"
+  postHogApiHost = "https://eu.i.posthog.com"
 
 [markup]
   [markup.highlight]
